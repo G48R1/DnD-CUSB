@@ -11,7 +11,7 @@
       margin: 20px;
 
       background-color: rgb(249, 208, 158);
-      background-image: url("https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Sfondo/pergamena-low-px.jpg");
+      background-image: url("https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Sfondo/pergamena-hq.jpg");
       background-size: cover;
       background-position: top center;
       background-attachment: fixed;
@@ -61,6 +61,12 @@
       color: white;
     }
 
+    .DnD-logo {
+      width: 75%;
+      min-width: 150px;
+      max-width: 600px;
+    }
+
     .edifici {
       display: flex;
       flex-direction: row;
@@ -69,6 +75,16 @@
 
     .enf {
       text-shadow: 0px 0px 2px rgb(97 83 53);
+    }
+
+    .footer-logo {
+      /*cursor: not-allowed;*/
+      position: absolute;
+      width: 25%;
+      min-width: 20px;
+      max-width: 200px;
+      padding-bottom: 10px;
+      right: 10px;
     }
 
     h1 {
@@ -108,7 +124,7 @@
     
     .img-map {
       width: 100px;
-      border: 2px solid burlywood;
+      border: 2px solid rgb(91, 74, 48); /*burlywood;*/
       border-radius: 10px;
     }
 
@@ -137,9 +153,16 @@
       visibility: visible;
     }
 
+    .subtitle {
+      color: rgb(31, 17, 17);
+      text-shadow: 0px 0px 1.5px brown;
+    }
+
     .text {
       /*background-color: rgba(133, 107, 54, 0.351);*/
-      background-color: rgba(133, 107, 54, 0.201);
+      /*background-color: rgba(133, 107, 54, 0.201);*/
+      /*background-color: rgba(222, 201, 161, 0.403);*/
+      background-color: rgba(133, 107, 54, 0.164);
     }
 
     .zoom-box {
@@ -163,7 +186,7 @@
 
     .zoom-pg-img {
       width: 10rem;
-      border: 3px solid burlywood;
+      border: 3px solid rgb(91, 74, 48); /*burlywood;*/
       border-radius: 10px;
     }
 
@@ -180,7 +203,7 @@
 
     .zoom-map {
       width: 90vw;
-      border: 3px solid burlywood;
+      border: 3px solid rgb(91, 74, 48); /*burlywood;*/
       border-radius: 10px;
     }
 
@@ -239,10 +262,11 @@
 <body>
 
   <header>
+    <div>
+      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Sfondo/DnD-logo.png" class="DnD-logo">
+    </div>
     <h1>Il Furto dei Dragoni</h1>
-    <!-- <div>
-        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/pg.png" class="pg-img">
-    </div> -->
+    <h3 class="subtitle enf"><i>A cura di Manu il Dungeon Master</i></h3>
   </header>
 
   <div>
@@ -451,6 +475,12 @@
       </div>
     </div>
   </main>
+
+  <footer>
+    <div>
+      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Sfondo/spada-pic.png" class="footer-logo">
+    </div>
+  </footer>
 
 
 

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="it">
+<!-- Questo è il documento definitivo -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appunti: Il Furto dei Dragoni</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+
+      background-color: rgb(249, 208, 158);
+      background-image: url("https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Sfondo/pergamena-low-px.jpg");
+      background-size: cover;
+      background-position: top center;
+      background-attachment: fixed;
+    }
+
+    a {
+      color: black;
+      /*text-shadow: 0px 0px 2px rgb(88, 83, 71);*/
+      text-shadow: 0px 0px 2px rgb(97 83 53);
+      text-decoration-line: none;
+    }
+
+    .collapsible {
+      background-color: darkgoldenrod;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      border: none;
+      border-bottom: solid 3px rgb(34, 19, 19);
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      transition: 0.3s;
+      transition: transform 0.1s ease;
+      border-radius: 10px;
+
+      width: auto;
+      box-sizing: border-box;
+    }
+
+    .collapsible:hover {
+      background-color: rgb(139, 102, 9);
+      border-bottom-color: transparent;
+      transform: translateY(1px);
+    }
+
+    .content {
+      padding: 10px;
+      display: none;
+      overflow: visible;
+      border-left: 5px solid darkgoldenrod;
+      margin-bottom: 10px;
+      color: black;
+    }
+
+    .description {
+      color: white;
+    }
+
+    .edifici {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .enf {
+      text-shadow: 0px 0px 2px rgb(97 83 53);
+    }
+
+    h1 {
+      font-family: Luminari, fantasy;
+      font-variant: small-caps;
+      text-shadow: 2px 1px 0px rgb(153, 128, 128);
+      font-size: xxx-large;
+      text-decoration-line: underline;
+      text-underline-offset: 2px;
+    }
+
+    h2 {
+      font-family: Luminari, fantasy;
+      font-variant: small-caps;
+      color: rgb(245, 230, 212);
+      text-shadow:
+        1px  1px 0 rgb(46, 39, 25),
+        0px 0px 7px rgb(46, 39, 25);
+      margin-top: 50px;
+      /*text-decoration-line: underline;*/
+      /*text-shadow: 0px 0px 10px rgb(46, 39, 25);*/
+      
+      padding: 5px;
+      border-left: 5px solid darkgoldenrod;
+      background-color: rgba(133, 107, 54, 0.164);
+    }
+
+    header {
+      text-align: center;
+    }
+
+    .img-edifici {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+    
+    .img-map {
+      width: 100px;
+      border: 2px solid burlywood;
+      border-radius: 10px;
+    }
+
+    .intro {
+      padding-bottom: 5px;
+      border-bottom: 2px solid rgba(255, 228, 196, 0.43);
+    }
+
+    main {
+      padding-bottom: 30vh;
+    }
+
+    .main-btn {
+      outline: 2px solid rgb(219, 200, 153);
+      outline-offset: -4px;
+    }
+
+    .pg-wrapper {
+      position: relative;
+      display: inline-block;
+      cursor: zoom-in;
+    }
+
+    .pg-wrapper:hover .zoom-pg-box{
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .text {
+      /*background-color: rgba(133, 107, 54, 0.351);*/
+      background-color: rgba(133, 107, 54, 0.201);
+    }
+
+    .zoom-box {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease;
+      position: absolute;
+      top: 0;
+      z-index: 100;
+    }
+
+    .zoom-pg-box {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease;
+      position: absolute;
+      top: 0;
+      z-index: 10;
+      cursor: help;
+    }
+
+    .zoom-pg-img {
+      width: 10rem;
+      border: 3px solid burlywood;
+      border-radius: 10px;
+    }
+
+    .zoom-img-wrapper {
+      position: relative;
+      display: inline-block;
+      cursor: zoom-in;
+    }
+
+    .zoom-img-wrapper:hover .zoom-box {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .zoom-map {
+      width: 90vw;
+      border: 3px solid burlywood;
+      border-radius: 10px;
+    }
+
+
+
+
+
+
+
+    .modal {
+      display: none;
+      overflow-y: auto;
+      position: fixed;
+      cursor: auto;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal .pg {
+      width: 20rem;
+    }
+
+    .modal-content {
+      max-width: 80%;
+      max-height: 80%;
+      position: relative;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .modal-content .pg img {
+      width: 20rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: white;
+      border-radius: 50%;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Il Furto dei Dragoni</h1>
+    <!-- <div>
+        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/pg.png" class="pg-img">
+    </div> -->
+  </header>
+
+  <div>
+    <button class="collapsible main-btn">Mappe</button>
+    <div class="content">
+      <div>
+        <button class="collapsible">Regione</button>
+        <div class="content">
+          <h3>Costa della Spada</h3>
+          <div class="zoom-img-wrapper">
+            <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Sword-Coast-Map_cut.jpg" alt="mappa della Costa della Spada" class="img-map" onclick="apriZoom('modalZoom-map-CdS')">
+            
+            <div class="zoom-box">
+              <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Sword-Coast-Map_cut.jpg" alt="zoom della mappa della Costa della Spada" class="zoom-map" onclick="apriZoom('modalZoom-map-CdS')">
+            </div>
+
+            <div class="modal" id="modalZoom-map-CdS" onclick="chiudiZoom('modalZoom-map-CdS')">
+              <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-map-CdS')">×</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Sword-Coast-Map_cut.jpg" alt="Zoom">
+              </div>
+            </div>          
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="collapsible">Mappa città</button>
+        <div class="content">
+          <h3>Waterdeep</h3>
+          <div class="zoom-img-wrapper">
+            <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Waterdeep.jpg" alt="mappa di Waterdeep" class="img-map" onclick="apriZoom('modalZoom-map-WD')">
+
+            <div class="zoom-box">
+              <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Waterdeep.jpg" alt="zoom della mappa di Waterdeep" class="zoom-map" onclick="apriZoom('modalZoom-map-WD')">
+            </div>
+
+            <div class="modal" id="modalZoom-map-WD" onclick="chiudiZoom('modalZoom-map-WD')">
+              <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-map-WD')">×</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Waterdeep.jpg" alt="Zoom">
+              </div>
+            </div>          
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="collapsible">Edifici</button>
+        <div class="content">
+          <div class="edifici">
+            <h3>Locanda del Portale Spalancato</h3>
+            <div class="img-edifici">
+              <div>
+                <h6>esterno</h6>
+                <div class="zoom-img-wrapper">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Locanda-del-Portale-Spalancato.jpg" alt="esterno Locanda del Portale Spalancato" class="img-map">
+                  <div class="zoom-box">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Locanda-del-Portale-Spalancato.jpg" alt="zoom dell'esterno Locanda del Portale Spalancato" class="zoom-map">
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h6>interno</h6>
+                <div class="zoom-img-wrapper">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Locanda-del-Portale-Spalancato.jpg" alt="esterno Locanda del Portale Spalancato" class="img-map">
+                  <div class="zoom-box">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Locanda-del-Portale-Spalancato.jpg" alt="zoom dell'interno della Locanda del Portale Spalancato" class="zoom-map">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="edifici">
+            <h3>Taverna del Drago Infilzato</h3>
+            <div class="img-edifici">
+              <div>
+                <h6>esterno</h6>
+                <div class="zoom-img-wrapper">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Taverna-del-Drago-Infilzato.jpg" alt="esterno Taverna del Drago Infilzato" class="img-map">
+                  <div class="zoom-box">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Taverna-del-Drago-Infilzato.jpg" alt="zoom dell'esterno della Taverna del Drago Infilzato" class="zoom-map">
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h6>interno</h6>
+                <div class="zoom-img-wrapper">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Taverna-del-Drago-Infilzato.jpg" alt="esterno Taverna del Drago Infilzato" class="img-map">
+                  <div class="zoom-box">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Taverna-del-Drago-Infilzato.jpg" alt="zoom dell'interno della Taverna del Drago Infilzato" class="zoom-map">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>        
+    </div>
+  </div>
+
+  <main>
+    <h2>Sessioni</h2>
+    <!-- Appunti delle sessioni -->
+    <div>
+      <button class="collapsible">Sessione 1</button>
+      <div class="content text">
+        <h3>Scena introduttiva</h3>
+        <p class="intro">
+          La scena si apre nella <a href="#Loc-PS">Locanda del Portale Spalancato</a>.<br>
+          <span class="pg-wrapper"><span class="enf">Renn (Robert),</span>
+            <span class="zoom-pg-box">
+            <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Renn-QuickShadow_Robert.jpg" alt="zoom pg" class="zoom-pg-img" onclick="apriZoom('modalZoom-pg-Renn')">
+            </span>
+
+            <span class="modal pg" id="modalZoom-pg-Renn" onclick="chiudiZoom('modalZoom-pg-Renn')">
+              <span class="modal-content pg" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-pg-Renn')">×</span>
+                <span class="description enf">Robert: Renn Quickshadow, halfling, Ladro</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Renn-QuickShadow_Robert.jpg" alt="Zoom">
+              </span>
+            </span>
+          </span>
+          un halfling dall'occhio vispo, sorseggia in disparte la sua birra, mentre controlla attentamente tutto il locale.<br>
+          <span class="pg-wrapper"><span class="enf">Reed (Angelo),</span>
+            <span class="zoom-pg-box">
+            <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Reed-Brightmoon_Angelo.jpg" alt="zoom pg" class="zoom-pg-img" onclick="apriZoom('modalZoom-pg-Reed')">
+            </span>
+
+            <span class="modal pg" id="modalZoom-pg-Reed" onclick="chiudiZoom('modalZoom-pg-Reed')">
+              <span class="modal-content pg" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-pg-Reed')">×</span>
+                <span class="description enf">Angelo: Reed Brightmoon, ...razza..., Stregone</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Reed-Brightmoon_Angelo.jpg" alt="Zoom">
+              </span>
+            </span>
+          </span>
+          un ... con qualche anno di esperienza sulle spalle, suona allegramente la sua lira (?), cantando gioiosamente melodie della sua terra.<br>
+          <span class="pg-wrapper"><span class="enf">Duma (Frank),</span>
+            <span class="zoom-pg-box">
+            <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Duma-Melpurvatta_Frank.jpg" alt="zoom pg" class="zoom-pg-img" onclick="apriZoom('modalZoom-pg-Duma')">
+            </span>
+
+            <span class="modal pg" id="modalZoom-pg-Duma" onclick="chiudiZoom('modalZoom-pg-Duma')">
+              <span class="modal-content pg" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-pg-Duma')">×</span>
+                <span class="description enf">Frank: Duma Melpurvatta, ...razza..., Bardo</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Duma-Melpurvatta_Frank.jpg" alt="Zoom">
+              </span>
+            </span>
+          </span>
+          ..., anima la serata deliziando gli ospiti della locanda con canti e danze.<br>
+          <span class="pg-wrapper"><span class="enf">Grimbar (Rick),</span>
+            <span class="zoom-pg-box">
+            <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Grimbar-Asciarossa_Rick.jpg" alt="zoom pg" class="zoom-pg-img"onclick="apriZoom('modalZoom-pg-Grimbar')">
+            </span>
+
+            <span class="modal pg" id="modalZoom-pg-Grimbar" onclick="chiudiZoom('modalZoom-pg-Grimbar')">
+              <span class="modal-content pg" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-pg-Grimbar')">×</span>
+                <span class="description enf">Rick: Grimbar Asciarossa, Nano, Barbaro</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Grimbar-Asciarossa_Rick.jpg" alt="Zoom">
+              </span>
+            </span>
+          </span>
+          un robusto nano, è al bancone a chiedere il solito bel boccale a Durnan, il proprietario del locale, che ormai conosce molto bene vista la sua abbondante frequentazione della locanda.<br>
+          Intanto, in uno dei tavoli,
+          <span class="pg-wrapper"><span class="enf">Numon (Gab),</span>
+            <span class="zoom-pg-box">
+            <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Numon_Gab.png" alt="zoom pg" class="zoom-pg-img" onclick="apriZoom('modalZoom-pg-Numon')">
+            </span>
+
+            <span class="modal pg" id="modalZoom-pg-Numon" onclick="chiudiZoom('modalZoom-pg-Numon')">
+              <span class="modal-content pg" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-pg-Numon')">×</span>
+                <span class="description enf">Gab: Numon, Dragonide, Artefice</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Numon_Gab.png" alt="Zoom">
+              </span>
+            </span>
+
+          </span>
+          un giovane dragonide, è intento a chiacchierare distrattamente con una donna, cercando faticosamente di sembrare attivamente partecipe del discorso, mentre vaga con la mente chissà dove.
+        </p>
+        <h3>Eventi</h3>
+        <ul>
+          <li>Rissa tra Yagra Stonefist (la mezzorca) e 5 scagnozzi</li>
+          <li>Un Troll fuoriesce dal Portale insieme a 5 piccoli esseri alati</li>
+          <li>Compare Volothamp "Volo" Geddarm per offrire un incarico ben pagato (10 MO subito + 100/50 MO successo/insuccesso): Ritrovare il suo amico Floon Blackmar (?)</li>
+        </ul>
+        <p>
+          Gli indizi riferiti da Volo su Floon:
+        </p>
+        <ul>
+          <li>veste elegante, ha i capelli lunghi biondi</li>
+          <li>in passato faceva l'accompagnatore ai saloni delle feste</li>
+          <li>l'ultima volta che l'ha visto era alla Taverna del Drago Infilzato
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible">Sessione 2</button>
+      <div class="content text">
+        <p>
+          to be continued ...
+        </p>
+      </div>
+    </div>
+  </main>
+
+
+
+
+  <script>
+    document.querySelectorAll(".collapsible").forEach(button => {
+      button.addEventListener("click", function () {
+        this.classList.toggle("active");
+        let content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    });
+
+    function apriZoom(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function chiudiZoom(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+    </script>
+</body>
+</html>

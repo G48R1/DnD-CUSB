@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Appunti: Il Furto dei Dragoni</title>
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Source+Sans+Pro:400,400i,600|Caveat" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -57,6 +58,22 @@
       color: black;
     }
 
+    .date {
+      display: flex;
+      flex-direction: column;
+    }
+    .date-game {
+      font-size: small;
+      /*color: rgb(122, 102, 72);*/
+      color: rgb(78, 62, 37);
+    }
+    
+    .date-n-intro {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
     .description {
       color: white;
     }
@@ -75,6 +92,11 @@
 
     .enf {
       text-shadow: 0px 0px 2px rgb(97 83 53);
+    }
+
+    .events-title {
+      font-family: 'Gill Sans';
+      font-weight: bold;
     }
 
     .footer-logo {
@@ -129,7 +151,7 @@
     }
 
     .intro {
-      padding-bottom: 5px;
+      padding-bottom: 1em;
       border-bottom: 2px solid rgba(255, 228, 196, 0.43);
     }
 
@@ -140,6 +162,15 @@
     .main-btn {
       outline: 2px solid rgb(219, 200, 153);
       outline-offset: -4px;
+    }
+
+    .next-ses-btn {
+      background-color: rgba(218, 189, 127, 0.649);
+      color: rgb(122, 109, 76);
+    }
+    .next-ses-btn:hover {
+      background-color: rgba(204, 173, 107, 0.649);
+      /*background-color: rgba(225, 199, 143, 0.649);*/
     }
 
     .pg-wrapper {
@@ -153,6 +184,10 @@
       visibility: visible;
     }
 
+    .session0-btn {
+      font-size: small;
+    }
+
     .subtitle {
       color: rgb(31, 17, 17);
       text-shadow: 0px 0px 1.5px brown;
@@ -163,6 +198,22 @@
       /*background-color: rgba(133, 107, 54, 0.201);*/
       /*background-color: rgba(222, 201, 161, 0.403);*/
       background-color: rgba(133, 107, 54, 0.164);
+      /*font-family: caveat;
+      font-size: x-large;*/
+    }
+
+    time {
+      font-family: Luminari, fantasy;
+    }
+
+    .to-be-continued {
+      font-family: caveat;
+      font-style: italic;
+      font-size: x-large;
+    }
+
+    .txt-s {
+      font-size: small;
     }
 
     .zoom-box {
@@ -368,11 +419,27 @@
 
   <main>
     <h2>Sessioni</h2>
+
+    <div>
+      <button class="collapsible main-btn session0-btn">Sessione 0</button>
+      <div class="content text">
+        <i>
+          ... contesto ...
+        </i>
+      </div>
+    </div>
+
     <!-- Appunti delle sessioni -->
     <div>
       <button class="collapsible">Sessione 1</button>
       <div class="content text">
-        <h3>Scena introduttiva</h3>
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-04-04">04.04.2025</time>
+            <time datetime="2025-05-03" class="date-game">0.0.1492</time>
+          </div>
+        </div>
         <p class="intro">
           La scena si apre nella <a href="#Loc-PS">Locanda del Portale Spalancato</a>.<br>
           <span class="pg-wrapper"><span class="enf">Renn (Robert),</span>
@@ -397,12 +464,12 @@
             <span class="modal pg" id="modalZoom-pg-Reed" onclick="chiudiZoom('modalZoom-pg-Reed')">
               <span class="modal-content pg" onclick="event.stopPropagation()">
                 <span class="close-btn" onclick="chiudiZoom('modalZoom-pg-Reed')">×</span>
-                <span class="description enf">Angelo: Reed Brightmoon, ...razza..., Stregone</span>
+                <span class="description enf">Angelo: Reed Brightmoon, halfling, Stregone</span>
                 <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Reed-Brightmoon_Angelo.jpg" alt="Zoom">
               </span>
             </span>
           </span>
-          un ... con qualche anno di esperienza sulle spalle, suona allegramente la sua lira (?), cantando gioiosamente melodie della sua terra.<br>
+          un halfling con qualche anno di esperienza sulle spalle, suona allegramente la sua lira, cantando gioiosamente melodie della sua terra.<br>
           <span class="pg-wrapper"><span class="enf">Duma (Frank),</span>
             <span class="zoom-pg-box">
             <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Duma-Melpurvatta_Frank.jpg" alt="zoom pg" class="zoom-pg-img" onclick="apriZoom('modalZoom-pg-Duma')">
@@ -411,12 +478,12 @@
             <span class="modal pg" id="modalZoom-pg-Duma" onclick="chiudiZoom('modalZoom-pg-Duma')">
               <span class="modal-content pg" onclick="event.stopPropagation()">
                 <span class="close-btn" onclick="chiudiZoom('modalZoom-pg-Duma')">×</span>
-                <span class="description enf">Frank: Duma Melpurvatta, ...razza..., Bardo</span>
+                <span class="description enf">Frank: Duma Melpurvatta, ...umano, Bardo</span>
                 <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Duma-Melpurvatta_Frank.jpg" alt="Zoom">
               </span>
             </span>
           </span>
-          ..., anima la serata deliziando gli ospiti della locanda con canti e danze.<br>
+          umano, anima la serata deliziando gli ospiti della locanda con canti e danze.<br>
           <span class="pg-wrapper"><span class="enf">Grimbar (Rick),</span>
             <span class="zoom-pg-box">
             <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Grimbar-Asciarossa_Rick.jpg" alt="zoom pg" class="zoom-pg-img"onclick="apriZoom('modalZoom-pg-Grimbar')">
@@ -447,20 +514,57 @@
 
           </span>
           un giovane dragonide, è intento a chiacchierare distrattamente con una donna, cercando faticosamente di sembrare attivamente partecipe del discorso, mentre vaga con la mente chissà dove.
+          Eppure non è tutto così tranquillo intorno...
         </p>
         <h3>Eventi</h3>
         <ul>
-          <li>Rissa tra Yagra Stonefist (la mezzorca) e 5 scagnozzi</li>
-          <li>Un Troll fuoriesce dal Portale insieme a 5 piccoli esseri alati</li>
-          <li>Compare Volothamp "Volo" Geddarm per offrire un incarico ben pagato (10 MO subito + 100/50 MO successo/insuccesso): Ritrovare il suo amico Floon Blackmar (?)</li>
-        </ul>
-        <p>
-          Gli indizi riferiti da Volo su Floon:
-        </p>
-        <ul>
-          <li>veste elegante, ha i capelli lunghi biondi</li>
-          <li>in passato faceva l'accompagnatore ai saloni delle feste</li>
-          <li>l'ultima volta che l'ha visto era alla Taverna del Drago Infilzato
+          <li>
+            <div class="events-title"><i>5 contro 1</i></div>
+            Un'improvvisa agitazione accende il locale: 5 banditi, con strani tatuaggi, si avvicinano a una mezzorca,
+            <span class="pg-wrapper">
+              <span class="enf">Yagra Stonefist</span>
+              <span class="zoom-pg-box">
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Yagra-Stonefist.png" alt="Yagra-Stonefist" class="zoom-pg-img" onclick="apriZoom('modalZoom-Yagra-Stonefist')">
+              </span>
+  
+              <span class="modal pg" id="modalZoom-Yagra-Stonefist" onclick="chiudiZoom('modalZoom-Yagra-Stonefist')">
+                <span class="modal-content pg" onclick="event.stopPropagation()">
+                  <span class="close-btn" onclick="chiudiZoom('modalZoom-Yagra-Stonefist')">×</span>
+                  <span class="description enf">Yagra-Stonefist, mezzorca</span>
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Yagra-Stonefist.png" alt="Zoom Yagra-Stonefist">
+                </span>
+              </span>
+            </span>,
+            e la aggrediscono. La mezzorca cade a terra, svenuta. Poi Durnan interviene e, facendo valere la propria autorità, caccia i banditi dal locale.</li>
+          <li>
+            <div class="events-title"><i>"un troll... nei sotterranei"</i></div>
+            Numon va in soccorso della mezzorca svenuta, facendola riprendere giusto in tempo per la vera star della serata: dalle profondità del Portale emerge un Troll, affiancato da una manciata di uccelli stigei.
+          </li>
+          <li>
+            <div class="events-title"><i>servigi costosi</i></div>
+            Sistemate le creature, i 5 eroi vengono avvicinati da un uomo,
+            <span class="pg-wrapper">
+              <span class="enf">Volothamp "Volo" Geddarm</span>
+              <span class="zoom-pg-box">
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Volothamp-Volo-Geddarm.png" alt="Volothamp-Volo-Geddarm" class="zoom-pg-img" onclick="apriZoom('modalZoom-Volothamp-Volo-Geddarm')">
+              </span>
+  
+              <span class="modal pg" id="modalZoom-Volothamp-Volo-Geddarm" onclick="chiudiZoom('modalZoom-Volothamp-Volo-Geddarm')">
+                <span class="modal-content pg" onclick="event.stopPropagation()">
+                  <span class="close-btn" onclick="chiudiZoom('modalZoom-Volothamp-Volo-Geddarm')">×</span>
+                  <span class="description enf">Volothamp "Volo" Geddarm, scrittore</span>
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Volothamp-Volo-Geddarm.png" alt="Zoom Volothamp-Volo-Geddarm">
+                </span>
+              </span>
+            </span>:
+            &lt;&lt; Impresa notevole, affrontare quel troll &gt;&gt;. L'uomo offre al gruppetto un incarico ben pagato: si tratta di ritrovare il suo amico Floon Blackmar.
+            <ul>
+              <li>veste elegante, ha i capelli lunghi biondi</li>
+              <li>in passato faceva l'accompagnatore ai saloni delle feste</li>
+              <li>l'ultima volta che l'ha visto era alla Taverna del Drago Infilzato, 2 sere prima
+              </li>
+              <li>ricompensa: 10 mo subito + 100/50 mo successo/insuccesso</li>
+            </ul>    
           </li>
         </ul>
       </div>
@@ -469,11 +573,168 @@
     <div>
       <button class="collapsible">Sessione 2</button>
       <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-05-03">03.05.2025</time>
+            <time datetime="2025-05-03" class="date-game">0.0.1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          Un timido sole splende nel cielo di Waterdeep. La temperatura è scesa, ma l'aria pungente non è certo la prima preoccupazione dei 5 avventurieri. Uno ad uno giungono alla locanda dalle loro abitazioni, dopo aver lasciato il carico superfluo. Oggi si va in esplorazione, e potrebbe essere cruciale avere i riflessi pronti.
+          &lt;&lt; La colazione è servita! &gt;&gt; dice Durnan, mentre Bonnie serve con cura ognuno degli avventurieri. Dopo essersi ristorati per bene, i membri dell'allegra combriccola si apprestano a seguire Grimbar verso la prima meta della giornata: la Taverna del Drago Infilzato.
+          Lungo la strada però, alcune situazioni e singolari bizzarrie catturano la loro attenzione...
+        </p>
+        <h3>Eventi</h3>
         <p>
-          to be continued ...
+          <ul>
+            <li>
+              <div class="events-title"><i>cadaveri e banditi</i></div>
+              Mentre si addentrano nel quartiere del porto, un trambusto attira l'attenzione degli eroi: in una via trovano diversi membri della Vigilanza impegnati a trattenere dei banditi.
+              <ul>
+                <li>(6) cadaveri a terra</li>
+                <li>(3) banditi catturati</li>
+              </ul>
+              Dalle guardie riescono a sapere che c'è stato uno scontro la sera prima tra due bande/gilde: 
+              <span class="pg-wrapper">
+                <span class="enf">Zentharim</span>
+                <span class="zoom-pg-box">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim.jpg" alt="simbolo Zentharim" class="zoom-pg-img" onclick="apriZoom('modalZoom-Zentharim')">
+                </span>
+    
+                <span class="modal pg" id="modalZoom-Zentharim" onclick="chiudiZoom('modalZoom-Zentharim')">
+                  <span class="modal-content pg" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-Zentharim')">×</span>
+                    <span class="description enf">Simbolo degli Zentharim</span>
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim.jpg" alt="Zoom simbolo Zentharim">
+                  </span>
+                </span>
+              </span>
+               e 
+              <span class="pg-wrapper">
+                <span class="enf">Xanathar</span>
+                <span class="zoom-pg-box">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xanathar.jpg" alt="simbolo Xanathar" class="zoom-pg-img" onclick="apriZoom('modalZoom-Xanathar')">
+                </span>
+
+                <span class="modal pg" id="modalZoom-Xanathar" onclick="chiudiZoom('modalZoom-Xanathar')">
+                  <span class="modal-content pg" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-Xanathar')">×</span>
+                    <span class="description enf">Simbolo della Gilda di Xanathar</span>
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xanathar.jpg" alt="Zoom simbolo Xanathar">
+                  </span>
+                </span>
+              </span>.
+            </li>
+            <li>
+              <div class="events-title"><i>aberrazioni in vetrina</i></div>
+              Proseguendo, una vetrina attira i 5: "Il negozio del vecchio Xoblob". Dentro è esposto un grosso mostro impagliato che viene identificato da Numon come un 
+              <span class="pg-wrapper">
+                <span class="enf">Beholder</span>
+                <span class="zoom-pg-box">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Beholder.jpg" alt="Beholder" class="zoom-pg-img" onclick="apriZoom('modalZoom-beholder')">
+                </span>
+    
+                <span class="modal pg" id="modalZoom-beholder" onclick="chiudiZoom('modalZoom-beholder')">
+                  <span class="modal-content pg" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-beholder')">×</span>
+                    <span class="description enf">Beholder</span>
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Beholder.jpg" alt="Zoom Beholder">
+                  </span>
+                </span>
+              </span>.
+              <ul>
+                <li>
+                  <span class="pg-wrapper">
+                    <span class="enf">Xoblob</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xoblob.jpg" alt="Xoblob" class="zoom-pg-img" onclick="apriZoom('modalZoom-Xoblob')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-Xoblob" onclick="chiudiZoom('modalZoom-Xoblob')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-Xoblob')">×</span>
+                        <span class="description enf">Xoblob, gnomo delle profondità, negoziante</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xoblob.jpg" alt="Zoom Xoblob">
+                      </span>
+                    </span>
+                  </span>
+                  (gnomo), amante del colore viola</li>
+                <li>cianfrusaglie da collezionista</li>
+                <li>tutto viola, profumo di lavanda misto a odori sgradevoli</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>informazioni a pagamento</i></div>
+              Uscita dal sinistro negozio, la banda di avventurieri si dirige verso la Taverna del Drago Infilzato. È un locale piuttosto mal messo, ma il locandiere, dietro opportuno compenso, è "felice" di condividere con gli eroi le informazioni che cercano.
+              <ul>
+                <li>Floon era con Volo due sere prima</li>
+                <li>dopo che se ne è andato Volo, Floon ha giocato a "3 draghi al buio" con un nobilotto, Renaer Neverember</li>
+                <li>5 loschi figuri hanno seguito i due nobilotti quando se ne sono andati</li>
+                <li>indirizzo: "stradina delle candele", cercare porta con simbolo del serpente (Zentharim)</li>
+              </ul>
+              <div class="contour-info">
+                A contorno: Renaer Neverember è il figlio di Dagult Neverember, ex Lord Svelato di Waterdeep (ora lo è di Neverwinter). Tra loro non scorre buon sangue.
+                Il Lord Svelato attuale è Larael Silverhand.
+              </div>
+            </li>
+            <li>
+              <div class="events-title"><i>non svegliare il kenku che dorme...</i></div>
+              Ora che sanno dove andare, gli eroi raggiungono in fretta la <i>stradina delle candele</i>. Una sola luce magica li osserva mentre forzano la serratura del magazzino con il simbolo degli Zentharim.
+              <ul>
+                <li>(~12) cadaveri</li>
+                <li>(4) kenku</li>
+              </ul>
+              Si sta per mettere male per gli eroi, ma subentra la Vigilanza. I kenku se la svignano, ma non tutti riescono a scappare...
+            </li>
+          </ul>
         </p>
       </div>
     </div>
+
+
+
+
+
+
+
+    <div>
+      <button class="collapsible next-ses-btn">Prossima Sessione</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3></h3>
+          <time datetime="2025-05-05">05.05.2025</time>
+        </div>
+        <p class="to-be-continued">
+          to be continued...
+        </p>
+      </div>
+    </div>
+
+
+    <div style="display: none;">
+      <button class="collapsible">Sessione ?</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-05-03">0.0.2025</time>
+            <time datetime="2025-05-03" class="date-game">0.0.1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>...</li>
+            <li>...</li>
+          </ul>
+        </p>
+    </div>
+    </div>
+
   </main>
 
   <footer>
@@ -488,13 +749,10 @@
   <script>
     document.querySelectorAll(".collapsible").forEach(button => {
       button.addEventListener("click", function () {
-        this.classList.toggle("active");
-        let content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
+          this.classList.toggle("active");
+          let content = this.nextElementSibling;
+          const isVisible = window.getComputedStyle(content).display !== "none";
+          content.style.display = isVisible ? "none" : "block";
       });
     });
 

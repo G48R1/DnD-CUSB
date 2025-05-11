@@ -16,6 +16,9 @@
       background-size: cover;
       background-position: top center;
       background-attachment: fixed;
+
+      overscroll-behavior-x: none;
+      overscroll-behavior-y: none;
     }
 
     a {
@@ -56,6 +59,11 @@
       border-left: 5px solid darkgoldenrod;
       margin-bottom: 10px;
       color: black;
+    }
+
+    .contour-info {
+      margin: 0.5em;
+      font-style: italic;
     }
 
     .date {
@@ -253,7 +261,7 @@
     }
 
     .zoom-map {
-      width: 90vw;
+      width: 50vw;
       border: 3px solid rgb(91, 74, 48); /*burlywood;*/
       border-radius: 10px;
     }
@@ -599,14 +607,14 @@
               <span class="pg-wrapper">
                 <span class="enf">Zentharim</span>
                 <span class="zoom-pg-box">
-                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim.jpg" alt="simbolo Zentharim" class="zoom-pg-img" onclick="apriZoom('modalZoom-Zentharim')">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim-simbolo.jpg" alt="simbolo Zentharim" class="zoom-pg-img" onclick="apriZoom('modalZoom-Zentharim-simbolo')">
                 </span>
     
-                <span class="modal pg" id="modalZoom-Zentharim" onclick="chiudiZoom('modalZoom-Zentharim')">
+                <span class="modal pg" id="modalZoom-Zentharim-simbolo" onclick="chiudiZoom('modalZoom-Zentharim-simbolo')">
                   <span class="modal-content pg" onclick="event.stopPropagation()">
-                    <span class="close-btn" onclick="chiudiZoom('modalZoom-Zentharim')">×</span>
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-Zentharim-simbolo')">×</span>
                     <span class="description enf">Simbolo degli Zentharim</span>
-                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim.jpg" alt="Zoom simbolo Zentharim">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim-simbolo.jpg" alt="Zoom simbolo Zentharim">
                   </span>
                 </span>
               </span>
@@ -614,14 +622,14 @@
               <span class="pg-wrapper">
                 <span class="enf">Xanathar</span>
                 <span class="zoom-pg-box">
-                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xanathar.jpg" alt="simbolo Xanathar" class="zoom-pg-img" onclick="apriZoom('modalZoom-Xanathar')">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xanathar-simbolo.jpg" alt="simbolo Xanathar" class="zoom-pg-img" onclick="apriZoom('modalZoom-Xanathar-simbolo')">
                 </span>
 
-                <span class="modal pg" id="modalZoom-Xanathar" onclick="chiudiZoom('modalZoom-Xanathar')">
+                <span class="modal pg" id="modalZoom-Xanathar-simbolo" onclick="chiudiZoom('modalZoom-Xanathar-simbolo')">
                   <span class="modal-content pg" onclick="event.stopPropagation()">
-                    <span class="close-btn" onclick="chiudiZoom('modalZoom-Xanathar')">×</span>
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-Xanathar-simbolo')">×</span>
                     <span class="description enf">Simbolo della Gilda di Xanathar</span>
-                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xanathar.jpg" alt="Zoom simbolo Xanathar">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xanathar-simbolo.jpg" alt="Zoom simbolo Xanathar">
                   </span>
                 </span>
               </span>.
@@ -692,6 +700,69 @@
       </div>
     </div>
 
+    <div>
+      <button class="collapsible">Sessione 3</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-05-05">05.05.2025</time>
+            <time datetime="2025-05-05" class="date-game">0.0.1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          È mattino inoltrato. L'odore del sangue pervade ogni angolo della stanza semi-buia mentre i 4 avventurieri lucidi cercano di convincere il capitano Iustus Staget a lasciare che interroghino i due volatili legati. Nel frattempo, su richiesta dei 4 e su ordine del capitano, una guardia consegna agli avventurieri una pozione curativa per Numon, ancora a terra privo di sensi. D'un tratto dall'ombra delle scale emerge una figura umana; qualcuno che gli eroi ancora non conoscono di persona, ma che certamente erano curiosi di incontrare:
+          <span class="pg-wrapper">
+            <span class="enf">Renaer Neverember</span>
+            <span class="zoom-pg-box">
+              <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Renaer-Neverember.png" alt="Renaer-Neverember" class="zoom-pg-img" onclick="apriZoom('modalZoom-Renaer-Neverember')">
+            </span>
+
+            <span class="modal pg" id="modalZoom-Renaer-Neverember" onclick="chiudiZoom('modalZoom-Renaer-Neverember')">
+              <span class="modal-content pg" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-Renaer-Neverember')">×</span>
+                <span class="description enf">Renaer Neverember, nobilotto</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Renaer-Neverember.png" alt="Zoom Renaer-Neverember">
+              </span>
+            </span>
+          </span>.
+          La questione si fa interessante, e gli eroi sono decisi a venirne a capo...
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>"seguite i <span style="text-decoration: line-through;">ragni</span>"</i></div>
+              &lt;&lt; Xanathar manda i suoi saluti. <i>Cra!</i> &gt;&gt;. Non ci vuole un genio per capire che i volatili sono al servizio del famigerato Xanathar. Dopo qualche tentativo di intimidazione e persuasione, il gruppo riesce a recuperare informazioni importanti:
+              <ul>
+                <li>&lt;&lt; Seguite i segnali gialli nelle fognature. <i>Cra!</i> &gt;&gt;. Queste indicazioni potrebbero condurre al covo di Xanathar</li>
+                <li>uno dei cadaveri a terra ha il simbolo di Xanathar</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>biondo, rosso, sono tutti uguali...</i></div>
+              Finito l'interrogatorio dei pennuti, il gruppo di eroi si avvia fuori dal magazzino con la new entry. I 5 avventurieri non perdono tempo e riempiono Renaer di interrogativi, per alcuni dei quali sembra esserci una risposta.
+              <ul>
+                <li>usciti dalla taverna, Floon e Renaer sono stati aggrediti e rapiti dagli Zentharim e portati nel magazzino. Lì c'è stato uno scontro con i seguaci di Xanathar, e Floon è stato portato via da questi ultimi</li>
+                <li>Renaer pensa che ci sia stato uno scambio di persona, e che i seguaci di Xanathar cercassero lui, non Floon</li>
+                <li>qualcuno ha rubato una pietra alla gilda di Xanathar, la <i>"pietra di Golorr"</i>, e sembra possa aprire in qualche modo il tesoro di Dagult, il padre di Renaer. Tutti pensano che il figlio ne sappia qualcosa, ma a suo dire non è così</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>ricerche poco fruttuose</i></div>
+              Le informazioni raccolte sono tante, ma non sembrano essere abbastanza per il gruppo di eroi, che decidono di separarsi per cercare informazioni, ognuno con i propri modi, e alcuni di loro anche per recuperare le forze.
+              <ul>
+                <li>Numon va in cerca di una libreria dove poter recuperare informazioni sulla strana creatura vista nella vetrina di Xoblob</li>
+                <li>Renn va ad informarsi nella sua gilda</li>
+                <li>Reed e Grimbar accompagnano Duma negli archivi della Vigilanza, cercando informazioni sulla faida Zentharim-Xanathar, sugli accessi alle fognature e sull'ignota e oscura <i>"pietra di Golorr"</i></li>
+              </ul>
+              Il ritrovo è alle 17 al Portale Spalancato; pronti per addentrarsi nelle fognature... forse.
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
 
 
 
@@ -703,7 +774,7 @@
       <div class="content text">
         <div class="date-n-intro">
           <h3></h3>
-          <time datetime="2025-05-05">05.05.2025</time>
+          <time datetime="2025-05-16">16.05.2025</time>
         </div>
         <p class="to-be-continued">
           to be continued...
@@ -712,6 +783,7 @@
     </div>
 
 
+    <!-- template -->
     <div style="display: none;">
       <button class="collapsible">Sessione ?</button>
       <div class="content text">
@@ -732,7 +804,6 @@
             <li>...</li>
           </ul>
         </p>
-    </div>
     </div>
 
   </main>

@@ -12,13 +12,33 @@
       margin: 20px;
 
       background-color: rgb(249, 208, 158);
-      background-image: url("https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Sfondo/pergamena-hq.jpg");
+      background-image: url("https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/pergamena-hq.jpg");
       background-size: cover;
       background-position: top center;
       background-attachment: fixed;
 
       overscroll-behavior-x: none;
       overscroll-behavior-y: none;
+    }
+
+    /* @font-face {
+      font-family: 'MyFont-Abra';
+      src: url('./fonts/Abrakadaboom.woff') format('woff'),
+          url('./fonts/Abrakadaboom.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    } */
+    /* @font-face { /*locale
+      font-family: 'MyFont-title';
+      src: url('./fonts/ChineseBrush.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    } */
+    @font-face {
+      font-family: 'MyFont-title';
+      src: url('https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Fonts/ChineseBrush.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
     }
 
     a {
@@ -119,6 +139,8 @@
 
     h1 {
       font-family: Luminari, fantasy;
+      font-family: MyFont-title, sans-serif; /*TODO: CHECK*/
+
       font-variant: small-caps;
       text-shadow: 2px 1px 0px rgb(153, 128, 128);
       font-size: xxx-large;
@@ -322,7 +344,7 @@
 
   <header>
     <div>
-      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Sfondo/DnD-logo.png" class="DnD-logo">
+      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/DnD-logo.png" class="DnD-logo">
     </div>
     <h1>Il Furto dei Dragoni</h1>
     <h3 class="subtitle enf"><i>A cura di Manu il Dungeon Master</i></h3>
@@ -374,6 +396,7 @@
       <div>
         <button class="collapsible">Edifici</button>
         <div class="content">
+
           <div class="edifici">
             <h3>Locanda del Portale Spalancato</h3>
             <div class="img-edifici">
@@ -397,6 +420,7 @@
               </div>
             </div>
           </div>
+
           <div class="edifici">
             <h3>Taverna del Drago Infilzato</h3>
             <div class="img-edifici">
@@ -420,6 +444,31 @@
               </div>
             </div>
           </div>
+
+          <div class="edifici">
+            <h3>Il negozio del vecchio Xoblob</h3>
+            <div class="img-edifici">
+              <div>
+                <h6>esterno</h6>
+                <div class="zoom-img-wrapper">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Il-negozio-del-vecchio-Xoblob.jpg" alt="esterno negozio del vecchio Xoblob" class="img-map">
+                  <div class="zoom-box">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Il-negozio-del-vecchio-Xoblob.jpg" alt="zoom dell'esterno del negozio del vecchio Xoblob" class="zoom-map">
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h6>interno</h6>
+                <div class="zoom-img-wrapper">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Il-negozio-del-vecchio-Xoblob.jpg" alt="esterno negozio del vecchio Xoblob" class="img-map">
+                  <div class="zoom-box">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Il-negozio-del-vecchio-Xoblob.jpg" alt="zoom dell'interno del negozio del vecchio Xoblob" class="zoom-map">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>        
     </div>
@@ -432,7 +481,11 @@
       <button class="collapsible main-btn session0-btn">Sessione 0</button>
       <div class="content text">
         <i>
-          ... contesto ...
+          È il .. mese dell'anno 1492 .. . La città di Waterdeep, una delle più popolose della Costa della Spada, si sta preparando all'inverno(?). A capo della città c'è il Lord svelato Larael Silverhand. Le strade pullulano di persone, umani e non, provenienti dall'intera regione, e forse anche da più lontano. La Vigilanza fa il suo dovere, mantenendo l'ordine nelle arterie della città, ma la mano della giustizia non arriva dappertutto. Negli ultimi tempi i crimini si sono moltiplicati e, per chi è del posto, la tensione si percepisce. Non stupisce che tra tutti i quartieri di Waterdeep, il quartiere del porto, noto teatro di scontri tra bande e gilde locali, sia quello in cui il clima si sia scaldato maggiormente.
+          <br>
+          Di tutto questo i forestieri sono ignari, ma chi è del posto non può fare a meno di pensare che, forse, c'è più di un'aggressività un po' più marcata del solito dietro questo incrudimento.
+          <br>
+          Ma tempi difficili formano uomini forti; e magari, tra questi vedremo emergere qualche umano, nano, halfling o dragonide, che non si tireranno indietro davanti al suono della tromba dell'avventura, e intraprendano la via che pochi possono vantare di aver intrapreso: la via degli eroi.
         </i>
       </div>
     </div>
@@ -810,7 +863,7 @@
 
   <footer>
     <div>
-      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Sfondo/spada-pic.png" class="footer-logo">
+      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/spada-pic.png" class="footer-logo">
     </div>
   </footer>
 

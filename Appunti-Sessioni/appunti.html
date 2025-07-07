@@ -7,11 +7,40 @@
   <title>Appunti: Il Furto dei Dragoni</title>
   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Source+Sans+Pro:400,400i,600|Caveat" rel="stylesheet">
   <style>
+    :root {
+      /*bg*/
+      --background: rgb(249, 208, 158);
+
+      /*button*/
+      --btn-color: darkgoldenrod;
+      --btn-color-hv: rgb(139, 102, 9);
+      --border-btn: rgb(34, 19, 19);
+      --next-ses-btn: rgba(218, 189, 127, 0.649);
+      --next-ses-btn-hv: rgba(204, 173, 107, 0.649);
+      --next-ses-btn-text: rgb(122, 109, 76);
+
+      /*sessioni*/
+      --h2-text: rgb(245, 230, 212);
+      --h2-sh: rgb(46, 39, 25);
+      --h2-bg: rgba(133, 107, 54, 0.164);
+
+      /*testo*/
+      --h1-sh: rgb(153, 128, 128);
+      --subttl-text: rgb(31, 17, 17);
+      --subttl-sh: brown;
+      --enf-sh: rgb(97 83 53);
+      --text: black;
+      --btn-text: white;
+      --text-bg: rgba(133, 107, 54, 0.164);
+
+      --date-game: rgb(78, 62, 37);
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
 
-      background-color: rgb(249, 208, 158);
+      background-color: var(--background);
       background-image: url("https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/pergamena-hq.jpg");
       background-size: cover;
       background-position: top center;
@@ -20,6 +49,19 @@
       overscroll-behavior-x: none;
       overscroll-behavior-y: none;
     }
+
+    /* @font-face {
+        font-family: 'MioFont';
+        src: url('./fonts/miofont.eot'); /* Per IE obsoleto
+        src: url('./fonts/miofont.eot?#iefix') format('embedded-opentype'), 
+            url('./fonts/miofont.woff2') format('woff2'), 
+            url('./fonts/miofont.woff') format('woff'), 
+            url('./fonts/miofont.ttf') format('truetype'), 
+            url('./fonts/miofont.otf') format('opentype'), 
+            url('./fonts/miofont.svg#MioFont') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    } */
 
     /* @font-face {
       font-family: 'MyFont-Abra';
@@ -42,19 +84,19 @@
     }
 
     a {
-      color: black;
+      color: var(--text);
       /*text-shadow: 0px 0px 2px rgb(88, 83, 71);*/
       text-shadow: 0px 0px 2px rgb(97 83 53);
       text-decoration-line: none;
     }
 
     .collapsible {
-      background-color: darkgoldenrod;
-      color: white;
+      background-color: var(--btn-color);
+      color: var(--btn-text);
       cursor: pointer;
       padding: 10px;
       border: none;
-      border-bottom: solid 3px rgb(34, 19, 19);
+      border-bottom: solid 3px var(--border-btn);
       text-align: left;
       outline: none;
       font-size: 18px;
@@ -67,7 +109,7 @@
     }
 
     .collapsible:hover {
-      background-color: rgb(139, 102, 9);
+      background-color: var(--btn-color-hv);
       border-bottom-color: transparent;
       transform: translateY(1px);
     }
@@ -76,14 +118,24 @@
       padding: 10px;
       display: none;
       overflow: visible;
-      border-left: 5px solid darkgoldenrod;
+      border-left: 5px solid var(--btn-color);
       margin-bottom: 10px;
-      color: black;
+      color: var(--text);
     }
 
     .contour-info {
       margin: 0.5em;
       font-style: italic;
+    }
+
+    .cursor-pointer {
+      cursor: pointer;
+    }
+    .cursor-zoom-in {
+      cursor: zoom-in;
+    }
+    .cursor-zoom-out {
+      cursor: zoom-out;
     }
 
     .date {
@@ -93,7 +145,7 @@
     .date-game {
       font-size: small;
       /*color: rgb(122, 102, 72);*/
-      color: rgb(78, 62, 37);
+      color: var(--date-game);
     }
     
     .date-n-intro {
@@ -119,7 +171,7 @@
     }
 
     .enf {
-      text-shadow: 0px 0px 2px rgb(97 83 53);
+      text-shadow: 0px 0px 2px var(--enf-sh);
     }
 
     .events-title {
@@ -142,7 +194,7 @@
       font-family: MyFont-title, sans-serif; /*TODO: CHECK*/
 
       font-variant: small-caps;
-      text-shadow: 2px 1px 0px rgb(153, 128, 128);
+      text-shadow: 2px 1px 0px var(--h1-sh);
       font-size: xxx-large;
       text-decoration-line: underline;
       text-underline-offset: 2px;
@@ -151,17 +203,17 @@
     h2 {
       font-family: Luminari, fantasy;
       font-variant: small-caps;
-      color: rgb(245, 230, 212);
+      color: var(--h2-text);
       text-shadow:
-        1px  1px 0 rgb(46, 39, 25),
-        0px 0px 7px rgb(46, 39, 25);
+        1px  1px 0 var(--h2-sh),
+        0px 0px 7px var(--h2-sh);
       margin-top: 50px;
       /*text-decoration-line: underline;*/
       /*text-shadow: 0px 0px 10px rgb(46, 39, 25);*/
       
       padding: 5px;
-      border-left: 5px solid darkgoldenrod;
-      background-color: rgba(133, 107, 54, 0.164);
+      border-left: 5px solid var(--btn-color);
+      background-color: var(--h2-bg);
     }
 
     header {
@@ -195,11 +247,11 @@
     }
 
     .next-ses-btn {
-      background-color: rgba(218, 189, 127, 0.649);
-      color: rgb(122, 109, 76);
+      background-color: var(--next-ses-btn);
+      color: var(--next-ses-btn-text);
     }
     .next-ses-btn:hover {
-      background-color: rgba(204, 173, 107, 0.649);
+      background-color: var(--next-ses-btn-hv);
       /*background-color: rgba(225, 199, 143, 0.649);*/
     }
 
@@ -219,15 +271,20 @@
     }
 
     .subtitle {
-      color: rgb(31, 17, 17);
-      text-shadow: 0px 0px 1.5px brown;
+      margin-bottom: 0.5em;
+      color: var(--subttl-text);
+      text-shadow: 0px 0px 1.5px var(--subttl-sh);
+    }
+    .subsubtitle {
+      margin-top: 0;
+      color: var(--subttl-text);
     }
 
     .text {
       /*background-color: rgba(133, 107, 54, 0.351);*/
       /*background-color: rgba(133, 107, 54, 0.201);*/
       /*background-color: rgba(222, 201, 161, 0.403);*/
-      background-color: rgba(133, 107, 54, 0.164);
+      background-color: var(--text-bg);
       /*font-family: caveat;
       font-size: x-large;*/
     }
@@ -290,9 +347,7 @@
 
 
 
-
-
-
+    /*ZOOM*/
 
     .modal {
       display: none;
@@ -338,16 +393,98 @@
       font-weight: bold;
     }
 
+
+    /*FIREWORK*/
+
+    .firework-btn {
+      position: relative;
+    }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      pointer-events: none;
+      animation: explode 800ms ease-out forwards;
+    }
+    .text-particle {
+      position: absolute;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      pointer-events: none;
+      animation: explode 1200ms ease-out forwards;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--dx), var(--dy));
+        opacity: 0;
+      }
+    }
+
+    /*GOLDEN BUTTON*/
+    .level-up-btn {
+      position: relative;
+      background: linear-gradient(45deg, #b8860b, #ffd700, #b8860b);
+      background-size: 200% 200%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      transition: transform 0.2s;
+    }
+
+    .level-up-btn:hover {
+      /*transform: scale(1.05);*/
+    }
+
+    /* Shine effect */
+    .level-up-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.2) 100%
+      );
+      transform: skewX(-20deg);
+    }
+
+    .level-up-btn:hover::before {
+      animation: shine 1.2s forwards;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -75%;
+      }
+      100% {
+        left: 130%;
+      }
+    }
+
   </style>
 </head>
 <body>
 
   <header>
     <div>
-      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/DnD-logo.png" class="DnD-logo">
+      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/DnD-logo.png" alt="Logo D&D" class="DnD-logo">
     </div>
     <h1>Il Furto dei Dragoni</h1>
     <h3 class="subtitle enf"><i>A cura di Manu il Dungeon Master</i></h3>
+    <h6 class="subsubtitle enf"><i>Appunti a cura di Gab ~ alias Numon</i></h6>
   </header>
 
   <div>
@@ -481,16 +618,32 @@
       <button class="collapsible main-btn session0-btn">Sessione 0</button>
       <div class="content text">
         <i>
-          È il .. mese dell'anno 1492 .. . La città di Waterdeep, una delle più popolose della Costa della Spada, si sta preparando all'inverno(?). A capo della città c'è il Lord svelato Larael Silverhand. Le strade pullulano di persone, umani e non, provenienti dall'intera regione, e forse anche da più lontano. La Vigilanza fa il suo dovere, mantenendo l'ordine nelle arterie della città, ma la mano della giustizia non arriva dappertutto. Negli ultimi tempi i crimini si sono moltiplicati e, per chi è del posto, la tensione si percepisce. Non stupisce che tra tutti i quartieri di Waterdeep, il quartiere del porto, noto teatro di scontri tra bande e gilde locali, sia quello in cui il clima si sia scaldato maggiormente.
+          È il dodicesimo mese dell'anno 1492, Nightal, l'ultimo mese del Calendario di Harptos. La città di Waterdeep, una delle più popolose della Costa della Spada, si sta preparando all'inverno. A capo della città c'è il Lord svelato
+          <span class="pg-wrapper">
+            <span class="enf">Laeral Silverhand</span>
+            <span class="zoom-pg-box">
+              <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Laeral-Silverhand.png" alt="Laeral Silverhand" class="zoom-pg-img" onclick="apriZoom('modalZoom-Laeral-Silverhand')">
+            </span>
+
+            <span class="modal pg" id="modalZoom-Laeral-Silverhand" onclick="chiudiZoom('modalZoom-Laeral-Silverhand')">
+              <span class="modal-content pg" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-Laeral-Silverhand')">×</span>
+                <span class="description enf">Laeral Silverhand, lord svelato di Waterdeep</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Laeral-Silverhand.png" alt="Zoom Laeral Silverhand">
+              </span>
+            </span>
+          </span>
+          . Le strade pullulano di persone, umani e non, provenienti dall'intera regione, e forse anche da più lontano. La Vigilanza fa il suo dovere, mantenendo l'ordine nelle arterie della città, ma la mano della giustizia non arriva dappertutto. Negli ultimi tempi i crimini si sono moltiplicati e, per chi è del posto, la tensione si percepisce. Non stupisce che tra tutti i quartieri di Waterdeep, il quartiere del porto, noto teatro di scontri tra bande e gilde locali, sia quello in cui il clima si sia scaldato maggiormente.
           <br>
           Di tutto questo i forestieri sono ignari, ma chi è del posto non può fare a meno di pensare che, forse, c'è più di un'aggressività un po' più marcata del solito dietro questo incrudimento.
           <br>
-          Ma tempi difficili formano uomini forti; e magari, tra questi vedremo emergere qualche umano, nano, halfling o dragonide, che non si tireranno indietro davanti al suono della tromba dell'avventura, e intraprendano la via che pochi possono vantare di aver intrapreso: la via degli eroi.
+          Ma tempi difficili formano uomini forti; e magari, tra questi vedremo emergere qualche umano, nano, halfling o dragonide, che non si tirerà indietro davanti al suono della tromba dell'avventura, e intraprenda la via che pochi possono vantare di aver percorso: la via degli eroi.
         </i>
       </div>
     </div>
 
     <!-- Appunti delle sessioni -->
+    <!-- sessione 1 -->
     <div>
       <button class="collapsible">Sessione 1</button>
       <div class="content text">
@@ -498,7 +651,7 @@
           <h3>Scena introduttiva</h3>
           <div class="date">
             <time datetime="2025-04-04">04.04.2025</time>
-            <time datetime="2025-05-03" class="date-game">0.0.1492</time>
+            <time datetime="1492-12-19" class="date-game">19 Nightal 1492</time>
           </div>
         </div>
         <p class="intro">
@@ -618,7 +771,7 @@
                 </span>
               </span>
             </span>:
-            &lt;&lt; Impresa notevole, affrontare quel troll &gt;&gt;. L'uomo offre al gruppetto un incarico ben pagato: si tratta di ritrovare il suo amico Floon Blackmar.
+            &lt;&lt; Impresa notevole, affrontare quel troll &gt;&gt;. L'uomo offre al gruppetto un incarico ben pagato: si tratta di ritrovare il suo amico Floon Blagmaar.
             <ul>
               <li>veste elegante, ha i capelli lunghi biondi</li>
               <li>in passato faceva l'accompagnatore ai saloni delle feste</li>
@@ -638,7 +791,7 @@
           <h3>Scena introduttiva</h3>
           <div class="date">
             <time datetime="2025-05-03">03.05.2025</time>
-            <time datetime="2025-05-03" class="date-game">0.0.1492</time>
+            <time datetime="1492-12-20" class="date-game">20 Nightal 1492</time>
           </div>
         </div>
         <p class="intro">
@@ -736,7 +889,7 @@
               </ul>
               <div class="contour-info">
                 A contorno: Renaer Neverember è il figlio di Dagult Neverember, ex Lord Svelato di Waterdeep (ora lo è di Neverwinter). Tra loro non scorre buon sangue.
-                Il Lord Svelato attuale è Larael Silverhand.
+                Il Lord Svelato attuale è Laeral Silverhand.
               </div>
             </li>
             <li>
@@ -760,11 +913,26 @@
           <h3>Scena introduttiva</h3>
           <div class="date">
             <time datetime="2025-05-05">05.05.2025</time>
-            <time datetime="2025-05-05" class="date-game">0.0.1492</time>
+            <time datetime="1492-12-20" class="date-game">20 Nightal 1492</time>
           </div>
         </div>
         <p class="intro">
-          È mattino inoltrato. L'odore del sangue pervade ogni angolo della stanza semi-buia mentre i 4 avventurieri lucidi cercano di convincere il capitano Iustus Staget a lasciare che interroghino i due volatili legati. Nel frattempo, su richiesta dei 4 e su ordine del capitano, una guardia consegna agli avventurieri una pozione curativa per Numon, ancora a terra privo di sensi. D'un tratto dall'ombra delle scale emerge una figura umana; qualcuno che gli eroi ancora non conoscono di persona, ma che certamente erano curiosi di incontrare:
+          È mattino inoltrato. L'odore del sangue pervade ogni angolo della stanza semi-buia mentre i 4 avventurieri lucidi cercano di convincere il capitano
+          <span class="pg-wrapper">
+            <span class="enf">Hyustus Staget</span>
+            <span class="zoom-pg-box">
+              <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Hyustus-Staget.png" alt="Hyustus Staget" class="zoom-pg-img" onclick="apriZoom('modalZoom-Hyustus-Staget')">
+            </span>
+
+            <span class="modal pg" id="modalZoom-Hyustus-Staget" onclick="chiudiZoom('modalZoom-Hyustus-Staget')">
+              <span class="modal-content pg" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-Hyustus-Staget')">×</span>
+                <span class="description enf">Hyustus Staget, capitano della Vigilanza</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Hyustus-Staget.png" alt="Zoom Hyustus Staget">
+              </span>
+            </span>
+          </span>
+          a lasciare che interroghino i due volatili legati. Nel frattempo, su richiesta dei 4 e su ordine del capitano, una guardia consegna agli avventurieri una pozione curativa per Numon, ancora a terra privo di sensi. D'un tratto dall'ombra delle scale emerge una figura umana; qualcuno che gli eroi ancora non conoscono di persona, ma che certamente erano curiosi di incontrare:
           <span class="pg-wrapper">
             <span class="enf">Renaer Neverember</span>
             <span class="zoom-pg-box">
@@ -816,18 +984,574 @@
       </div>
     </div>
 
+    <div>
+      <button class="collapsible">Sessione 4</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-05-16">16.05.2025</time>
+            <time datetime="1492-12-20" class="date-game">20 Nightal 1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          Si sta facendo sera. Nelle vie della città soffia un'aria pungente e le strade cominciano a svuotarsi. Nella Locanda del Portale Spalancato 5 avventurieri sono seduti al tavolo con due nobilotti. Renaer Neverember e Volothamp Geddarm siedono pensierosi, mentre il gruppo di eroi si aggiorna mettendo in tavola ciò che ciascuno ha scoperto. Sembrano tutti pronti e decisi ad affrontare il viaggio nelle fognature. Ad un tratto, come se qualcosa si fosse sbloccato nella sua mente, Numon chiede una pergamena e un calamaio. Ciò che disegna sulla carta è una teoria tanto ardita quanto spaventosa...
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>teorie inquietanti</i></div>
+              Sulla pergamena si delineano uno schizzo di un Beholder e una riproduzione del simbolo della Gilda di Xanathar... che Xanathar sia un Beholder?
+              <ul>
+                <li>Volo è spaventato dalla teoria del Beholder</li>
+                <li>Renear consegna agli avventurieri due pozioni di cura a testa</li>
+              </ul>
+              Sembra tutto pronto: si parte verso le fognature.
+            </li>
+            <li>
+              <div class="events-title"><i>giù per il tubo</i></div>
+              Raggiunto il punto di ingresso delle fognature, gli avventurieri sollevano il tombino e scendono al buio, accendendo una torcia.
+              <ul>
+                <li>il gruppo segue i segnali gialli con il simbolo di Xanathar</li>
+                <li>primo bivio: continuano a seguire i segni gialli</li>
+                <li>trivio: compare un 
+                  <span class="pg-wrapper">
+                    <span class="enf">mostriciattolo</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/mostro1-fognature.jpg" alt="mostriciattolo delle fognature" class="zoom-pg-img" onclick="apriZoom('modalZoom-mostro1-fognature')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-mostro1-fognature" onclick="chiudiZoom('modalZoom-mostro1-fognature')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-mostro1-fognature')">×</span>
+                        <span class="description enf">mostriciattolo delle fognature</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/mostro1-fognature.jpg" alt="Zoom mostriciattolo delle fognature">
+                      </span>
+                    </span>
+                  </span> a guardia dell'incrocio, e di una scala a pioli che sale verso la cantina di qualcuno (ci sono pesce e casse di birra)
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>goblin e feritoie</i></div>
+              Avanzando negli stretti cunicoli delle fognature, gli eroi giungono in un piccolo allargamento circolare con un pilastro al centro. In corrispondenza di due sezioni opposte del muro si aprono due feritoie. I 6 non sono però così silenziosi...
+              <ul>
+                <li>coperti dalle feritoie, due
+                  <span class="pg-wrapper">
+                    <span class="enf">goblin</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/goblin-fognature.jpg" alt="goblin delle fognature" class="zoom-pg-img" onclick="apriZoom('modalZoom-goblin-fognature')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-goblin-fognature" onclick="chiudiZoom('modalZoom-goblin-fognature')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-goblin-fognature')">×</span>
+                        <span class="description enf">goblin delle fognature</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/goblin-fognature.jpg" alt="Zoom goblin delle fognature">
+                      </span>
+                    </span>
+                  </span>
+                  cominciano a lanciare dardi con delle balestre leggere</li>
+                <li>gli eroi li uccidono, raggiungendo la stanza di uno dei due</li>
+                <li>vengono recuperate una scimitarra e una balestra leggera</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>arrosto di duergar</i></div>
+              Scendendo le scale che si dispiegano davanti a loro, gli avventurieri giungono in una specie di dormitorio con 6 letti e, oltre, una porta chiusa.<br>
+              &lt;&lt; Cambio di guardia! &gt;&gt;. In uno slancio di ispirazione, Grimbar prova a giocarsi la carta del goblinese, sperando che dall'altra parte della porta abbocchino. Ma non sembra sia così...<br>
+              &lt;&lt; Venite fuori! Fatevi avanti! &gt;&gt;
+              <ul>
+                <li>aprendo la porta, il gruppo di eroi si trova davanti due figure, un umano pelato, già visto alla locanda la prima sera, e un
+                  <span class="pg-wrapper">
+                    <span class="enf">duergar</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/duergar-fognature.jpg" alt="duergar delle fognature" class="zoom-pg-img" onclick="apriZoom('modalZoom-duergar-fognature')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-duergar-fognature" onclick="chiudiZoom('modalZoom-duergar-fognature')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-duergar-fognature')">×</span>
+                        <span class="description enf">duergar delle fognature</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/duergar-fognature.jpg" alt="Zoom duergar delle fognature">
+                      </span>
+                    </span>
+                  </span>, un nano oscuro
+                </li>
+                <li>dopo una breve lotta fatta di attacchi rapidi e fughe dietro alle gambe del nano alleato, i nemici cadono a terra, esanimi e cotti a puntino</li>
+                <li>Grimbar recupera lo scudo dal duergar</li>
+              </ul>
+              Nella stanza ci sono altri letti, ma ciò che conta per gli avventurieri sono le due porte che si stagliano davanti a loro. Scegliere non è mai facile, ma per oggi possiamo non preoccuparcene. Sarà un problema degli avventurieri della prossima sessione...
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible level-up-btn">Sessione 5</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-05-20">20.05.2025</time>
+            <time datetime="1492-12-20" class="date-game">20 Nightal 1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          Destra o sinistra? Spesso, come nella politica, non c'è una risposta corretta. E spesso, come nella politica, se si è in dubbio si rimane conservativi...<br>&lt;&lt; Destra! &gt;&gt; esclama Grimbar, con l'approvazione di tutto il gruppo. La porta si apre senza troppa difficoltà, e il gruppo avanza lungo un corridoio buio in maniera silenziosa. Ma forse, ancora una volta, non abbastanza...
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>tentacoli e cervelli</i></div>
+              &lt;&lt; Sembra che abbiamo compagnia... venite pure avanti &gt;&gt;.
+              Una stanza si apre davanti a Renn e agli altri avventurieri. Dentro, un
+              <span class="pg-wrapper">
+                <span class="enf">mezzorco</span>
+                <span class="zoom-pg-box">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Grum'Shar-mezzorco-fognature.jpg" alt="mezzorco delle fognature" class="zoom-pg-img" onclick="apriZoom('modalZoom-mezzorco-fognature')">
+                </span>
+    
+                <span class="modal pg" id="modalZoom-mezzorco-fognature" onclick="chiudiZoom('modalZoom-mezzorco-fognature')">
+                  <span class="modal-content pg" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-mezzorco-fognature')">×</span>
+                    <span class="description enf">mezzorco delle fognature</span>
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Grum'Shar-mezzorco-fognature.jpg" alt="Zoom mezzorco delle fognature">
+                  </span>
+                </span>
+              </span>
+              in abiti piuttosto eleganti tiene un piede sopra un umano spaventato, torturandolo. Intanto in fondo alla stanza, seduta su un trono di pietra, una creatura dal viso pieno di tentacoli accarezza quello che sembra essere un
+              <span class="pg-wrapper">
+                <span class="enf">cervello</span>
+                <span class="zoom-pg-box">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/cervello-fognature.jpg" alt="cervello delle fognature" class="zoom-pg-img" onclick="apriZoom('modalZoom-cervello-fognature')">
+                </span>
+    
+                <span class="modal pg" id="modalZoom-cervello-fognature" onclick="chiudiZoom('modalZoom-cervello-fognature')">
+                  <span class="modal-content pg" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-cervello-fognature')">×</span>
+                    <span class="description enf">cervello delle fognature</span>
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/cervello-fognature.jpg" alt="Zoom cervello delle fognature">
+                  </span>
+                </span>
+              </span>
+              umano...
+              <ul>
+                <li>inizia la lotta e la
+                  <span class="pg-wrapper">
+                    <span class="enf">creatura tentacolare</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Nihiloor-mind-flayer-Xanathar.png" alt="mind flyer delle fognature" class="zoom-pg-img" onclick="apriZoom('modalZoom-Nihiloor-mind-flayer-Xanathar')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-Nihiloor-mind-flayer-Xanathar" onclick="chiudiZoom('modalZoom-Nihiloor-mind-flayer-Xanathar')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-Nihiloor-mind-flayer-Xanathar')">×</span>
+                        <span class="description enf">mind flyer delle fognature</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Nihiloor-mind-flayer-Xanathar.png" alt="Zoom mind flyer delle fognature">
+                      </span>
+                    </span>
+                  </span>
+                  esce senza fretta dalla stanza</li>
+                <li>il mezzorco (mago) e il cervello vengono sconfitti</li>
+                <li>il mezzorco viene perquisito (libro degli incantesimi) legato e ammanettato</li>
+                <li>l'umano torturato si scopre essere
+                  <span class="pg-wrapper">
+                    <span class="enf">Floon</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Floon-Blagmaar.jpg" alt="Floon Blagmaar" class="zoom-pg-img" onclick="apriZoom('modalZoom-Floon-Blagmaar')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-Floon-Blagmaar" onclick="chiudiZoom('modalZoom-Floon-Blagmaar')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-Floon-Blagmaar')">×</span>
+                        <span class="description enf">Floon Blagmaar</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Floon-Blagmaar.jpg" alt="Zoom Floon Blagmaar">
+                      </span>
+                    </span>
+                  </span>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>dentro o fuori?</i></div>
+              Conclusa la lotta, Numon soccorre Floon dandogli una pozione di cura che gli permette di riprendersi. Intanto Grimbar si avventura nella stanza dove la creatura tentacolare si era ritirata.
+              <ul>
+                <li>un piedistallo, forse con qualche proprietà magica, si erge al centro della stanza</li>
+                <li>un portale aperto campeggia su una delle pareti</li>
+                <li>Grimbar infila la punta del givellotto nel portale, ma questo viene sbalzato indietro</li>
+                <li>il portale comincia a chiudersi; Grimbar esita, titubante... ma non entra</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>un Van Gogh e tre lingotti</i></div>
+              Floon si è ormai ripreso e risponde alle domande di Numon e Renaer. Finito l'interrogatorio, i 5 avventurieri decidono di esplorare le stanze circostanti.
+              <ul>
+                <li>nelle prime solo letti e nulla di interessante</li>
+                <li>nelle stanze successive: 15 x 5kg lingotti d'argento, 4 quadri, forziere: 16 MO, 82 MA, 250 MR</li>
+                <li>trovano la stanza del secondo goblin</li>
+              </ul>
+              Con abilità e tecnica nanica, Grimbar costruisce una specie di slitta (un carretto senza ruote) per trasportare le ricchezze trovate e il mezzorco.
+            </li>
+            <li>
+              <div class="events-title"><i>budino al ... cioccolato</i></div>
+              Tornando sui propri passi, gli avventurieri decidono di esplorare i due passaggi rimasti. Il primo però riserva loro una piccola sorpresa...
+              <ul>
+                <li>una
+                  <span class="pg-wrapper">
+                    <span class="enf">creatura gelatinosa</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/creatura-gelatinosa-fognature.jpg" alt="creatura gelatinosa delle fognature" class="zoom-pg-img" onclick="apriZoom('modalZoom-creatura-gelatinosa-fognature')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-creatura-gelatinosa-fognature" onclick="chiudiZoom('modalZoom-creatura-gelatinosa-fognature')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-creatura-gelatinosa-fognature')">×</span>
+                        <span class="description enf">creatura gelatinosa delle fognature</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/creatura-gelatinosa-fognature.jpg" alt="Zoom creatura gelatinosa delle fognature">
+                      </span>
+                    </span>
+                  </span>
+                  compare nella stanza, che risulta essere un bagno</li>
+                <li>la creatura viene sconfitta (probabilmente è risalita dalle tubature)</li>
+              </ul>
+              L'ultimo passaggio rimasto dà su una cantina. Qui il gruppo di eroi decide di risalire, spaventando la famiglia di halfling che vive nell'abitazione. Per fortuna di tutti è sufficente che Duma mostri il distintivo della Vigilanza per tranquillizzare i bravi inquilini, che assicurano di sbarrare il passaggio per le fogne di cui non sapevano l'esistenza. Il gruppo di eroi torna alla Locanda; non sanno cosa li attende, ma si sentono più sicuri, più saldi, <span class="enf firework-btn cursor-pointer">PIÙ FORTI!</span>
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <!-- sessione 6 -->
+    <div>
+      <button class="collapsible">Sessione 6</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-05-16">?.?.2025</time>
+            <time datetime="1492-12-21" class="date-game">21 Nightal 1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          È ormai sera a Waterdeep, e la Locanda del Portale Spalancato pullula di clienti intenti a ordinare e cenare. Bonnie gira tra i tavoli portando vassoi di buon cibo, mentre Durnan serve al bancone birre e digestivi. Entrando dalla porta i 5 (+1) si guardano intorno, e si accorgono che Volothamp è seduto ad uno dei tavoli. Chissà se è il momento giusto per riscuotere il compenso... ma magari non con una slitta carica di lingotti e un mezzorco svenuto sotto braccio. Così, cercando di non attirare troppa attenzione, i 5 (+1) sgattaiolano al piano superiore, cercando una stanza dove lasciare bottino e prigioniero.
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>solidificare i liquidi</i></div>
+              La stanza di Duma non è molto grande, ma non è nemmeno molto piena di roba, per cui i 5 (+1) riescono a entrare e trovare una collocazione ai quadri e al bottino per nasconderli.
+              Nel frattempo Grimbar prende di peso il mezzorco e lo scarica a terra senza troppi complimenti.
+              <ul>
+                <li>
+                  stima del bottino: 75 MO ogni quadro, 50 MO ogni lingotto
+                </li>
+                <li>
+                  Grimbar e Renear restano a guardia del bottino e del prigioniero, gli altri scendono a parlare con Volo
+                </li>
+                <li>
+                  Volo comunica che non ha liquidità perché ha speso tutto per acquistare una tenuta: il
+                  <span class="pg-wrapper">
+                    <span class="enf">Maniero Teschio di Troll</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Maniero-Teschio-di-Troll.jpg" alt="Maniero Teschio di Troll" class="zoom-pg-img" onclick="apriZoom('modalZoom-Maniero-Teschio-di-Troll')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-Maniero-Teschio-di-Troll" onclick="chiudiZoom('modalZoom-Maniero-Teschio-di-Troll')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-Maniero-Teschio-di-Troll')">×</span>
+                        <span class="description enf">Maniero Teschio di Troll</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Maniero-Teschio-di-Troll.jpg" alt="Zoom Maniero Teschio di Troll">
+                      </span>
+                    </span>
+                  </span>, che offre ai 5 al posto della ricompensa in denaro pattuita
+                </li>
+                <li>
+                  appuntamento per l'indomani mattina (con un notaio) per visitare il maniero e firmare le carte per il passaggio di proprietà
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>interrogazione a sorpresa</i></div>
+              In camera Grimbar è riuscito a svegliare il mezzorco, ma non vedendolo molto collaborativo ha tentato le maniere forti, ottenendo però solo di mandarlo nuovamente al tappeto. Intanto tornano i compagni, che riferiscono l'offerta di Volo a Grimbar, non felicissimo di quello che sta sentendo. Terminate le discussioni, Grimbar decide di rimanere con Duma a guardia del mezzorco, in caso decida di scappare o fare cose strane; gli altri tornano a casa.
+              <ul>
+                <li>
+                  durante la notte: Grimbar minaccia il mezzorco che sta provando a liberarsi
+                </li>
+                <li>
+                  mattina: colazione con Volo, poi interrogatorio al mezzorco
+                </li>
+                <li>
+                  lavora per la Gilda di Xanathar, gli Zentharim intralciano
+                </li>
+                <li>
+                  il portale nelle fognature potrebbe portare ai quartieri generali
+                </li>
+                <li>
+                  il Mind Flyer era interessato alla pietra di Golorr
+                </li>
+                <li>
+                  i 5 recuperano dei bauli da Durnan per mettere il bottino
+                </li>
+                <li>
+                  usciamo con Volo, lungo la strada lasciano il mezzorco alla Vigilanza
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>il Maniero Teschio di Troll</i></div>
+              Il Maniero Teschio di Troll è un bell'edificio di quattro piani, ben tenuto salvo qualche segno di abbandono. È nel quartiere nord, uno dei più belli della città.
+              <ul>
+                <li>
+                  visita e ispezione di tutti i piani, compreso il seminterrato
+                </li>
+                <li>
+                  trovato nulla di sospetto, solo ragnatele; eppure Volo è agitato, sembra nascondere qualcosa
+                </li>
+                <li>
+                  firma del contratto
+                </li>
+                <li>
+                  Volo ci lascia un contatto a cui poter vendere i quadri: "La bottega dell'Artista"
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>a caccia di informazioni</i></div>
+              Salutato Volo, i 5 avventurieri si separano: Numon, Renn, Grimbar e Reed vanno in cerca del collezionista di quadri, mentre Duma va in cerca di informazioni sulla storia del maniero.
+              <ul>
+                <li>
+                  (Duma) "Birreria da Frewn": nessuna informazione sul maniero
+                </li>
+                <li>
+                  (altri) "La bottega dell'artista": lasciano le armi alle guardie all'ingresso e entrano; al piano terra ci sono molti quadri, anche di Munggen (autore di quelli trovati)
+                </li>
+                <li>
+                  (Duma) "Tesooro del drago di biblioteca": si dice che il maniero sia infestato da qualche vecchio proprietario
+                </li>
+                <li>
+                  (altri) "La bottega dell'artista"-primo piano: incontrano il proprietario, tutto vestito di verde, prendono appuntamento per l'1 dopo il sole alto
+                </li>
+              </ul>
+              Dopo il giro il gruppo si ritrova alla Locanda per l'ora di pranzo, subito dopo aver contattato qualcuno e aver convertito i lingotti in monete d'oro.
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible">Sessione 7</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-05-16">?.?.2025</time>
+            <time datetime="1492-12-21" class="date-game">21 Nightal 1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          &lt;&lt; Questa sì che è una birra! &gt;&gt;. Bonnie ha appena finito di servire Grimbar e gli altri, e iniziano tutti a mangiare di gusto. Intanto si aggiornano e viene fuori un dubbio fondamentale: di chi sono i quadri trovati nelle fognature?<br>
+          Dopo una breve discussione sulla possibilità di non curarsi del legittimo proprietario, il senso civico e l'onestà dei membri del gruppo prevale, e li spinge a recarsi in caserma a chiedere informazioni su eventuali denunce di quadri rubati. Viene fuori che un tale Zardoz Zord aveva denunciato il furto di 4 dipinti dalla "Fiera delle Sirene Seducenti", nel quartiere del porto, circa una decade prima. Non c'è bisogno di altro: presi i quadri (ben nascosti), i 5 partono alla volta del quartiere del porto.
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>"Furia Infernale" e "Rubacuori"</i></div>
+              Dopo una breve camminata i 5 arrivano al porto. Uno striscione molto colorato indica al gruppo che si trovano nel posto giusto: "Fiera delle Sirene Seducenti". Tra il via vai di gente due imbarcazioni saltano agli occhi degli avventurieri: una rossa fiammante, con drappi rosso/porpora e la scritta "Furia Infernale"; l'altra più delicata, rosso tenue: la "Rubacuori".
+              <ul>
+                <li>
+                  il gruppo sale sulla <i>Furia Infernale</i>, 2 marinai eleganti vanno loro incontro
+                </li>
+                <li>
+                  Grimbar si lascia trascinare dall'ambiente: &lt;&lt; Arr! Corpo di mille balene! Siamo qui per vedere il capitano &gt;&gt;
+                </li>
+                <li>
+                  li accoglie Fergus Crabwater, capitano, che, dopo aver parlato con qualcuno tramite una pietra (pietra parlante) li accompagna con una scialuppa alla nave ammiraglia
+                </li>
+                <li>
+                  Numon prende il suo piccolo flauto e comincia a suonare una delicata melodia
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>"Gioia per gli Occhi"</i></div>
+              &lt;&lt; Buonasera cari visitatori. A cosa devo la vostra visita? &gt;&gt;.<br>
+              La nave ammiraglia, la <i>Gioia per gli Occhi</i>, è un veliero meravigliosamente decorato, con ornamenti dorati e una polena con una sirena con le braccia protese in avanti. Il ponte pullula di uomini nerboruti, e il capitano non è da meno:
+              <span class="pg-wrapper">
+                <span class="enf">Zardoz Zord</span>
+                <span class="zoom-pg-box">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zardoz-Zord.png" alt="Zardoz Zord" class="zoom-pg-img" onclick="apriZoom('modalZoom-Zardoz-Zord')">
+                </span>
+    
+                <span class="modal pg" id="modalZoom-Zardoz-Zord" onclick="chiudiZoom('modalZoom-Zardoz-Zord')">
+                  <span class="modal-content pg" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-Zardoz-Zord')">×</span>
+                    <span class="description enf">Zardoz Zord</span>
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zardoz-Zord.png" alt="Zoom Zardoz Zord">
+                  </span>
+                </span>
+              </span>
+              è un uomo grosso e muscoloso, con capelli lunghi e sguardo deciso. Intorno è tutto elegante e pregiato, dalle tende dorate al tavolo in mogano con i centrini.
+              <ul>
+                <li>
+                  il gruppo si presenta e mostra a Zord i quadri, permettendogli di confermare che siano originali
+                </li>
+                <li>
+                  Zord offre loro di poter riscuotere la commissione se avessero consegnato i quadri al proprietario della "Bottega dell'Artista", l'elfo Lausian
+                </li>
+              </ul>
+              Abbandonata la barca e tornati sulla terraferma, gli avventurieri si lasciano portare in carrozza alla Bottega, dove riescono a convincere Lausian della loro buona fede e ottenendo un borsello con 30 soli (MP) per la commissione.
+            </li>
+            <li>
+              <div class="events-title"><i>spifferi</i></div>
+              È ormai sera, e il gruppo decide di tornare al maniero per ispezionarlo meglio. C'è qualcosa che ancora non li convince appieno. Rientrando sembra tutto a posto... oppure no. Per terra due piatti rotti luccicano alla luce del tramonto. Nell'aria si percepisce un leggero spostamento d'aria, come una brezza... magica. Numon si muove, afferra i cocci di un piatto e si siede in mezzo alla stanza a fare uno strano rituale. Dopo 10 minuti, ecco il responso: &lt;&lt; C'è... qualcosa. Qualcosa nell'aria &gt;&gt;.
+              <ul>
+                <li>
+                  una folata di vento investe Grimbar
+                </li>
+                <li>
+                  Numon prova a convincere la creatura a parlare, senza successo, ottenendo invece un attacco da parte della creatura
+                </li>
+                <li>
+                  Duma infonde energia nella sua voce e infligge alla creatura un quantitativo di danni che sembra accusare
+                </li>
+              </ul>
+              I colpi di Duma non lasciano la creatura indifferente. Nella stanza il vento tace, ma Numon ne conosce il motivo: la creatura si sta ritirando ai piani superiori. Lui, Renn e Grimbar si affrettano per le scale raggiungendo il secondo piano, mentre Duma e Reed restano indietro fermandosi al primo. Lo scontro sta per riaccendersi...
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible">Sessione 8</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-06-30">30.06.2025</time>
+            <time datetime="1492-12-21" class="date-game">21? Nightal 1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          &lt;&lt; Lasciatelo a me! Lasciatelo a me! &gt;&gt;.<br>
+          Reed e Duma, rimasti al primo piano, hanno visto bene lo spostamento d'aria e di ragnatele che l'essere invisibile ha provocato mentre attraversava il soffitto per salire al piano superiore. E certo le loro grida hanno attirato le promurose attenzioni del nerboruto nano che, aggraziato come un ippopotamo in sovrappeso, si precipita giù per le scale. Peccato che anche il ben più gracile Duma avesse deciso di salire proprio in quel momento, per fornire ai compagni informazioni sulla direzione presa dalla creatura...
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>nano da sfondamento</i></div>
+              Grimbar si precipita giù per le scale, pronto ad abbattersi sul nemico. Purtroppo il nemico dovrà aspettare un attimo, perché in mezzo alle scale incontra il caro Duma, che non ha la prontezza di riflessi per evitarlo e finisce inevitabilmente a gambe all'aria.
+
+              Insieme risalgono, seguiti anche dall'halfling.
+            </li>
+            <li>
+              <div class="events-title"><i>scale e botole</i></div>
+              Numon, al terzo piano, ha usato un altro incantesimo di percezione per non perdere le tracce della creatura. Renn lo affianca per proteggerlo da eventuali attacchi.
+
+              <ul>
+                <li>
+                  Duma (da sotto) e Numon (da sopra) tentano di persuadere la creatura a parlare, senza successo
+                </li>
+                <li>
+                  salgono tutti. Duma spiega dove si è diretta la creatura invisibile: la piccola stanza a nord-ovest
+                </li>
+                <li>
+                  tutti si avvicinano. La porta è semi aperta, ma sicuramente era chiusa il giorno prima. Studiando la serratura Numon e Renn capiscono che non può essere stato il vento
+                </li>
+                <li>
+                  Grimbar entra: in mezzo alla stanza c'è una scala che dà su una botola
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>arrosto di spettro</i></div>
+              &lt;&lt; Sei mio! &gt;&gt;.<br>
+              Grimbar afferra la scala a pioli e comincia la scalata fino alla botola; poi la spalanca con fare aggressivo e... una folata di vento lo investe dalla testa ai piedi, facendogli perdere l'appoggio e lasciandolo penzoloni, appeso solo con le braccia al pavimento della piccola stanza.
+              <ul>
+                <li>
+                  inizia lo scontro, dopo qualche colpo a vuoto i 5 cominciano a restringere il campo, riuscendo a colpire la creatura
+                </li>
+                <li>
+                  Reed colpisce la creatura con un dardo infuocato e riescono tutti a intravederne la forma umanoide
+                </li>
+                <li>
+                  Grimbar riconosce la creatura come uno <span class="pg-wrapper">
+                    <span class="enf">spettro</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/spettro-maniero.jpg" alt="spettro del maniero" class="zoom-pg-img" onclick="apriZoom('modalZoom-spettro-maniero')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-spettro-maniero" onclick="chiudiZoom('modalZoom-spettro-maniero')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-spettro-maniero')">×</span>
+                        <span class="description enf">spettro del maniero</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/spettro-maniero.jpg" alt="Zoom spettro del maniero">
+                      </span>
+                    </span>
+                  </span>
+                </li>
+                <li>
+                  Duma viene scaraventato violentemente verso una parete, perdendo i sensi per un attimo, ma riprendendosi in fretta
+                </li>
+                <li>
+                  un ultimo dardo accende lo spettro, che arde un'ultima volta prima di consumarsi e sparire
+                </li>
+              </ul>
+              Numon rende partecipi gli altri che nessuna presenza magica è più rilevabile nel maniero.
+            </li>
+            <li>
+              <div class="events-title"><i>notte notte</i></div>
+              L'obiettivo è raggiunto: lo spettro è sconfitto e il maniero è ora libero da ogni presenza magica. I nostri eroi sono però distrutti, e l'idea di poter allestire dei giacigli, anche improvvisati, sembra allettarli. Così Renn e Duma aiutano Grimbar a raccattare materiale per abbozzare 4 giacigli, poiché Grimbar il suo se l'era portato dietro. Così, tra i suoni dolci e armoniosi del liuto di Reed, e quelli meno dolci e meno armoniosi del flauto di Duma, i 5 avventurieri si addormentano, sperando che la notte porti riposo... e che i giacigli improvvisati siano comodi...
+            </li>
+            <li>
+              <div class="events-title"><i>borse e visite</i></div>
+              Gli strumenti ticchettano e qualche scintilla di magia sprizza dalle mani di Numon. È mattino presto, e il dragonide è seduto in un angolo della stanza a gambe incrociate, intento a borbottare qualche strana formula. Tra le sue mani sta prendendo forma quella che sembra essere una borsa. Nel frattempo uno ad uno gli avventurieri si svegliano, iniziando a fare colazione, senza farsi troppe domande sulle stranezze del lucertolone.
+              Intanto, qualcuno bussa alla porta...
+              <ul>
+                <li>
+                  Numon presenta ai compagni la borsa conservante che ha fabbricato, facendo vedere una dimostrazione
+                </li>
+                <li>
+                  ognuno si alleggerisce infilando degli oggetti nella borsa
+                </li>
+                <li>
+                  Duma va ad aprire la porta e fa entrare Volo, in apprensione per i 5
+                </li>
+                <li>
+                  Grimbar lo appende al muro, Duma lo fa calmare
+                </li>
+                <li>
+                  Volo spiega che aveva acquistato il maniero per scrivere la "Guida agli spettri di Volo"; Numon gli fornisce controvoglia alcune informazioni
+                </li>
+                <li>
+                  Volo si impegna a cercare contatti per la ristrutturazione del maniero
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
 
 
 
 
 
-
+    <!-- prossima sessione -->
     <div>
       <button class="collapsible next-ses-btn">Prossima Sessione</button>
       <div class="content text">
         <div class="date-n-intro">
           <h3></h3>
-          <time datetime="2025-05-16">16.05.2025</time>
+          <time datetime="2025-07-?">?.07.2025</time>
         </div>
         <p class="to-be-continued">
           to be continued...
@@ -853,17 +1577,24 @@
         <h3>Eventi</h3>
         <p>
           <ul>
-            <li>...</li>
-            <li>...</li>
+            <li>
+              <div class="events-title"><i>titoletto</i></div>
+              ...
+            </li>
+            <li>
+              <div class="events-title"><i>titoletto</i></div>
+              ...
+            </li>
           </ul>
         </p>
+      </div>
     </div>
 
   </main>
 
   <footer>
     <div>
-      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/spada-pic.png" class="footer-logo">
+      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/spada-pic.png" alt="Logo D&D" class="footer-logo">
     </div>
   </footer>
 
@@ -883,10 +1614,68 @@
     function apriZoom(id) {
       document.getElementById(id).style.display = 'flex';
     }
-
     function chiudiZoom(id) {
       document.getElementById(id).style.display = 'none';
     }
-    </script>
+
+
+
+
+
+
+
+    document.querySelectorAll('.firework-btn').forEach(elt =>{
+      elt.addEventListener('click', function(e) {
+//        const quit = this.nextElementSibling ? window.getComputedStyle(this.nextElementSibling).display == "none" : false;
+//        if (quit) { //se sto chiudendo (è così perché esegue prima collapse())
+//          return;
+//        }
+        const button = e.currentTarget;
+        const rect = button.getBoundingClientRect();
+        const centerX = e.clientX - rect.left;
+        const centerY = e.clientY - rect.top;
+
+        for (let i = 0; i < 30; i++) {
+          const particle = document.createElement('span');
+          particle.classList.add('particle');
+          
+          const angle = Math.random() * 2 * Math.PI;
+          const distance = 45 + Math.random() * 35;
+          const dx = Math.cos(angle) * distance + 'px';
+          const dy = Math.sin(angle) * distance + 'px';
+          
+          particle.style.left = centerX + 'px';
+          particle.style.top = centerY + 'px';
+          particle.style.setProperty('--dx', dx);
+          particle.style.setProperty('--dy', dy);
+
+          button.appendChild(particle);
+
+          setTimeout(() => particle.remove(), 600);
+        }
+
+        const particle = document.createElement('span');
+        particle.classList.add('text-particle');
+        particle.textContent = "LEVEL UP!"
+        
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = 50 + Math.random() * 30;
+        const dx = Math.cos(angle) * distance + 'px';
+        const dy = Math.sin(angle) * distance + 'px';
+        
+        particle.style.left = centerX + 'px';
+        particle.style.top = centerY + 'px';
+        particle.style.setProperty('--dx', dx);
+        particle.style.setProperty('--dy', dy);
+
+        button.appendChild(particle);
+
+        setTimeout(() => particle.remove(), 600);
+
+
+      });
+    });
+
+  </script>
 </body>
 </html>

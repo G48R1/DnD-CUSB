@@ -90,6 +90,10 @@
       text-decoration-line: none;
     }
 
+    .cap {
+      margin-top: 1em;
+    }
+
     .collapsible {
       background-color: var(--btn-color);
       color: var(--btn-text);
@@ -1226,7 +1230,7 @@
     </div>
 
     <!-- sessione 6 -->
-    <div>
+    <div class="cap">
       <button class="collapsible">Sessione 6</button>
       <div class="content text">
         <div class="date-n-intro">
@@ -1556,7 +1560,7 @@
         </div>
         <p class="intro">
           &lt;&lt; Che si fa? &gt;&gt;. Già, che si fa?<br>
-          Il maniero è silenzioso, ora che Volo se n'è andato, e il gruppo di avventurieri deve decidere come impiegare la giornata. La proposta più accreditata è di andare a caccia di informazioni sul maniero, cominciando magari dal bibliotecario, che sembrava sapere qualcosa. Renn però non si è fatto vivo...
+          Il maniero è silenzioso, ora che Volo se n'è andato, e il gruppo di avventurieri deve decidere come impiegare la giornata. La proposta più accreditata è di andare a caccia di informazioni sul maniero, cominciando magari dal bibliotecario, che sembrava sapere qualcosa. Renn però annuncia che rimarrà al maniero.
         </p>
         <h3>Eventi</h3>
         <p>
@@ -1566,7 +1570,7 @@
               Usciti dal maniero, i 4 seguono Duma al "Tesoro del drago di biblioteca", dove il proprietario riconosce Duma. Ed è proprio quest'ultimo che interroga il dragonide nella speranza di ottenere qualche informazione in più.
               <ul>
                 <li>
-                  forse la maga Ulkoria Marrow sa qualcosa sul maniero (Ordine dei Vigili dei Maghi Protettori)
+                  forse la maga Ulkoria Marrow sa qualcosa sul maniero (Ordine Vigile dei Maghi Protettori)
                 </li>
                 <li>
                   Reed prova a cercare libri sulla storia del maniero ma non c'è nulla
@@ -1596,7 +1600,22 @@
                       </span>
                     </span>
                   </span>
-                  (maschio, fuoco) e Avi (femmina, acqua)
+                  (maschio, fuoco) e
+                  <span class="pg-wrapper">
+                    <span class="enf">Avi</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Avi-vapore-e-acciaio.jpg" alt='Avi, genasi "Vapore e Acciaio"' class="zoom-pg-img" onclick="apriZoom('modalZoom-Avi-vapore-e-acciaio')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-Avi-vapore-e-acciaio" onclick="chiudiZoom('modalZoom-Avi-vapore-e-acciaio')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-Avi-vapore-e-acciaio')">×</span>
+                        <span class="description enf">Avi, genasi dell'acqua ("vapore-e-acciaio")</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Avi-vapore-e-acciaio.jpg" alt='Zoom Avi, genasi "Vapore e Acciaio"'>
+                      </span>
+                    </span>
+                  </span>
+                  (femmina, acqua)
                 </li>
                 <li>
                   Grimbar ottiene un ottimo sconto: scambio scimitarra per ascia (10 MO)
@@ -1680,6 +1699,121 @@
         </p>
       </div>
     </div>
+
+    <div>
+      <button class="collapsible">Sessione 10</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-05-03">0.0.2025</time>
+            <time datetime="1492-12-?" class="date-game">22 Nightal 1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          Il pomeriggio è appena cominciato ma gli avventurieri non vogliono perdere tempo in chiacchiere: c'è un maniero da ristrutturare, e Volo non si è ancora fatto vivo con le sue proposte di amici restauratori. I 4 tornano al maniero dove avevano lasciato Renn. Nessuno di loro riesce a cavare qualche parola dall'halfling, che sembra evitare il discorso; ma, poiché appare onesto, non sembra esserci motivo di preoccuparsi. La priorità ora è trovare una gilda che faccia al caso loro con il restauro; e dove cercare se non al quartiere del mercato?
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>per le vie del mercato</i></div>
+              Il quartiere del mercato è davvero pieno di negozi di ogni tipo. Non sapendo dove andare esattamente, Numon propone di chiedere nella sede della sua gilda, il Meticolosissimo ordine dei Mastri Fabbri e dei Metallurghi. Se non fa al caso loro, almeno lì qualcuno potrà indirizzarli meglio.
+              <ul>
+                <li>incontrano la gnoma Mennie che saluta Numon; si scambiano qualche parola</li>
+                <li>Mennie li indirizza alla gilda dei "Riparatori di tetti e intonacatori"</li>
+              </ul>
+              Seguendo le indicazioni, il gruppetto si ritrova in un negozio con un'insegna con un martello e una tegola bianca. Entrano, e un mezzorco anziano un po' scorbutico li accoglie vestito con un camice marrone piuttosto logoro. Numon si presenta e ottiene un appuntamento per un'ispezione del maniero fissato per la mattina seguente.
+            </li>
+            <li>
+              <div class="events-title"><i>preventivo con salasso</i></div>
+              Usciti dal negozio, i 5 si separano. Non c'è molto da fare fino al mattino seguente, perciò Numon approfitta per fare un salto a casa a recuperare un po' di equipaggiamento. I suoi sembrano piuttosto preoccupati, e non lo nascondono. Duma è intanto andato al Portale Spalancato a parlare con Jalester... ma non lo comunica agli altri. I 3 restanti invece sono andati a riposarsi al maniero, aspettando i due per l'ora di cena.
+              <li>tornano tutti al maniero. Cena e riposo per tutti</li>
+              <li>poco dopo l'alba bussano due umani (Alonso e Blasco) con il mezzorco (Ronth)</li>
+              <li>preventivo: 1000 dragoni (MO); pavimenti, finestre, banconi, ...</li>
+              <li>li congediamo dicendo che valuteremo</li>
+            </li>
+            <li>
+              <div class="events-title"><i>voci nella testa</i></div>
+              La porta si chiude, e mentre il gruppo di avventurieri è intento a discutere sull'ingente somma richiesta per la ristrutturazione, una voce si insinua nella testa di Renn: &lt;&lt; Sono
+              <span class="pg-wrapper">
+                <span class="enf">Vajra Safahr</span>
+                <span class="zoom-pg-box">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Vajra-Safahr.jpg" alt='Vajra Safahr, il Bastone Nero' class="zoom-pg-img" onclick="apriZoom('modalZoom-Vajra-Safahr')">
+                </span>
+    
+                <span class="modal pg" id="modalZoom-Vajra-Safahr" onclick="chiudiZoom('modalZoom-Vajra-Safahr')">
+                  <span class="modal-content pg" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-Vajra-Safahr')">×</span>
+                    <span class="description enf">Vajra Safahr, il Bastone Nero</span>
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Vajra-Safahr.jpg" alt='Zoom Vajra Safahr, il Bastone Nero'>
+                  </span>
+                </span>
+              </span>,
+              il Bastone Nero. Vieni nel quartiere del castello alla torre del Bastone Nero; porta i tuoi amici &gt;&gt;. Renn riferisce il messaggio, e insieme decidono di andare in cerca della torre menzionata. Il quartiere del castello non è lontano, e in poco tempo i 5 si ritrovano di fronte a una torre di pietra nera.
+              <ul>
+                <li>muro di 4 metri circonda il terreno intorno alla torre</li>
+                <li>cancello alto. Ci avviciniamo e si apre appena Renn lo tocca</li>
+                <li>c'è un viottolo e, in fondo, la porta della torre...</li>
+              </ul>
+              <div class="contour-info">
+                Il Bastone Nero è il sommo mago di Waterdeep. Governa la Forza Grigia, un'elite di avventurieri convocata per affrontare le minacce più pericolose per la città.
+              </div>
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <!-- sessione 11 -->
+    <div class="cap">
+      <button class="collapsible">Sessione 11</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-05-03">0.0.2025</time>
+            <time datetime="1492-12-?" class="date-game">23 Nightal 1492</time>
+          </div>
+        </div>
+        <p class="intro">
+          L'aria è piuttosto pungente nel giardino della torre del Bastone Nero, e l'atmosfera è intrisa di trama. Intorno, qualche studente si aggira in uniforme, senza far caso ai turisti. Numon prende coraggio e si avvicina alla porta per bussare. Lentamente la porta si apre da sola, mostrando l'interno della torre: un atrio si estende davanti a loro, più grande di quello che l'edificio da fuori sembrerebbe poter ospitare. Un'ampia scalinata a chiocciola si arrampica tutto intorno ai muri della torre, aprendosi su ampie sale e ponti verso luoghi remoti, luoghi che mai potrebbero entrare in un edificio così piccolo. Uno studente si avvicina e indica ai 5 di seguirlo: il Bastone Nero li sta aspettando. Senza indugiare troppo, il gruppo segue il ragazzo, che scoprono essere caposcuola, per la scalinata, fino a raggiungere una porta chiusa. Le pareti della torre sono ricoperte di oggetti magici e manufatti, e numerosi ponti e varchi si diramano dalla scalinata, alcuni dei quali visibili solo dopo che il caposcuola abbia pronunciato delle parole magiche. Incantesimi di questo livello non sono certo alla portata di avventurieri quasi alle prime armi come loro.<br>
+          &lt;&lt; Bene, eccoci qua. Spero che riusciate a trovare l'uscita &gt;&gt;. Con questa frase, la loro guida si dilegua.
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>il Bastone Nero</i></div>
+              Con un rapido movimento Numon prova ad afferrare Renn per spingerlo avanti, ma l'halfling è troppo svelto e il dragonide rimane con un pugno di mosche. Sconfitto, Numon opta per aprire lui stesso la porta. Uno studio ampio si apre davanti a lui, che ricorda quasi una biblioteca per il quantitativo di volumi che popolano le pareti, oltre a teche e alambicchi. Imponenti arcate si tuffano verso l'esterno, e le ampie vetrate mostrano il bellissimo panorama della città alle pendici del monte Waterdeep. Una donna vestita di nero è seduta sorridente alla scrivania di legno scuro: Vajra Safahr.
+              <ul>
+                <li>tutti entrano, le porte si chiudono</li>
+                <li>Numon rimane estasiato in contemplazione, poi chiede se Vajra ha letto tutti i libri: purtroppo ancora no</li>
+                <li>Vajra ci parla della Forza Grigia. Ci propone di entrare. Saremmo anche membri delle Mani Magiche</li>
+                <li>Grimbar non è molto concentrato e irrita leggermente la padrona di casa</li>
+                <li>voce nella testa di Duma: "entrare nella Forza Grigia è totalizzante; non c'è spazio per altri ruoli"</li>
+              </ul>
+              Poi la donna mette le mani su una sfera di cristallo, tutto si illumina e ... i 5 si ritrovano fuori.
+            </li>
+            <li>
+              <div class="events-title"><i>uccellini di carta e abiti da sera</i></div>
+              Non c'è molto da fare adesso per gli eroi, se non ragionare sulla proposta. Mentre si dirigono al solito punto di ritrovo, il Portale Spalancato, Numon prende da parte Duma chiedendogli come intende muoversi tra la proposta di Vajra e quella di Jalester. Intanto, qualche metro più avanti, un uccellino di carta svolazza tra le mani di Reed: "Renear dice che sei un cavallo su cui puntare. Ti aspetto stasera all'opera al teatro Cantore di Luce. Abito da sera, mi raccomando".
+              <ul>
+                <li>pranzo alla locanda</li>
+                <li>si va al mercato in cerca di vestiti adatti</li>
+                <li>Duma, Reed e Grimbar si accontentato di un vestito quasi decente</li>
+                <li>Renn e Numon riescono a contrattare un buon prezzo su un vestito pregiato</li>
+              </ul>
+              Il pomeriggio è libero, e Numon approfitta di questo tempo per infondere un po' di magia nell'ascia di Grimbar: un piccolo potenziamento non fa mai male. Ora si aspetta che cali il sole e arrivi l'ora del ritrovo per lo spettacolo di questa sera...
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+
+
+
 
 
 

@@ -482,6 +482,53 @@
       }
     }
 
+  .inn_cash_fund {
+    /* background: #f4e7c6; */
+    background-color: var(--h2-bg);
+    /* font-variant: small-caps; */
+    border: 3px solid #8b5a2b;
+    border-radius: 12px;
+    padding: 12px 18px;
+    width: fit-content;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    position: relative;
+    font-family: "Georgia", serif;
+  }
+  /* Effetto pergamena bruciata */
+  .inn_cash_fund:before,
+  .inn_cash_fund:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #8b5a2b;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .inn_cash_fund:before { left: -10px; }
+  .inn_cash_fund:after { right: -10px; }
+  .cash_content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+  .cash_label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #4b2e10;
+  }
+  .cash_value {
+    background: #cfae66;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2b1a06;
+    border: 2px solid #8b5a2b;
+  }
+
   </style>
 </head>
 <body>
@@ -652,7 +699,7 @@
 
     <!-- Appunti delle sessioni -->
     <!-- sessione 1 -->
-    <div>
+    <div class="cap">
       <button class="collapsible">Sessione 1</button>
       <div class="content text">
         <div class="date-n-intro">
@@ -1935,7 +1982,9 @@
           </div>
         </div>
         <p class="intro">
-          <i>Uno gnomo si fa strada tra la folla, diretto al quartiere del castello. Si muove circospetto, come se qualcuno lo inseguisse, sembra quasi vedere delle ombre dietro di sé. Cammina e si ritrova davanti ad un maniero piuttosto ben messo, probabilmente di qualche aristocratico. Suona il campanello: nessuna risposta. Suona ancora e ancora, ma sempre silenzio. Lo gnomo si gira; dall'ombra delle case escono delle sagome scure e minacciose. Non ci pensa a lungo e scappa, lasciandosi dietro il maniero. Sul campanello la scritta riflette i raggi della luna: "Maniero Neverember".</i><br>
+          <i>Uno gnomo si fa strada tra la folla, diretto al quartiere del castello. Si muove circospetto, come se qualcuno lo inseguisse, sembra quasi vedere delle ombre dietro di sé. Cammina e si ritrova davanti ad un maniero piuttosto ben messo, probabilmente di qualche aristocratico. Suona il campanello: nessuna risposta. Suona ancora e ancora, ma sempre silenzio. Lo gnomo si gira; dall'ombra delle case escono delle sagome scure e minacciose. Non ci pensa a lungo e scappa, lasciandosi dietro il maniero. Sul campanello la scritta riflette i raggi della luna: "Maniero Neverember".</i>
+          <br>
+          <br>
           Intanto i 5 eroi arrivano alla locanda, dove trovano Volo che li sta aspettando. Duma individua anche Jalester, seduto al solito tavolo.
         </p>
         <h3>Eventi</h3>
@@ -2022,7 +2071,7 @@
                       <span class="modal-content pg" onclick="event.stopPropagation()">
                         <span class="close-btn" onclick="chiudiZoom('modalZoom-Hlam')">×</span>
                         <span class="description enf">Hlam, monaco</span>
-                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Mirt.jpg" alt='Zoom Hlam, monaco'>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Hlam-monaco.jpg" alt='Zoom Hlam, monaco'>
                       </span>
                     </span>
                   </span> li rimprovera, Grimbar si presenta e spiega chi li manda e perché</li>
@@ -2154,16 +2203,398 @@
       </div>
     </div>
 
+    <!-- Fondo Cassa Locanda -->
+    <div class="inn_cash_fund cap">
+      <div class="cash_content">
+        <span class="cash_label">Fondo cassa Locanda (<i>Allo Spettro Incendiato</i>):</span>
+        <span class="cash_value">40 MO</span>
+      </div>
+    </div>
+
+    <!-- sessione 16 -->
+    <div class="cap">
+      <button class="collapsible">Sessione 16</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-10-13">13.10.2025</time>
+            <div class="date-game-box">
+              dal <time datetime="1493-01-07" class="date-game">7 Hammer 1493</time>
+              al <time datetime="1493-01-?" class="date-game">11 Hammer 1493</time>
+            </div>
+          </div>
+        </div>
+        <p class="intro">
+          <i>Uno gnomo corre nella melma delle fogne. Il liquido nauseabondo scorre nei rigagnoli mentre il fuggiasco cerca un nascondiglio. Si ferma in un anfratto, tra i cunicoli bui; gli tremano le mani, sembra affranto e impaurito: lo stanno inseguendo. La mano scorre nella tasca, dove si stringe intorno a qualcosa... &lt;&lt; Sì, starà meglio con loro che con me &gt;&gt;. Apre il borsello: un mucchio di gemme scintilla nei bagliori dei pochi raggi di luna che filtrano dai tombini. Lo gnomo lo fissa, poi deciso lo richiude e si corica, sperando che la notte lo protegga dai pericoli che solo lui sa di star correndo.</i><br>
+          Intanto al maniero il pallido sole del settimo giorno di Profondo Inverno è sorto, e i preparativi per l'imminente inaugurazione della locanda stanno ricevendo gli ultimi ritocchi.
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>preparativi</i></div>
+              Gli ultimi giorni sono stati piuttosto pieni per i nostri eroi, intenti, oltre a portare avanti i preparativi, anche a occuparsi di migliorare le proprie armi e i propri incantesimi, per non farsi trovare impreparati. In particolare Numon sembra aver sviluppato una certa attrazione per i metalli: va e viene portando scarti e lamiere, lavorandoli per ore intere.
+              <ul>
+                <li>personale: Fistula (mezzorca) [cucina], Jafar (umano) e Lerissa (Tiefling) [sala], Lucan (mezzelfo) [locandiere]</li>
+                <li>spese medie per decade: 50 MO (stipendi) + 10 MO (gilde e forniture)</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>l'inaugurazione</i></div>
+              Si fa sera, e la gente comincia a presentarsi alla nuova locanda: un halfling cuoreforte che si guarda intorno, un giovane umano accompagnato da una scriba tiefling, un umano Illuskan che se ne sta per le sue, un po' losco, e una nana degli scudi vestita con una tonaca da maga e vesti sgargianti, accompagnata da un grosso costrutto di legno, che la scorta composto e sull'attenti.
+              <ul>
+                <li>prima che inizi la serata: arriva Tre Corde, si mette a suonare con Reed</li>
+                <li>prima che inizi la serata: Numon si presenta con un
+                  <span class="pg-wrapper">
+                    <span class="enf">costrutto</span>
+                    <span class="zoom-pg-box">
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/difensore-golem.jpg" alt='difensore golem, costrutto' class="zoom-pg-img" onclick="apriZoom('modalZoom-difensore-golem')">
+                    </span>
+        
+                    <span class="modal pg" id="modalZoom-difensore-golem" onclick="chiudiZoom('modalZoom-difensore-golem')">
+                      <span class="modal-content pg" onclick="event.stopPropagation()">
+                        <span class="close-btn" onclick="chiudiZoom('modalZoom-difensore-golem')">×</span>
+                        <span class="description enf">difensore golem, costrutto</span>
+                        <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/difensore-golem.jpg" alt='Zoom difensore golem, costrutto'>
+                      </span>
+                    </span>
+                  </span>; viene messo a servire</li>
+                <li>Grimbar e Numon si avvicinano alla nana, Grimbar si presenta e riesce a fare colpo dimostrando una discreta conoscenza del costrutto (trasmutazione)</li>
+                <li>la nana è perennemente accigliata, spaventa tutti (colpa anche del costrutto), ma con Grimbar è socievole</li>
+                <li>la nana spiega di essere una maga: Ulkoria Stone Marrow, ex proprietaria del maniero e ha difeso Waterdeep molte volte</li>
+                <li>... info sulla famiglia ... (@Rick)</li>
+                <li>Numon studia il costrutto in silenzio, poi fa per toccarlo: la nana lo avverte che potrebbe non essere piacevole</li>
+                <li>Numon chiede informazioni sul costrutto, ma non ottiene nulla di interessante se non un calcio da Grimbar</li>
+                <li>Duma porta due amari all'umano: si scopre essere della Gilda dei Mescitori, non è entusiasta delle bevande</li>
+                <li>la scriba scrive ogni parola; lui spiega che così non dimentica nulla; propone di farsi consigliare da lui sulle bevande: porterà degli assaggi</li>
+                <li>Renn fa giochi di prestigio con le monete, guadagna una mancia di 4 MO</li>
+                <li>Reed suona con Tre Corde</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>inizio col botto</i></div>
+              <i>Le luci si spengono, si fa buio in tutta la locanda. Poi una piccola luce si accende in mezzo alla stanza, e una voce potente dà l'annuncio ufficiale: Lo Spettro Incendiato inizia ufficialmente la sua attività! Detto questo, un boato scuote le pareti, e l'immagine di uno spettro in fiamme compare sulla parete. È un successo!</i><br>
+              Numon e Reed si guardano soddisfatti, ma non tutti si sono goduti lo spettacolo...
+              <ul>
+                <li>Renn approfitta del buio per alleggerire qualche borsello: racimola 9 MO</li>
+                <li>andando via, Ulkoria si avvicina a Renn e lo costringe a restituire tutto; lo fa lei con una scusa</li>
+                <li>la serata finisce, rimangono Tre Corde e Volo, a cui vengono offerte due birre, ripagate dalle mance lasciate da loro</li>
+                <li>il locale chiude e i 5 possono finalmente riposare</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>bussano alla porta...</i></div>
+              <div>
+                <time datetime="1493-01-10" class="date-game">10 Hammer 1493</time>
+              </div>
+              Tre giorni passano in fretta, e a fine decade si tirano le somme: un bel gruzzoletto di 18 MO entra nelle tasche dei nuovi proprietari. Serviranno a coprire le spese e gli arretrati.
+              <ul>
+                <li>Numon e Grimbar si mettono a costruire una cassaforte di legno</li>
+              </ul>
+              <div>
+                <time datetime="1493-01-11" class="date-game">11 Hammer 1493</time>
+              </div>
+              Il giorno dopo dei timidi raggi di sole sfidano il gelo, senza riuscire a sciogliere la neve che ricopre le strade e i tetti di Waterdeep. Un suono di violini e flauti si intrufola dalle finestre delle stanze di Duma e di Numon: sulla via che costeggia la locanda stanno passando persone intente a recarsi a lavorare, oltre a degli spalatori già a lavoro. All'improvviso, una grossa esplosione fa tremare le pareti dell'edificio, e una nube di fumo comincia ad alzarsi da quello che sembra essere l'ingresso del maniero...
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible">Sessione 17</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-10-27">27.10.2025</time>
+            <div class="date-game-box">
+              dal <time datetime="1493-01-11" class="date-game">11 Hammer 1493</time>
+              al <time datetime="1493-01-11" class="date-game">11 Hammer 1493</time>
+            </div>
+          </div>
+        </div>
+        <p class="intro">
+          La porta del maniero viene spalancata, e uno spettacolo raccapricciante prende forma davanti agli occhi sconcertati degli avventurieri: un cratere incandescente ribolle fuori dall'ingresso della locanda, costellato da cadaveri carbonizzati. Sembrano persone comuni, ma tre di loro sono armati, anche se hanno le armi riposte nei foderi; uno ha il simbolo degli Zentharim.
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>uno gnomo armato d'asc... ah no</i></div>
+              Lo sguardo esperto di Duma viene catturato da un corpo in particolare, quello di uno gnomo: ha un pugnale, liquame sugli stivali e quello che sembra un borsello.
+              <ul>
+                <li>forse il cratere è stato generato da un incantesimo Palla di Fuoco</li>
+                <li>il liquame sembra quello delle fognature</li>
+                <li>il borsello contiene 5 gemme</li>
+                <li>Numon si avvicina e casta Individuazione del magico: le gemme non sono magiche, ma c'è dell'altro...</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>gioielli esplosivi</i></div>
+              Il fumo ha attirato un cavalcatore di grifoni, ma sembra rimanere in disparte, in volo. L'incantesimo di Numon rivela esserci un oggetto magico nella zona: qualcosa nascosto in un barile lì vicino, proprio dove un ragazzino sta frugando...
+              <ul>
+                <li>arriva una pattuglia: transennano l'area</li>
+                <li>i 5 si avvicinano al barile e al bambino: è un halfling, scosso, vicino 4 cadaveri di bambini halfling</li>
+                <li>Numon si inginocchia, lo tranquillizza e percepisce l'oggetto magico nella sua tascsa</li>
+                <li>Numon gli chiede di vederlo: è una collana di perle rosse dalla chiusura rotta, due perle rimaste; Reed capisce che ogni perla racchiude un incantesimo Palla di Fuoco</li>
+                <li>il bambino dice che è caduta dall'alto nel barile d'acqua</li>
+                <li>Duma convince il bambino che la collana può aiutare a capire come sono morti i suoi amici; riesce a farsela lasciare</li>
+                <li>le perle sono vitree, si rompono se lanciate a terra</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>non si ruba ai morti</i></div>
+              Due membri della vigilanza iniziano a interrogare i presenti: un sergente (Saeth Cromley) e un arcanista (Barnibus Blastwind), probabilmente appartenente ai maghi protettori, seguiti da una ventina di conestabili. I 5 decidono di giocare in attacco e si dirigono da loro senza aspettare il proprio turno.
+              <ul>
+                <li>Duma prende la parola e racconta; poi consegna la collana all'arcanista</li>
+                <li>raccontano tutto, tranne del borsello di gemme; si accorgono che stanno tralasciando qualcosa</li>
+                <li>viene fuori che Duma non è più nella vigilanza; consegna le gemme</li>
+                <li>Numon li accompagna al barile e racconta. Poi chiede info sullo gnomo ma non lo conosce nessuno</li>
+                <li>la vigilanza se ne va e viene pulito tutto</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>un burattino incappucciato</i></div>
+              Un gruppo di persone si è radunato intorno a un'elfa dei boschi, Fala Lefalir, dell'erboristeria La Corona di Coreilon: sta raccontando la sua versione della vicenda, e sembrano tutti molto interessati.
+              <ul>
+                <li>Reed la invita a sedersi nella locanda, approfittando per portarsi dietro un po' di persone e aprendo il locale</li>
+                <li>Fala annaffiava le piante quando lo scoppio ha rotto i vetri</li>
+                <li>lei si è affacciata e ha visto un uomo ammantato prendere qualcosa dallo gnomo e fuggire in direzione del Chiodo Storto (Est), ferito</li>
+                <li>Reed riferisce agli altri quanto ha sentito</li>
+              </ul>
+              Intanto Duma percepisce che un altro gruppo di persone si è radunato intorno a un'altra donna dal vestito elegante, tutta scintillante di perle. Numon lo raggiunge un po' più tardi.
+              <ul>
+                <li>&lt;&lt; Uscivo dall'Occhio della Tigre, ho visto un essere in cima al tetto, sembrava un burattino; ha lanciato qualcosa ed è fuggito &gt;&gt;</li>
+                <li> &lt;&lt; Scintillava, era come un burattino dorato &gt;&gt;, &lt;&lt; Ho visto quegli halfling bruciare vivi &gt;&gt; </li>
+                <li>Numon si avvicina con il costrutto e chiede se fosse simile: sì, ma non uguale</li>
+                <li>Numon intuisce che la descrizione corrisponde agli automi che sfilano nel "Giorno delle Meraviglie" (il 3 di Marpenot) al tempio di Gond, organizzato dalle Mani Ispirate</li>
+                <li>la taverna si svuota e vanno tutti a dormire</li>
+              </ul>
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible">Sessione 18</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-11-03">03.11.2025</time>
+            <div class="date-game-box">
+              dal <time datetime="1493-01-12" class="date-game">12 Hammer 1493</time>
+              al <time datetime="1493-01-12" class="date-game">12 Hammer 1493</time>
+            </div>
+          </div>
+        </div>
+        <p class="intro">
+          Il mattino arriva più in fretta del solito alla locanda. Il pensiero del risveglio turbolento del giorno precedente è ancora molto vivido nelle menti degli avventurieri. Numon sorseggia la sua tisana alle erbe mentre ripensa all'automa descritto dalla donna. Non sono comuni, e uno ricorda di averlo visto proprio al tempio. I compagni sono incuriositi e il dragonide parla agli altri del dio Gond, mostrando loro il ciondolo che ha al collo. Intanto nella mente di Renn prende forma un messaggio mentale di Vjara. Fuori dalla finestra, vicino all'allegro Reed, un uccellino di carta** picchietta sul vetro.
+          * Vjara: "..."
+          ** Arpisti: "..."
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>nuovi incarichi</i></div>
+              Le missioni sono due, e il gruppo non riesce a mettersi d'accordo su quale fare prima. Intanto in taverna arriva Jalester.
+              <ul>
+                <li>Numon preme per andare in soccorso della bibliotecaria, Reed è con lui; gli altri si vogliono separare</li>
+                <li>Numon, Grimbar e Renn ricordano caratteristiche dei draghi di bronzo: sputano fulmini, tendenzialmente buoni/legali, amano insediarsi sulle coste per osservare le navi, saccheggiano navi affondate e recuperano bottini, sono mutaforma e contro la tirannia</li>
+                <li>Jalester consegna 5 ampolle di respirazione sott'acqua da parte del Bastone Nero; dentro: bolla a forma di medusa</li>
+                <li>Jalester chiede a Duma un report sul cratere</li>
+                <li>nuova missione a Duma: Harco Swornhold, esiliato 3 anni prima per tentativo di corruzione, sta reclutando Kenku, forse per gli Xanathar, avvistato al porto. Sottovoce: &lt;&lt; Passalo a fil di spada &gt;&gt;</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>un gatto da salvare</i></div>
+              Dato che è di strada, i 5 decidono di andare prima dalla bibliotecaria, alla taverna indicata. La signora è al bancone, in lacrime. Numon si presenta e la rassicura, poi si fa accompagnare alla biblioteca, mentre lei descrive una creatura globulare dai molti occhi che agli avventurieri ricorda lo scrutatore delle fogne.
+              <ul>
+                <li>entrano dal retro, salgono al secondo piano: libreria in subbuglio</li>
+                <li>terzo piano: grimbar sale, seguito da Duma che viene scaraventato giù dalle scale</li>
+                <li>sconfitto il mostro, Numon lo prende e lo porta fuori per gettarlo nella spazzatura</li>
+                <li>la vecchietta ringrazia regalandoci un libro di incantesimi</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>nano batte mezzorca</i></div>
+              La prima missione è andata, e i 5 avvertono un certo languorino. Si dirigono al Portale Spalancato.
+              <ul>
+                <li>Grimbar cerca informazioni su Harco</li>
+                <li>Reed e Renn individuano Yagra: sta facendo braccio di ferro con un umano</li>
+                <li>i due halfling chiedono una sfida: in palio 2 birre o delle informazioni</li>
+                <li>Grimbar batte Yagra, che propone una rivincita con il doppio della posta: negata</li>
+                <li>chiedono info sugli Zentharim ma non dice nulla: dice di chiedere all'elfo biondo al piano di sopra</li>
+                <li>Renn mente dicendo che non sa nulla di ciò</li>
+              </ul>
+              Il gruppo di avventurieri, riluttante e per niente soddisfatto delle scarse informazioni ricevute, si dirige verso le scale; sono pronti per conoscere un nuovo attore di questa sempre più intricata storia...
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible">Sessione 19</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-11-24">24.11.2025</time>
+            <div class="date-game-box">
+              dal <time datetime="1493-01-12" class="date-game">12 Hammer 1493</time>
+              al <time datetime="1493-01-13" class="date-game">13 Hammer 1493</time>
+            </div>
+          </div>
+        </div>
+        <p class="intro">
+          L'elfo del sole è lì, intento a sfogliare delle scartoffie. Ha la pelle molto chiara, il fisico prestante ed è in abiti eleganti. I 5 non erano pronti a trovarsi di fronte un tipo del genere; in fondo i cattivi si nascondono, giusto?<br>
+          Grimbar si fa avanti rompendo il silenzio, invitando l'elfo a confessare tutti gli intrighi, senza troppi convenevoli. L'elfo mente, dichiarandosi estraneo a ogni accusa, finché Renn non chiede &lt;&lt; Ricordi la proposta che mi hai fatto? &gt;&gt;. Incuriosito, l'elfo chiede se ci abbia ripensato. Poi riferisce agli altri di che proposta si tratta.
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>un nuovo datore di lavoro</i></div>
+              Devil Starsong spiega che c'è un assassino nel quartiere del porto; dalle sue vittime sembra prediliga gli elfi: ne ha uccisi tre, decapitati di notte.
+              <ul>
+                <li>Devil afferma di lavorare per sé stesso, negli interessi della città</li>
+                <li>ricompensa: 50 MO a testa per far cessare gli omicidi</li>
+                <li>i 5 accettano e se ne vanno</li>
+                <li>Duma si ferma a chiedere info su Harco: dicono di chiedere a chi lavora agli ormeggi</li>
+              </ul>
+              Uscendo, Numon chiede a Renn come mai non avesse accettato la sua proposta. Renn spiega che quella non era la vera proposta che gli fu fatta; Devil è a capo di una divisione separata degli Zentharim: a lui era stato chiesto di unirsi a loro.
+            </li>
+            <li>
+              <div class="events-title"><i>a nanna presto</i></div>
+              Mentre si dirigono verso il porto, Renn, spinto da Numon, informa gli altri sulla questione riguardante Devil. Tutti concordano sul fare attenzione alle informazioni che decideranno di riportare.
+              Intanto al porto le informazioni che il gruppo riesce a raccogliere sono sempre le stesse.
+              <ul>
+                <li>drago: avvisatamenti nella baia</li>
+                <li>Harco: sembra si aggiri nel quartiere, reclutando mostri e banditi, ma si sposta di continuo</li>
+                <li>assassino: 3 morti, decapitati di notte, nelle vie vicino al porto</li>
+              </ul>
+              È l'ora sesta, ma gli avventurieri decidono di cenare presto e sistemare i giacigli per rimanere a dormire nella barca incagliata di Reed, ora bloccata dal ghiaccio; stanotte si andrà a caccia.
+            </li>
+            <li>
+              <div class="events-title"><i>a caccia di assassini</i></div>
+              Sono appena le due di notte quando i 5 sgattaiolano fuori dalla barca per appostarsi nelle vie vicine al porto. Duma ha effettuato un incantesimo di camuffamento per fingersi un elfo e poter attirare l'assassino. Gli altri sono appostati, pronti a intervenire in sua difesa se la situazione dovesse farsi complicata.
+              <ul>
+                <li>nulla la prima ora</li>
+                <li>il bastone di Reed comincia a brillare di luce fioca; lui gli dà qualche colpetto, poi torna normale</li>
+                <li>un uomo alticcio, forse marinaio, si avvicina lungo la strada; i 5 lo seguono</li>
+                <li>compare un umanoide incappucciato e armato: colpisce l'uomo, poi corre verso Duma e gli fa un grosso squarcio nel petto</li>
+                <li>ha occhi gelidi e carnagione molto chiara, ma ha il viso coperto</li>
+                <li>i 4 appostati intervengono, ma l'assassino estre un'arma mai vista: una pistola; la punta verso Duma</li>
+                <li>il costrutto di Numon corre in soccorso dell'umano, riuscendo a distrarre l'assassino e deviando il colpo</li>
+                <li>i colpi ricevuti dall'assassino lo costringono alla ritirata, ma Duma lancia un incantesimo per addormentarlo</li>
+              </ul>
+              L'assassino viene legato. È tempo di scoprire che volto ha.
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible">Sessione 20</button>
+      <div class="content text">
+        <div class="date-n-intro">
+          <h3>Scena introduttiva</h3>
+          <div class="date">
+            <time datetime="2025-12-01">01.12.2025</time>
+            <div class="date-game-box">
+              dal <time datetime="1493-01-13" class="date-game">13 Hammer 1493</time>
+              al <time datetime="1493-01-14" class="date-game">14 Hammer 1493</time>
+            </div>
+          </div>
+        </div>
+        <p class="intro">
+          <i>Il grosso portone della magione si staglia solido e imponente. L'uomo è vestito di nero, col volto coperto; zoppica un po', il respiro ansimante di chi non ha fatto un passeggiata tranquilla, o forse sospetta di essere seguito. Il portone si apre; dietro fa capolino una nobildonna ben vestita che accoglie l'uomo incappucciato. La donna è visibilmente sorpresa e preoccupata, ma fa accomodare l'uomo all'interno. Poi, dopo aver dato un'occhiata fuori, chiude il portone.<br>
+          &lt;&lt; L'ho presa. Cos'è stato quello che è successo? &gt;&gt;
+          La donna lo invita a sedersi e a riposarsi, poi controlla le finestre: sembra che intorno alla villa non si muova nulla; in casa gli unici rumori sono quelli di qualche servitore.</i>
+          <br>
+          <br>
+          Al porto intanto è circa l'ora quarta della notte, e i 5 avventurieri stanno perquisendo l'assassino appena legato. Duma gli toglie il cappuccio: è un draw, un elfo oscuro. Numon ricorda che vivono nell'Underdark, raramente salgono in superficie, e solo per interessi personali. Sono tendenzialmente malvagi e devoti a Lolth, la dea ragno. La loro società è matriarcale, e gli uomini sono considerati quasi schiavi. Nessun errore è concesso loro; la pena è la morte. Alcuni riescono a fuggire, ma vengono marchiati come rinnegati.
+        </p>
+        <h3>Eventi</h3>
+        <p>
+          <ul>
+            <li>
+              <div class="events-title"><i>un draw a picco</i></div>
+              Grimbar scuote il marinaio per farlo rinvenire e provare a interrogarlo, ma senza ottenere informazioni utili. Lo lasciano andare, poi si occupano del draw: dopo averlo perquisito, il nano e il costrutto sollevano l'elfo oscuro, portandolo fino alla barca di Reed. Qui viene scaricato a terra senza troppe gentilezze.
+              <ul>
+                <li>perquisizione: scimitarra, scudo, arma da fuoco, borsello con 4 sacchetti polvere nera e 20 pallottole</li>
+                <li>Numon si mette a studiare la nuova arma: incisione a forma di ragno si dirama dal percussore, fattura draw; veleno sulla punta delle pallottole</li>
+                <li>Grimbar interroga il draw: ringhia, quindi il nano lo colpisce; inizia a rispondere</li>
+                <li>&lt;&lt; Non c'è posto per quelli come me nell'Underdark. Ho messo in discussione l'autorità delle matriarche. Sono dovuto scappare &gt;&gt;</li>
+                <li>&lt;&lt; Uccidere è il mio passatempo. Gli elfi meritano di morire. Sarei acclamato nella mia terra per ciò che ho fatto &gt;&gt;</li>
+                <li>non ha mai avuto a che fare con Zentharim e Xanathar</li>
+                <li>Numon interviene puntando l'arma scarica in testa al draw: non lo intimidisce</li>
+                <li>Numon passa l'arma a Grimbar e gli spiega come funziona. Lui la carica e spara</li>
+                <li>Numon, individuazione del magico: stivali elfici, illusione. furtività, passo felpato. Li indossa Duma</li>
+                <li>il draw viene legato a un masso e buttato a mare</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>buongiorno, buonasera e buonanotte</i></div>
+              <ul>
+                <li>mattina: info su Harco e sul drago: scarse</li>
+                <li>vendita scimitarra e scudo: 22 MO aggiunte al fondo cassa</li>
+                <li>visita al Portale Spalancato: Yagra consegna un borsello con 250 MO</li>
+                <li>saldato debito della locanda</li>
+                <li>pomeriggio. info su Harco: soddisfacenti, i 5 sono sulla buona strada</li>
+                <li>tornano alla barca a dormire</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>indovina chi è tornato?</i></div>
+              <div>
+                <time datetime="1493-01-14" class="date-game">14 Hammer 1493</time>
+              </div>
+              Un rumore di passi sopra coperta interrompe i dolci sogni del gruppo di avventurieri. Sembra stiano effettuando un'ispezione dell'imbarcazione.
+              <ul>
+                <li>Duma lancia un incantesimo di camuffamento per far sembrare la stanza vuota</li>
+                <li>3 uomini in divisa scendono sotto coperta: i 5 riconoscono la voce di Staget</li>
+                <li>i 3 esaminano la barca e trovano le macchie di sangue, ma non si accorgono dell'illusione</li>
+                <li>se ne vanno, andando a controllare chi sia il proprietario della barca</li>
+              </ul>
+            </li>
+            <li>
+              <div class="events-title"><i>in cerca di una barca</i></div>
+              Quando il rumore di passi è sufficientemente lontano, il gruppo può tirare un sospiro di sollievo e rilasciare la tensione. Di questa questione se ne occuperanno più avanti. Ora è il momento di trovare un passaggio per l'isola del drago.
+              <ul>
+                <li>i 5 si avviano verso la Fiera delle Sirene, in cerca delle barche di Zardoz</li>
+                <li>salgono sulla "Furia Infernale" e vengono mandati dal capitano</li>
+                <li>il capitano, Fergus Starkwater, sta facendo colazione con pasta e vino</li>
+                <li>ci riconosce, ma non stringe la mano a Numon per non ungergliela</li>
+                <li>Numon fa un po' di convenevoli, poi spiega la loro necessità e chiede un passaggio fino alla baia di Acquafonda</li>
+                <li>Numon spiega che è per il bene della città, e sono stati incaricati dalle Mani Grigie</li>
+                <li>Fergus concede loro una scialuppa, ma palesa la possibilità di un ricambio di favori</li>
+              </ul>
+              Ringraziando e senza perdere tempo, i 5 avventurieri salgono sulla scialuppa, salpando verso la baia. La navigazione scorre tranquilla, e il gruppo arriva a destinazione senza problemi. Appena attraccati però, un guizzo nell'acqua cattura la loro attenzione: sotto di loro, a pochi metri, sta nuotando quello che sembra un grosso serpente marino. Non fanno in tempo a dire nulla che la creatura si è già infilata in un relitto, scomparendo dalla loro vista.
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+
+
 
 
 
     <!-- prossima sessione -->
-    <div>
+    <div class="cap">
       <button class="collapsible next-ses-btn">Prossima Sessione</button>
       <div class="content text">
         <div class="date-n-intro">
           <h3></h3>
-          <time datetime="2025-10-?">13.10.2025</time>
+          <time datetime="2025-10-?">15.12.2025</time>
         </div>
         <p class="to-be-continued">
           to be continued...
@@ -2180,7 +2611,10 @@
           <h3>Scena introduttiva</h3>
           <div class="date">
             <time datetime="2025-05-03">0.0.2025</time>
-            <time datetime="1493-01-?" class="date-game">? Nightal 1493</time>
+            <div class="date-game-box">
+              dal <time datetime="1493-01-?" class="date-game">? Hammer 1493</time>
+              al <time datetime="1493-01-?" class="date-game">? Hammer 1493</time>
+            </div>
           </div>
         </div>
         <p class="intro">

@@ -581,7 +581,7 @@
                 <span class="close-btn" onclick="chiudiZoom('modalZoom-map-WD')">×</span>
                 <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Waterdeep.jpg" alt="Zoom">
               </div>
-            </div>          
+            </div>
           </div>
         </div>
       </div>
@@ -684,12 +684,27 @@
               </div>
               <div>
                 <h6>menù</h6>
-                <div class="zoom-img-wrapper">
+                <!-- <div class="zoom-img-wrapper">
                   <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/locanda-menu.png" alt="menù della locanda" class="img-map">
                   <div class="zoom-box">
                     <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/locanda-menu.png" alt="zoom del menù della locanda" class="zoom-map">
                   </div>
+                </div> -->
+                <div class="zoom-img-wrapper">
+                  <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/locanda-menu.png" alt="menù della locanda" class="img-map" onclick="apriZoom('modalZoom-menu-locanda')">
+
+                  <div class="zoom-box">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/locanda-menu.png" alt="zoom del menù della locanda" class="zoom-map" onclick="apriZoom('modalZoom-menu-locanda')">
+                  </div>
+
+                  <div class="modal" id="modalZoom-menu-locanda" onclick="chiudiZoom('modalZoom-menu-locanda')">
+                    <div class="modal-content" onclick="event.stopPropagation()">
+                      <span class="close-btn" onclick="chiudiZoom('modalZoom-menu-locanda')">×</span>
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/locanda-menu.png" alt="Zoom">
+                    </div>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>

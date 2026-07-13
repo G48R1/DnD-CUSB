@@ -518,6 +518,203 @@
       color: var(--text-muted);
     }
 
+
+    /* ================= BACHECA DEGLI INCARICHI ================= */
+    .quest-board {
+      background: linear-gradient(135deg, #16100b 0%, #0a0705 100%);
+      border: 2px dashed var(--gold-dim);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px 0;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+    }
+
+    .quest-board-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      color: var(--gold-bright);
+      text-align: center;
+      margin: 20px 0 15px 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px var(--gold-glow);
+    }
+    .quest-board-title.history {
+      border-top: 1px solid var(--border-metallic);
+      padding-top: 15px;
+      margin-top: 30px;
+    }
+
+    .quest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* La singola pergamena appesa alla bacheca */
+    .quest-card {
+      background: linear-gradient(150deg, #241c15 0%, #19120d 100%);
+      border: 1px solid var(--border-metallic);
+      border-top: 4px solid var(--crimson); /* Sigillo rosso per attive */
+      border-radius: 4px;
+      padding: 18px;
+      position: relative;
+      box-shadow: 3px 5px 15px rgba(0,0,0,0.6);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .quest-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold-dim);
+      box-shadow: 5px 8px 20px rgba(0,0,0,0.8);
+    }
+
+    /* Variante Storico (Missioni Completate) */
+    .quest-card.completed {
+      border-top: 4px solid #3a423a; /* Sigillo spento */
+      background: linear-gradient(150deg, #191410 0%, #120e0a 100%);
+      opacity: 0.6;
+    }
+    .quest-card.completed:hover {
+      opacity: 0.9;
+    }
+
+    .quest-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      margin: 0 0 10px 0;
+      padding-bottom: 5px;
+      border-bottom: 1px dashed rgba(148, 116, 62, 0.3);
+    }
+    .quest-card.completed .quest-title {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .quest-desc {
+      font-size: 0.9rem;
+      color: #d1c7b2;
+      margin: 0 0 15px 0;
+      line-height: 1.4;
+    }
+    .quest-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-family: 'Cinzel', serif;
+    }
+    .quest-giver {
+      color: var(--text-muted);
+    }
+    .quest-reward {
+      color: var(--gold-bright);
+      font-weight: 600;
+    }
+
+    /* Sotto-sezione Sviluppi e Indizi nelle schede missione */
+    .quest-developments {
+      margin: 12px 0;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 2px solid var(--gold-dim);
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .quest-developments-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      color: var(--gold-bright);
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .quest-developments ul {
+      margin: 0;
+      padding-left: 15px;
+      list-style-type: '♦ '; /* Runa/losanga fantasy per i punti elenco */
+      color: #c4b9a3;
+    }
+
+    .quest-developments li {
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .quest-developments li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- EFFETTO IMPULSO MAGICO PER RICERCA/LINK --- */
+    @keyframes goldGlowPulse {
+      0% {
+        box-shadow: 0 0 5px var(--gold-bright), 0 10px 20px rgba(0, 0, 0, 0.5);
+        border-color: var(--gold-bright);
+      }
+      50% {
+        box-shadow: 0 0 25px var(--gold-bright), 0 10px 20px rgba(0, 0, 0, 0.7);
+        border-color: var(--gold-bright);
+        transform: scale(1.02);
+      }
+      100% {
+        box-shadow: 0 0 5px var(--gold-bright), 0 10px 20px rgba(0, 0, 0, 0.5);
+        border-color: var(--gold-bright);
+      }
+    }
+
+    .highlight-card {
+      animation: goldGlowPulse 1.5s ease-in-out 2;
+      border-color: var(--gold-bright) !important;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Tag di Stato stile scrittura a mano */
+    .quest-status-tag {
+      position: absolute;
+      top: -12px;
+      right: 12px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      padding: 1px 10px;
+      border-radius: 3px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
+    .status-active { background: var(--crimson); color: #fff; }
+    .status-done { background: #283328; color: #8cb38c; border: 1px solid #3a423a; }
+
+    /* Link rapidi alle sessioni nella bacheca */
+    .quest-session-links {
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(148, 116, 62, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+    .quest-session-link {
+      font-family: 'Cinzel', serif;
+      color: var(--text-muted) !important;
+      border-bottom: none !important; /* Rimuove la sottolineatura tratteggiata */
+      display: inline-flex;
+      align-items: center;
+    }
+    .quest-session-link:hover {
+      color: var(--gold-bright) !important;
+      text-shadow: 0 0 5px var(--gold-glow);
+    }
+    .quest-session-link::before {
+      content: "➔ 📖 ";
+      font-size: 0.75rem;
+      margin-right: 5px;
+      color: var(--gold-dim);
+    }
+
+
+
     /* Prossima Sessione */
     .next-ses-btn {
       border-left: 4px solid var(--gold-bright);
@@ -653,8 +850,217 @@
 
     <h2>Cronache delle Sessioni</h2>
 
-    <!-- Sessione 0 -->
-    <div style="margin-bottom: 10px;">
+    <!-- =================  BACHECA  ================= -->
+    <div style="margin-bottom: 15px;">
+      <button class="collapsible main-btn" style="border-left-color: var(--gold-bright);">Bacheca degli Incarichi</button>
+      <div class="content-blank">
+        <div class="quest-board">
+          
+          <div class="quest-board-title">📜 Missioni Attive 📜</div>
+          <div class="quest-grid">
+
+            <div class="quest-card">
+              <span class="quest-status-tag status-active">Attivo</span>
+              <h4 class="quest-title">Indagare su un sottomarino</h4>
+              <p class="quest-desc">Il drago di bronzo è incuriosito da quello che succede nel sottomarino agganciato sotto la "Gioia per gli Occhi", la nave ammiraglia di Zardoz Zord.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Drago di bronzo</span>
+                <span class="quest-reward">Premio: Da definire</span>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 21</a>
+                <!-- <a href="#ses-2" class="quest-session-link">Concluso nella Sessione ?</a> -->
+              </div>
+            </div>
+
+            <div class="quest-card">
+              <span class="quest-status-tag status-active">Attivo</span>
+              <h4 class="quest-title">Sorvegliare Meloon</h4>
+              <p class="quest-desc">Meloon Wardragon, membro della Forza Grigia, si comporta in modo strano.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Bastone Nero</span>
+                <span class="quest-reward">Premio: /</span>
+              </div>
+
+              <div class="quest-developments">
+                <div class="quest-developments-title">🔍 Sviluppi e Indizi</div>
+                <ul>
+                  <li>provare a sorvegliare Meloon di notte</li>
+                </ul>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 21</a>
+                <!-- <a href="#ses-2" class="quest-session-link">Concluso nella Sessione ?</a> -->
+              </div>
+            </div>
+
+            <div class="quest-card">
+              <span class="quest-status-tag status-active">Attivo</span>
+              <h4 class="quest-title">Distruggere l'automa</h4>
+              <p class="quest-desc">Un automa schermidore sembra sia l'autore dell'esplosione davanti al maniero.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Valetta</span>
+                <span class="quest-reward">Premio: 500 MO</span>
+              </div>
+
+              <div class="quest-developments">
+                <div class="quest-developments-title">🔍 Sviluppi e Indizi</div>
+                <ul>
+                  <li>segnale rilevato in villa Gralhund</li>
+                </ul>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 22</a>
+                <!-- <a href="#ses-2" class="quest-session-link">Concluso nella Sessione ?</a> -->
+              </div>
+            </div>
+
+            <div class="quest-card">
+              <span class="quest-status-tag status-active">Attivo</span>
+              <h4 class="quest-title">I Doppelganger di Tre Corde</h4>
+              <p class="quest-desc">Tre Corde ha fatto amicizia con un gruppo di Doppelganger. Verificare quanto siano affidabili.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Arpisti</span>
+                <span class="quest-reward">Premio: /</span>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 27</a>
+                <!-- <a href="#ses-2" class="quest-session-link">Concluso nella Sessione ?</a> -->
+              </div>
+            </div>
+
+            <div class="quest-card">
+              <span class="quest-status-tag status-active">Attivo</span>
+              <h4 class="quest-title">Fogne e Torvin</h4>
+              <p class="quest-desc">Un Bugbear venuto a salvare Ott, il nano progioniero, rivela di essere stato mandato da Torvin Twinbeard. Bisogna scendere nelle fogne e trovarlo.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Indagine Autonoma</span>
+                <span class="quest-reward">Premio: /</span>
+              </div>
+
+              <div class="quest-developments">
+                <div class="quest-developments-title">🔍 Sviluppi e Indizi</div>
+                <ul>
+                  <li>Torvin è un nano, forse un artefice o mago</li>
+                </ul>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 29</a>
+                <!-- <a href="#ses-2" class="quest-session-link">Concluso nella Sessione ?</a> -->
+              </div>
+            </div>
+
+            <div class="quest-card">
+              <span class="quest-status-tag status-active">Attivo</span>
+              <h4 class="quest-title">Urstul e Vipera Nera</h4>
+              <p class="quest-desc">Urstul Floxin è evaso, sembra con l'aiuto di Vipera Nera, famosa ladra d'appartamento, assassina, morta un secolo prima.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Indagine Autonoma</span>
+                <span class="quest-reward">Premio: Sopravvivenza</span>
+              </div>
+
+              <!-- <div class="quest-developments">
+                <div class="quest-developments-title">🔍 Sviluppi e Indizi</div>
+                <ul>
+                  <li></li>
+                </ul>
+              </div> -->
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 31</a>
+                <!-- <a href="#ses-2" class="quest-session-link">Concluso nella Sessione ?</a> -->
+              </div>
+            </div>
+
+            <div class="quest-card">
+              <span class="quest-status-tag status-active">Attivo</span>
+              <h4 class="quest-title">Consegnare delle pozioni</h4>
+              <p class="quest-desc">"Prelevate pozioni di lettura della mente da Skeemo, nostro amico, a Le Misture di WeirdBottle. Portatele a una signora col mantello viola sotto la statua del Cacciatore degli Dei nel Quartiere del Castello"</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Yagra</span>
+                <span class="quest-reward">Premio: Sopravvivenza Rete Nera</span>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 31</a>
+                <!-- <a href="#ses-2" class="quest-session-link">Concluso nella Sessione ?</a> -->
+              </div>
+            </div>
+
+            <div class="quest-card">
+              <span class="quest-status-tag status-active">Attivo</span>
+              <h4 class="quest-title">Ospitare Istrid Horn</h4>
+              <p class="quest-desc">Una nana degli scudi al servizio di Devil Starsong cerca rifugio nel maniero.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Istrid</span>
+                <span class="quest-reward">Premio: 20+20 MP</span>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 33</a>
+                <!-- <a href="#ses-2" class="quest-session-link">Concluso nella Sessione ?</a> -->
+              </div>
+            </div>
+
+          </div>
+
+          <div class="quest-board-title history">⌛ Storico Incarichi ⌛</div>
+          <div class="quest-grid">
+            
+            <div class="quest-card completed">
+              <span class="quest-status-tag status-done">Risolto</span>
+              <h4 class="quest-title">Trovare Floon Blagmaar</h4>
+              <p class="quest-desc">L'amico di Volo è scomparso nel quartiere del porto dopo una notte di locande. L'ultima volta è stato visto in compagnia di Renaer Neverember.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Volo</span>
+                <span class="quest-reward">Premio: Maniero</span>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 1</a>
+                <a href="#ses-2" class="quest-session-link">Concluso nella Sessione 5</a>
+              </div>
+            </div>
+
+            <div class="quest-card completed">
+              <span class="quest-status-tag status-done">Risolto</span>
+              <h4 class="quest-title">Far saltare l'accordo</h4>
+              <p class="quest-desc">Gli Zentharim cercano un accordo con Ezloon Bezan, mago rosso del Thai.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Alleanza dei Lord</span>
+                <span class="quest-reward">Premio: /</span>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 27</a>
+                <a href="#ses-2" class="quest-session-link">Concluso nella Sessione 28</a>
+              </div>
+            </div>
+
+            <!-- <div class="quest-card completed">
+              <span class="quest-status-tag status-done">Risolto</span>
+              <h4 class="quest-title">Missione Prova</h4>
+              <p class="quest-desc">Descrizione.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Fatalità</span>
+                <span class="quest-reward">Premio: ?</span>
+              </div>
+            </div> -->
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ================= SESSIONE 0 ================= -->
+    <div style="margin-bottom: 15px;">
       <button class="collapsible main-btn">Sessione 0: Introduzione a Waterdeep</button>
       <div class="content-blank">
         <p class="intro">
@@ -681,13 +1087,14 @@
       </div>
     </div>
 
+
     <!-- ================= CAPITOLO 1 ================= -->
     <div class="capitolo-container">
       <button class="collapsible capitolo-btn">Capitolo I: Il Portale Spalancato</button>
       <div class="content-blank">
 
         <div>
-          <button class="collapsible lv1-color">Sessione 1</button>
+          <button id="ses-1" class="collapsible lv1-color">Sessione 1</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -824,7 +1231,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 2</button>
+          <button id="ses-2" class="collapsible lv1-color">Sessione 2</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -918,7 +1325,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 3</button>
+          <button id="ses-3" class="collapsible lv1-color">Sessione 3</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -983,7 +1390,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 4</button>
+          <button id="ses-4" class="collapsible lv1-color">Sessione 4</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1068,7 +1475,7 @@
 
         <!-- Sessione 5 -->
         <div class="session-sep">
-          <button class="collapsible level-up-color">Sessione 5</button>
+          <button id="ses-5" class="collapsible level-up-color">Sessione 5</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1175,7 +1582,7 @@
       <div class="content-blank">
 
         <div>
-          <button class="collapsible lv1-color">Sessione 6</button>
+          <button id="ses-6" class="collapsible lv1-color">Sessione 6</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1288,7 +1695,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 7</button>
+          <button id="ses-7" class="collapsible lv1-color">Sessione 7</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1368,7 +1775,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 8</button>
+          <button id="ses-8" class="collapsible lv1-color">Sessione 8</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1478,7 +1885,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 9</button>
+          <button id="ses-9" class="collapsible lv1-color">Sessione 9</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1609,7 +2016,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 10</button>
+          <button id="ses-10" class="collapsible lv1-color">Sessione 10</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1670,7 +2077,7 @@
 
         <!-- sessione 11 -->
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 11</button>
+          <button id="ses-11" class="collapsible lv1-color">Sessione 11</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1718,7 +2125,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 12</button>
+          <button id="ses-12" class="collapsible lv1-color">Sessione 12</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1783,7 +2190,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 13</button>
+          <button id="ses-13" class="collapsible lv1-color">Sessione 13</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1847,7 +2254,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 14</button>
+          <button id="ses-14" class="collapsible lv1-color">Sessione 14</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -1924,7 +2331,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible level-up-color">Sessione 15</button>
+          <button id="ses-15" class="collapsible level-up-color">Sessione 15</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2018,7 +2425,7 @@
       <div class="content-blank">
 
         <div>
-          <button class="collapsible lv1-color">Sessione 16</button>
+          <button id="ses-16" class="collapsible lv1-color">Sessione 16</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2100,7 +2507,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 17</button>
+          <button id="ses-17" class="collapsible lv1-color">Sessione 17</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2176,7 +2583,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 18</button>
+          <button id="ses-18" class="collapsible lv1-color">Sessione 18</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2242,7 +2649,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 19</button>
+          <button id="ses-19" class="collapsible lv1-color">Sessione 19</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2309,7 +2716,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 20</button>
+          <button id="ses-20" class="collapsible lv1-color">Sessione 20</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2393,7 +2800,7 @@
 
         <!-- sessione 21 -->
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 21</button>
+          <button id="ses-21" class="collapsible lv1-color">Sessione 21</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2433,7 +2840,7 @@
                   La missione è conclusa, e il gruppo si dirige alla Torre del Bastone Nero per fare rapporto. Stavolta Vajra è in casa, immersa in scartoffie e pergamene, ma riceve gli avventurieri ascoltando il loro resoconto.
                   <ul>
                     <li>mostra interesse per la missione del drago, ma la accantona: ha altre priorità</li>
-                    <li>nuova missione: Melun Wardragon, degli alti ranghi della forza grigia, si comporta in modo strano</li>
+                    <li>nuova missione: Meloon Wardragon, degli alti ranghi della forza grigia, si comporta in modo strano</li>
                     <li>indizi: frequenta il Portale Spalancato; bisogna indagare senza destare sospetti</li>
                   </ul>
                   Congedati, i 5 tornano al maniero a riposare, non prima di aver origliato ancora qualche discorso sulla voragine, sul costrutto dorato e sull'altro umanoide fuggito.
@@ -2451,7 +2858,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 22</button>
+          <button id="ses-22" class="collapsible lv1-color">Sessione 22</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2551,7 +2958,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 23</button>
+          <button id="ses-23" class="collapsible lv1-color">Sessione 23</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2622,7 +3029,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 24</button>
+          <button id="ses-24" class="collapsible lv1-color">Sessione 24</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2681,7 +3088,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 25</button>
+          <button id="ses-25" class="collapsible lv1-color">Sessione 25</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2760,7 +3167,7 @@
 
         <!-- sessione 26 -->
         <div class="session-sep">
-          <button class="collapsible level-up-color">Sessione 26</button>
+          <button id="ses-26" class="collapsible level-up-color">Sessione 26</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2848,7 +3255,7 @@
       <div class="content-blank">
 
         <div>
-          <button class="collapsible lv1-color">Sessione 27</button>
+          <button id="ses-27" class="collapsible lv1-color">Sessione 27</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2919,7 +3326,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 28</button>
+          <button id="ses-28" class="collapsible lv1-color">Sessione 28</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -2997,7 +3404,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 29</button>
+          <button id="ses-29" class="collapsible lv1-color">Sessione 29</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -3033,7 +3440,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 30</button>
+          <button id="ses-30" class="collapsible lv1-color">Sessione 30</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -3102,8 +3509,9 @@
           </div>
         </div>
 
+        <!-- sessione 31 -->
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 31</button>
+          <button id="ses-31" class="collapsible lv1-color">Sessione 31</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -3163,7 +3571,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 32</button>
+          <button id="ses-32" class="collapsible lv1-color">Sessione 32</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -3225,7 +3633,7 @@
         </div>
         
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 33</button>
+          <button id="ses-33" class="collapsible lv1-color">Sessione 33</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -3252,7 +3660,8 @@
                         <span class="zoom-pg-box"><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Istrid-Horn.png" class="zoom-pg-img"></span>
                       </span>
                       <span class="modal" id="modalZoom-Istrid-Horn" onclick="chiudiZoom('modalZoom-Istrid-Horn')">
-                        <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn" onclick="chiudiZoom('modalZoom-Istrid-Horn')">×</span><span class="description">Istrid Horn, Zentharim</span><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Istrid-Horn.png"></span> consegna 10 MP a Renn per essersi presentati
+                        <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn" onclick="chiudiZoom('modalZoom-Istrid-Horn')">×</span><span class="description">Istrid Horn, Zentharim</span><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Istrid-Horn.png"></span>
+                      </span> consegna 10 MP a Renn per essersi presentati
                     </li>
                     <li>Istrid si mostra contenta che abbiano contribuito alla cattura di Urstul, cosa che incuriosisce Numon (non è una Zent lei?)</li>
                     <li>Istrid chiarisce che è dalla parte di Devil; vorrebbe tutte le info sui fatti di villa Gralhund</li>
@@ -3306,7 +3715,7 @@
         </div>
         
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 34</button>
+          <button id="ses-34" class="collapsible lv1-color">Sessione 34</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -3392,7 +3801,7 @@
         </div>
 
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 35</button>
+          <button id="ses-35" class="collapsible lv1-color">Sessione 35</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -3452,8 +3861,9 @@
           </div>
         </div>
 
+        <!-- sessione 36 -->
         <div class="session-sep">
-          <button class="collapsible lv1-color">Sessione 36</button>
+          <button id="ses-36" class="collapsible lv1-color">Sessione 36</button>
           <div class="content">
             <div class="date-n-intro">
               <h3>Scena introduttiva</h3>
@@ -3512,7 +3922,58 @@
                     <li>"Serve qualcosa?" interpellano Duma; lui spiega che ha catturato degli intrusi ed era venuto a controllare che lì fosse tutto a posto</li>
                     <li>Duma propone di portare i prigionieri lì a dare una mano per scavare, l'umano accetta volentieri</li>
                   </ul>
-                  Trattenendo le risate sotto i baffi da bugbear, Duma torna dal resto del gruppo riportando le informazioni e illustrando il piano: in fila indiana, tutti saranno legati per finta e terranno le armi nascoste, pronti ad attaccare di sorpresa i malviventi. Il piano sembra perfetto. D'altr'onde ha già funzionato una volta, no? ... no?
+                  Trattenendo le risate sotto i baffi da bugbear, Duma torna dal resto del gruppo riportando le informazioni e illustrando il piano: in fila indiana, tutti saranno legati per finta e terranno le armi nascoste, pronti ad attaccare di sorpresa i malviventi. Il piano sembra perfetto. D'altronde ha già funzionato una volta, no? ... no?
+                </li>
+              </ul>
+            </p>
+          </div>
+        </div>
+
+        <div class="session-sep">
+          <button id="ses-37" class="collapsible lv1-color">Sessione 37</button>
+          <div class="content">
+            <div class="date-n-intro">
+              <h3>Scena introduttiva</h3>
+              <div class="date">
+                <time datetime="2026-07-07">07.07.2026</time>
+                <div class="date-game-box">
+                  dal <time datetime="1493-01-20" class="date-game">20 Hammer 1493</time>
+                  al <time datetime="1493-01-20" class="date-game">20 Hammer 1493</time>
+                </div>
+              </div>
+            </div>
+            <p class="intro">
+              Nei cunicoli maleodoranti delle fogne, 4 avventurieri procedono scortati da un bugbear, le armi ben nascoste dietro la schiena, e delle corde legate ai polsi da finti nodi. Il costrutto di Numon attende paziente dietro l'angolo, mentre la fila di falsi prigionieri entra nella grande sala. Grimbar stringe la presa sull'ascia, Renn sulla sua spada corta, e Numon... il dragonide stringe troppo i polsi mentre sistema i due pugnali, e la corda, già lenta, scivola dalle sue mani.
+            </p>
+            <h3>Eventi</h3>
+            <p>
+              <ul>
+                <li>
+                  <div class="events-title"><i>un nuovo giocattolo per Grimbar</i></div>
+                  Il malvivente più vicino si allarma subito, e avverte gli altri della trappola: l'effetto sorpresa è scemato.
+                  <ul>
+                    <li>il bugbear viene fatto fuori</li>
+                    <li>uno dei due umani corre verso i tre progionieri e ne afferra uno, forse come ostaggio</li>
+                    <li>intanto l'altro malvivente è ridotto male</li>
+                  </ul>
+                  Quando ormai lo scontro sembra aver preso una piega vantaggiosa per i 5 eroi, una scossa fa tremare la stanza: le rocce franate si spaccano, e decine di pietre vengono scagliate tutte intorno mentre dalla fessura appena formata si fa strada una
+                  <span class="pg-wrapper" onclick="apriZoom('modalZoom-Bulette')">grossa creatura
+                    <span class="zoom-pg-box"><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Bulette.jpg" class="zoom-pg-img"></span>
+                  </span>
+                  <span class="modal" id="modalZoom-Bulette" onclick="chiudiZoom('modalZoom-Bulette')">
+                    <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn" onclick="chiudiZoom('modalZoom-Bulette')">×</span><span class="description">Bulette, Mostruosità</span><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Bulette.jpg"></span>
+                  </span>
+                  inferocita, con una bocca enorme e una spada insanguinata conficcata nel fianco.
+                  <ul>
+                    <li>la creatura è irragionevole, spappola il primo popolano che ha a tiro, e inghiotte l'umano che era lì vicino</li>
+                    <li>finito di sistemare l'altro malvivente, i 5 si dedicano al mostro</li>
+                    <li>Grimbar ipotizza di poter ammansire la creatura estrendo la spada, ma il mostro si muove troppo rapidamente</li>
+                    <li>Numon segue l'idea di Grimbar: forte dell'anello, con un ordine diretto intima alla creatura di fermarsi, ma sembra non sentire</li>
+                    <li>anche il costrutto e il famiglio falliscono</li>
+                    <li>accerchiata, la creatura si infuria: saltando in aria, riatterra facendo tremare la terra e scagliando in aria costrutto, famiglio (che scompare) e nano</li>
+                    <li>la strategia cambia: Renn (con un pugnale di Numon) e Reed attaccano, facendo fuori la creatura</li>
+                  </ul>
+                  La minaccia è neutralizzata, il costrutto è quasi fuori uso e il famiglio dissolto. Ma una spada dalle fattezze pregiate spunta dal fianco della creatura, pronta ad essere estratta. Grimbar si piega sul mostro, recitando una preghiera nanica di commemorazione mentre rimuove l'arma. Reed la riconosce come la "Spada del Furto Vitale", capace di nutrirsi della salute dei nemici, come confermato anche dalla scuola di magia di necromanzia rilevata da Numon. Mentre il nano già pregusta l'utilizzo in battaglia del suo nuovo giocattolo, il dragonide rimette in sesto il costrutto, non prima di aver recuperato il pugnale usato da Renn. Davanti a loro la bocca della parete franata è ancora spalancata, come delle fauci pronte a inghiottire i piccoli avventurieri.
                 </li>
               </ul>
             </p>
@@ -3555,37 +4016,54 @@
 
 
     <!-- template -->
-    <div style="display: none;">
-      <button class="collapsible lv1-color">Sessione ?</button>
+    <div class="capitolo-container" style="display: none;">
+      <button class="collapsible capitolo-btn">Capitolo ?</button>
       <div class="content-blank">
-        <div class="date-n-intro">
-          <h3>Scena introduttiva</h3>
-          <div class="date">
-            <time datetime="2026-05-03">0.0.2026</time>
-            <div class="date-game-box">
-              dal <time datetime="1493-01-?" class="date-game">? Hammer 1493</time>
-              al <time datetime="1493-01-?" class="date-game">? Hammer 1493</time>
+
+        <!-- Sessione -->
+        <div>
+          <button class="collapsible lv1-color">Sessione ?</button>
+          <div class="content-blank">
+            <div class="date-n-intro">
+              <h3>Scena introduttiva</h3>
+              <div class="date">
+                <time datetime="2026-05-03">0.0.2026</time>
+                <div class="date-game-box">
+                  dal <time datetime="1493-01-?" class="date-game">? Hammer 1493</time>
+                  al <time datetime="1493-01-?" class="date-game">? Hammer 1493</time>
+                </div>
+              </div>
             </div>
+            <p class="intro">
+              
+            </p>
+            <h3>Eventi</h3>
+            <p>
+              <ul>
+                <li>
+                  <div class="events-title"><i>titoletto</i></div>
+                  ...
+                </li>
+                <li>
+                  <div class="events-title"><i>titoletto</i></div>
+                  ...
+                  
+                  <span class="pg-wrapper" onclick="apriZoom('modalZoom-Zentharim-simbolo')">Zentharim
+                    <span class="zoom-pg-box"><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim-simbolo.jpg" class="zoom-pg-img"></span>
+                  </span>
+                  <span class="modal" id="modalZoom-Zentharim-simbolo" onclick="chiudiZoom('modalZoom-Zentharim-simbolo')">
+                    <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn" onclick="chiudiZoom('modalZoom-Zentharim-simbolo')">×</span><span class="description">Simbolo degli Zentharim</span><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim-simbolo.jpg"></span>
+                  </span>
+
+                </li>
+              </ul>
+            </p>
           </div>
         </div>
-        <p class="intro">
-          
-        </p>
-        <h3>Eventi</h3>
-        <p>
-          <ul>
-            <li>
-              <div class="events-title"><i>titoletto</i></div>
-              ...
-            </li>
-            <li>
-              <div class="events-title"><i>titoletto</i></div>
-              ...
-            </li>
-          </ul>
-        </p>
+
       </div>
     </div>
+      
 
 
   </main>
@@ -3605,6 +4083,47 @@
           } else {
               content.style.display = "block";
           }
+      });
+    });
+
+    // Intercettore dei link della bacheca per aprire i contenitori nascosti
+    document.querySelectorAll('.quest-session-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // Impedisce il salto istantaneo difettoso dell'HTML
+        
+        const targetId = this.getAttribute('href').substring(1); // Estrae l'ID (es. "ses-1")
+        const btn = document.getElementById(targetId);
+        
+        if (btn) {
+          // 1. Trova e apri il Capitolo Padre se è chiuso
+          const capitoloContainer = btn.closest('.capitolo-container');
+          if (capitoloContainer) {
+            const capBtn = capitoloContainer.querySelector('.capitolo-btn');
+            const capContent = capBtn.nextElementSibling;
+            capBtn.classList.add('active');
+            capContent.style.display = 'block';
+          }
+          
+          // 2. Apri la Sessione stessa se è chiusa
+          const sessionContent = btn.nextElementSibling;
+          btn.classList.add('active');
+          if (sessionContent) {
+            sessionContent.style.display = 'block';
+          }
+          
+          // 3. Attendi un istante che il browser calcoli il layout e fai lo scroll fluido
+          setTimeout(() => {
+            btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // 4. Applica l'effetto impulso magico
+            btn.classList.add('highlight-card');
+            
+            // Rimuove la classe dopo 3 secondi (la durata dei 2 impulsi) per poterla riutilizzare
+            setTimeout(() => {
+              btn.classList.remove('highlight-card');
+            }, 3000);
+          }, 100);
+        }
       });
     });
 

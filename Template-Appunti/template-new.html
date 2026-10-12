@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appunti: Il Furto dei Dragoni</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      /* Palette Dark Fantasy */
+      --bg-main: #0d0b09;
+      --bg-gradient: radial-gradient(circle at top, #1c1612 0%, #0d0b09 100%);
+      --bg-card: #16120e;
+      --bg-card-alt: #1f1914;
+
+      /* Elementi Interattivi / Bottoni */
+      --gold-bright: #dfb76c;
+      --gold-dim: #94743e;
+      --gold-glow: rgba(223, 183, 108, 0.25);
+      --crimson: #7a1f1d;
+      --crimson-hover: #9c2b29;
+      --border-metallic: #362d24;
+
+      /* Testo */
+      --text-light: #e6dec9;
+      --text-muted: #9c907c;
+      --text-dark: #0d0b09;
+    }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      margin: 0;
+      padding: 20px;
+      background: var(--bg-gradient);
+      color: var(--text-light);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      margin-bottom: 30px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 15px;
+      border: 1px solid var(--border-metallic);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .DnD-logo {
+      width: 60%;
+      min-width: 150px;
+      max-width: 450px;
+      filter: drop-shadow(0 0 10px rgba(122, 31, 29, 0.6));
+      transition: filter 0.5s ease;
+    }
+
+    .DnD-logo:hover {
+      filter: drop-shadow(0 0 20px rgba(223, 183, 108, 0.8));
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      color: var(--gold-bright);
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9), 0 0 15px var(--gold-glow);
+      margin: 20px 0 10px 0;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .subsubtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: var(--gold-dim);
+      margin-top: 0;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-bottom: 150px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: var(--gold-bright);
+      border-bottom: 2px solid var(--gold-dim);
+      padding-bottom: 10px;
+      margin-top: 50px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold-bright);
+      margin-top: 5px;
+    }
+
+    /* Struttura Mappe e Contenitori Flessibili */
+    .maps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .map-card {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-metallic);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .edifici-container {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .edificio-item {
+      background: var(--bg-card-alt);
+      border-left: 4px solid var(--gold-dim);
+      border-radius: 4px;
+      padding: 20px;
+    }
+
+    .img-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: flex-start;
+      margin-top: 10px;
+    }
+
+    .img-thumb-container {
+      text-align: center;
+    }
+
+    .img-thumb-container h6 {
+      margin: 0 0 5px 0;
+      font-family: 'Cinzel', serif;
+      color: var(--text-muted);
+    }
+
+    .img-map {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border: 2px solid var(--border-metallic);
+      border-radius: 6px;
+      cursor: zoom-in;
+      transition: all 0.3s ease;
+    }
+
+    .img-map:hover {
+      border-color: var(--gold-bright);
+      box-shadow: 0 0 10px var(--gold-glow);
+      transform: scale(1.05);
+    }
+
+    .capitolo-btn {
+      font-size: 1.3rem !important;
+      border-left: 5px solid var(--crimson) !important;
+      /* Accento cremisi scuro */
+      background: linear-gradient(135deg, #2c1a14 0%, #16100c 100%) !important;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      letter-spacing: 2px;
+    }
+
+    .capitolo-btn:hover,
+    .capitolo-btn.active {
+      border-left-color: var(--crimson-hover) !important;
+      box-shadow: 0 0 20px rgba(122, 31, 29, 0.4) !important;
+    }
+
+    /* Rientro opzionale per le sessioni dentro il capitolo per dare gerarchia visiva */
+    .capitolo-container>.content {
+      padding-left: 30px;
+      background: rgba(10, 8, 6, 0.4);
+    }
+
+    .session-sep {
+      margin-top: 5px;
+    }
+
+    /* Pulsanti Collassabili in Stile Tomo Antico */
+    .collapsible {
+      background: linear-gradient(135deg, #241c15 0%, #16110d 100%);
+      color: var(--text-light);
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      padding: 15px 20px;
+      width: 100%;
+      border: 1px solid var(--border-metallic);
+      border-left: 4px solid var(--gold-dim);
+      text-align: left;
+      outline: none;
+      transition: all 0.3s ease;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .collapsible:after {
+      content: '\25BC';
+      font-size: 0.8rem;
+      color: var(--gold-dim);
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible.active:after {
+      transform: rotate(-180deg);
+      color: var(--gold-bright);
+    }
+
+    .collapsible:hover,
+    .collapsible.active {
+      background: linear-gradient(135deg, #2d231a 0%, #1f1813 100%);
+      border-color: var(--gold-dim);
+      border-left-color: var(--gold-bright);
+      box-shadow: 0 0 15px var(--gold-glow);
+    }
+
+    .main-btn {
+      font-size: 1.2rem;
+      border-left: 4px solid var(--crimson);
+    }
+
+    .main-btn:hover,
+    .main-btn.active {
+      border-left-color: var(--crimson-hover);
+    }
+
+    /* Livelli sessioni con accenti cromatici interni */
+    .lv1-color {
+      border-left-color: #5a4a3a;
+    }
+
+    /* .lv2-color { border-left-color: #705c48; } */
+    .level-up-color {
+      border-left-color: var(--gold-bright);
+    }
+
+    .content {
+      padding: 20px;
+      display: none;
+      background: rgba(22, 18, 14, 0.6);
+      border: 1px solid var(--border-metallic);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      margin-bottom: 20px;
+      box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .content-blank {
+      padding: 20px;
+      display: none;
+      background: none;
+      margin-bottom: 20px;
+    }
+
+    /* Testi e Intros */
+    .date-n-intro {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border-metallic);
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .date {
+      text-align: right;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+    }
+
+    .date-game-box {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .date-game {
+      color: var(--gold-bright);
+    }
+
+    .intro {
+      font-style: italic;
+      color: #d1c7b2;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      border-radius: 6px;
+      border-inline-start: 3px solid var(--gold-dim);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    .events-title {
+      font-family: 'Cinzel', serif;
+      color: var(--gold-bright);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contour-info {
+      margin: 15px 0;
+      padding: 12px;
+      background: rgba(122, 31, 29, 0.15);
+      border: 1px dashed var(--crimson);
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    /* Collegamenti Magici e Wrapper Personaggi (Hover Preview) */
+    a,
+    .pg-wrapper {
+      color: var(--gold-bright);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--gold-dim);
+      cursor: help;
+      position: relative;
+      display: inline-block;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    a:hover,
+    .pg-wrapper:hover {
+      color: #fff;
+      border-bottom-color: var(--gold-bright);
+      text-shadow: 0 0 8px var(--gold-bright);
+    }
+
+    /* Box Fluttuante di Preview all'Hover */
+    .zoom-pg-box {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      z-index: 99;
+      pointer-events: none;
+      /* Evita di bloccare il mouse */
+    }
+
+    .pg-wrapper:hover .zoom-pg-box {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .zoom-pg-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border: 3px solid var(--gold-bright);
+      border-radius: 50%;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8), 0 0 15px var(--gold-glow);
+    }
+
+    /* Finestre Modali di Zoom Avanzato (al Click) */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(5, 4, 3, 0.85);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      cursor: zoom-out;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .modal-content {
+      max-width: 85%;
+      max-height: 85%;
+      position: relative;
+      background: var(--bg-card);
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid var(--gold-bright);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), 0 0 25px var(--gold-glow);
+      cursor: default;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 75vh;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .description {
+      display: block;
+      font-family: 'Cinzel', serif;
+      color: var(--gold-bright);
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: var(--crimson);
+      color: #fff;
+      border: 2px solid var(--gold-bright);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: background 0.2s;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .close-btn:hover {
+      background: var(--crimson-hover);
+    }
+
+    /* Fondo Cassa Locanda in stile Registro Dorato/Crimine */
+    .inn_cash_fund {
+      background: linear-gradient(135deg, #1f1510 0%, #120b07 100%);
+      border: 2px solid var(--gold-dim);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 450px;
+      margin: 40px auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 0, 0, 0.5);
+      position: relative;
+      text-align: center;
+    }
+
+    .inn_cash_fund::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+    }
+
+    .cash_content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .cash_label {
+      font-family: 'Cinzel', serif;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      letter-spacing: 1px;
+    }
+
+    .cash_value {
+      background: linear-gradient(135deg, #94743e 0%, #614b27 100%);
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-family: 'Cinzel', serif;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: #fff;
+      border: 1px solid var(--gold-bright);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .cash_value::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0.6) 50%,
+          rgba(255, 255, 255, 0.2) 100%);
+      transform: skewX(-20deg);
+    }
+
+    .cash_value:hover::before {
+      animation: shine 1.2s forwards;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -75%;
+      }
+
+      100% {
+        left: 130%;
+      }
+    }
+
+    .inn_cash_fund .details {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+
+    /* ================= BACHECA DEGLI INCARICHI ================= */
+    .quest-board {
+      background: linear-gradient(135deg, #16100b 0%, #0a0705 100%);
+      border: 2px dashed var(--gold-dim);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px 0;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .quest-board-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      color: var(--gold-bright);
+      text-align: center;
+      margin: 20px 0 15px 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px var(--gold-glow);
+    }
+
+    .quest-board-title.history {
+      border-top: 1px solid var(--border-metallic);
+      padding-top: 15px;
+      margin-top: 30px;
+    }
+
+    .quest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* La singola pergamena appesa alla bacheca */
+    .quest-card {
+      background: linear-gradient(150deg, #241c15 0%, #19120d 100%);
+      border: 1px solid var(--border-metallic);
+      border-top: 4px solid var(--crimson);
+      /* Sigillo rosso per attive */
+      border-radius: 4px;
+      padding: 18px;
+      position: relative;
+      box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .quest-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold-dim);
+      box-shadow: 5px 8px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Variante Storico (Missioni Completate) */
+    .quest-card.completed {
+      border-top: 4px solid #3a423a;
+      /* Sigillo spento */
+      background: linear-gradient(150deg, #191410 0%, #120e0a 100%);
+      opacity: 0.6;
+    }
+
+    .quest-card.completed:hover {
+      opacity: 0.9;
+    }
+
+    .quest-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      margin: 0 0 10px 0;
+      padding-bottom: 5px;
+      border-bottom: 1px dashed rgba(148, 116, 62, 0.3);
+    }
+
+    .quest-card.completed .quest-title {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .quest-desc {
+      font-size: 0.9rem;
+      color: #d1c7b2;
+      margin: 0 0 15px 0;
+      line-height: 1.4;
+    }
+
+    .quest-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .quest-giver {
+      color: var(--text-muted);
+    }
+
+    .quest-reward {
+      color: var(--gold-bright);
+      font-weight: 600;
+    }
+
+    /* Sotto-sezione Sviluppi e Indizi nelle schede missione */
+    .quest-developments {
+      margin: 12px 0;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 2px solid var(--gold-dim);
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .quest-developments-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      color: var(--gold-bright);
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .quest-developments ul {
+      margin: 0;
+      padding-left: 15px;
+      list-style-type: '♦ ';
+      /* Runa/losanga fantasy per i punti elenco */
+      color: #c4b9a3;
+    }
+
+    .quest-developments li {
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .quest-developments li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- EFFETTO IMPULSO MAGICO PER RICERCA/LINK --- */
+    @keyframes goldGlowPulse {
+      0% {
+        box-shadow: 0 0 5px var(--gold-bright), 0 10px 20px rgba(0, 0, 0, 0.5);
+        border-color: var(--gold-bright);
+      }
+
+      50% {
+        box-shadow: 0 0 25px var(--gold-bright), 0 10px 20px rgba(0, 0, 0, 0.7);
+        border-color: var(--gold-bright);
+        transform: scale(1.02);
+      }
+
+      100% {
+        box-shadow: 0 0 5px var(--gold-bright), 0 10px 20px rgba(0, 0, 0, 0.5);
+        border-color: var(--gold-bright);
+      }
+    }
+
+    .highlight-card {
+      animation: goldGlowPulse 1.5s ease-in-out 2;
+      border-color: var(--gold-bright) !important;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Tag di Stato stile scrittura a mano */
+    .quest-status-tag {
+      position: absolute;
+      top: -12px;
+      right: 12px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      padding: 1px 10px;
+      border-radius: 3px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .status-active {
+      background: var(--crimson);
+      color: #fff;
+    }
+
+    .status-done {
+      background: #283328;
+      color: #8cb38c;
+      border: 1px solid #3a423a;
+    }
+
+    /* Link rapidi alle sessioni nella bacheca */
+    .quest-session-links {
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(148, 116, 62, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+
+    .quest-session-link {
+      font-family: 'Cinzel', serif;
+      color: var(--text-muted) !important;
+      border-bottom: none !important;
+      /* Rimuove la sottolineatura tratteggiata */
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .quest-session-link:hover {
+      color: var(--gold-bright) !important;
+      text-shadow: 0 0 5px var(--gold-glow);
+    }
+
+    .quest-session-link::before {
+      content: "➔ 📖 ";
+      font-size: 0.75rem;
+      margin-right: 5px;
+      color: var(--gold-dim);
+    }
+
+
+    /* ================= SEZIONE RECAP / NELLE PUNTATE PRECEDENTI ================= */
+    .recap-box {
+      background: linear-gradient(135deg, #1f1610 0%, #0d0a07 100%);
+      border: 2px solid var(--gold-dim);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .recap-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      text-shadow: 0 0 8px var(--gold-glow);
+    }
+
+    .recap-text {
+      font-style: italic;
+      color: #d1c7b2;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .audio-player-container {
+      margin-top: 15px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(148, 116, 62, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .audio-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: var(--gold-dim);
+      letter-spacing: 1px;
+    }
+
+    /* Adatta il player audio nativo all'atmosfera scura/dorata */
+    audio {
+      width: 100%;
+      height: 40px;
+      filter: sepia(40%) contrast(110%) brightness(90%);
+      border-radius: 6px;
+    }
+
+
+    /* Prossima Sessione */
+    .next-ses-btn {
+      border-left: 4px solid var(--gold-bright);
+    }
+
+    .to-be-continued {
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+      color: var(--gold-bright);
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      position: fixed;
+      bottom: 0;
+      right: 20px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .footer-logo {
+      width: 50vw;
+      opacity: 0.15;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div>
+      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/DnD-logo.png" alt="Logo D&D"
+        class="DnD-logo">
+    </div>
+    <h1>Il Furto dei Dragoni</h1>
+    <div class="subtitle">sotto la guida di Manu il Dungeon Master</div>
+    <div class="subsubtitle">Appunti a cura di Gab ~ alias Numon</div>
+  </header>
+
+  <main>
+    <!-- ================= NELLE PUNTATE PRECEDENTI ================= -->
+    <div style="margin-bottom: 15px;">
+      <button class="collapsible main-btn" style="border-left-color: var(--gold-bright);">📜 Nelle puntate
+        precedenti...</button>
+      <div class="content-blank">
+        <div class="recap-box">
+          <div class="recap-title">Il cammino fin qui percorso</div>
+          <p class="recap-text">
+            Nelle scorse avventure, la compagnia ha affrontato un pericoloso Troll sbucato dalle profondità della
+            Locanda del Portale Spalancato, guadagnandosi la stima di Volothamp "Volo" Geddarm. Dopo aver sventato i
+            primi pericoli nel quartiere del porto e investigato sullo scontro tra gli Zhentarim e la Gilda di Xanathar,
+            gli eroi hanno sbloccato una ricompensa inaspettata: la proprietà del prestigioso <strong>Maniero Teschio di
+              Troll</strong> nel Quartiere Nord. Ora, tra indizi sui misteri della città e tesori accumulati, la storia
+            si fa sempre più fitta...
+          </p>
+
+          <!-- Lettore Audio (Opzionale: puoi caricare il file audio sulla tua repository GitHub) -->
+          <div class="audio-player-container">
+            <span class="audio-label">🎧 Ascolta il riassunto narrato dalla voce del bardo:</span>
+            <audio controls>
+              <!-- Sostituisci il link con il percorso del tuo file audio nella repo GitHub (es. .mp3 o .wav) -->
+              <source src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Audio/recap-sessioni.mp3"
+                type="audio/mpeg">
+              Il tuo browser non supporta l'elemento audio.
+            </audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible main-btn">Mappe ed Edifici</button>
+      <div class="content">
+
+        <div class="maps-grid">
+          <div class="map-card">
+            <h3>Costa della Spada</h3>
+            <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Sword-Coast-Map_cut.jpg"
+              alt="mappa della Costa della Spada" class="img-map" onclick="apriZoom('modalZoom-map-CdS')">
+
+            <div class="modal" id="modalZoom-map-CdS" onclick="chiudiZoom('modalZoom-map-CdS')">
+              <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-map-CdS')">×</span>
+                <span class="description">Mappa della Costa della Spada</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Sword-Coast-Map_cut.jpg"
+                  alt="Zoom">
+              </div>
+            </div>
+          </div>
+
+          <div class="map-card">
+            <h3>Waterdeep</h3>
+            <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Waterdeep.jpg"
+              alt="mappa di Waterdeep" class="img-map" onclick="apriZoom('modalZoom-map-WD')">
+
+            <div class="modal" id="modalZoom-map-WD" onclick="chiudiZoom('modalZoom-map-WD')">
+              <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="close-btn" onclick="chiudiZoom('modalZoom-map-WD')">×</span>
+                <span class="description">Mappa di Waterdeep</span>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Mappe/Waterdeep.jpg" alt="Zoom">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 style="font-size: 1.5rem; margin-top: 30px;">Edifici Chiave</h2>
+        <div class="edifici-container">
+
+          <div class="edificio-item">
+            <h3>Locanda del Portale Spalancato</h3>
+            <div class="img-grid">
+              <div class="img-thumb-container">
+                <h6>Esterno</h6>
+                <img
+                  src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Locanda-del-Portale-Spalancato.jpg"
+                  alt="esterno Locanda del Portale Spalancato" class="img-map" onclick="apriZoom('modal-portale-est')">
+                <div class="modal" id="modal-portale-est" onclick="chiudiZoom('modal-portale-est')">
+                  <div class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                      onclick="chiudiZoom('modal-portale-est')">×</span><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Locanda-del-Portale-Spalancato.jpg">
+                  </div>
+                </div>
+              </div>
+              <div class="img-thumb-container">
+                <h6>Interno</h6>
+                <img
+                  src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Locanda-del-Portale-Spalancato.jpg"
+                  alt="interno Locanda del Portale Spalancato" class="img-map" onclick="apriZoom('modal-portale-int')">
+                <div class="modal" id="modal-portale-int" onclick="chiudiZoom('modal-portale-int')">
+                  <div class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                      onclick="chiudiZoom('modal-portale-int')">×</span><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/Locanda-del-Portale-Spalancato.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="edificio-item">
+            <h3>Allo Spettro Incendiato</h3>
+            <div class="img-grid">
+              <div class="img-thumb-container">
+                <h6>Insegna</h6>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/locanda-insegna.png"
+                  alt="insegna della locanda" class="img-map" onclick="apriZoom('modal-spettro-ins')">
+                <div class="modal" id="modal-spettro-ins" onclick="chiudiZoom('modal-spettro-ins')">
+                  <div class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                      onclick="chiudiZoom('modal-spettro-ins')">×</span><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/locanda-insegna.png"></div>
+                </div>
+              </div>
+              <div class="img-thumb-container">
+                <h6>Interno</h6>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/interno-maniero.png"
+                  alt="interno del maniero" class="img-map" onclick="apriZoom('modal-spettro-int')">
+                <div class="modal" id="modal-spettro-int" onclick="chiudiZoom('modal-spettro-int')">
+                  <div class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                      onclick="chiudiZoom('modal-spettro-int')">×</span><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/interno-maniero.png"></div>
+                </div>
+              </div>
+              <div class="img-thumb-container">
+                <h6>Menù</h6>
+                <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/locanda-menu.png"
+                  alt="menù della locanda" class="img-map" onclick="apriZoom('modalZoom-menu-locanda')">
+                <div class="modal" id="modalZoom-menu-locanda" onclick="chiudiZoom('modalZoom-menu-locanda')">
+                  <div class="modal-content" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="chiudiZoom('modalZoom-menu-locanda')">×</span>
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Piantine/locanda-menu.png"
+                      alt="Zoom">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <h2>Cronache delle Sessioni</h2>
+
+    <!-- =================  BACHECA  ================= -->
+    <div style="margin-bottom: 15px;">
+      <button class="collapsible main-btn" style="border-left-color: var(--gold-bright);">Bacheca degli
+        Incarichi</button>
+      <div class="content-blank">
+        <div class="quest-board">
+
+          <div class="quest-board-title">📜 Missioni Attive 📜</div>
+          <div class="quest-grid">
+
+            <div class="quest-card">
+              <span class="quest-status-tag status-active">Attivo</span>
+              <h4 class="quest-title">Indagare su un sottomarino</h4>
+              <p class="quest-desc">Il drago di bronzo è incuriosito da quello che succede nel sottomarino agganciato
+                sotto la "Gioia per gli Occhi", la nave ammiraglia di Zardoz Zord.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Drago di bronzo</span>
+                <span class="quest-reward">Premio: Da definire</span>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-21" class="quest-session-link">Assegnato nella Sessione 21</a>
+                <!-- <a href="#ses-2" class="quest-session-link">Concluso nella Sessione ?</a> -->
+              </div>
+            </div>
+
+          </div>
+
+          <div class="quest-board-title history">⌛ Storico Incarichi ⌛</div>
+          <div class="quest-grid">
+
+            <div class="quest-card completed">
+              <span class="quest-status-tag status-done">Risolto</span>
+              <h4 class="quest-title">Trovare Floon Blagmaar</h4>
+              <p class="quest-desc">L'amico di Volo è scomparso nel quartiere del porto dopo una notte di locande.
+                L'ultima volta è stato visto in compagnia di Renaer Neverember.</p>
+              <div class="quest-meta">
+                <span class="quest-giver">Mandante: Volo</span>
+                <span class="quest-reward">Premio: Maniero</span>
+              </div>
+
+              <div class="quest-session-links">
+                <a href="#ses-1" class="quest-session-link">Assegnato nella Sessione 1</a>
+                <a href="#ses-5" class="quest-session-link">Concluso nella Sessione 5</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ================= SESSIONE 0 ================= -->
+    <div style="margin-bottom: 15px;">
+      <button class="collapsible main-btn">Sessione 0: Introduzione a Waterdeep</button>
+      <div class="content-blank">
+        <p class="intro">
+          È il dodicesimo mese dell'anno 1492, Nightal, l'ultimo mese del Calendario di Harptos. La città di Waterdeep,
+          una delle più popolose della Costa della Spada, si sta preparando all'inverno. A capo della città c'è il Lord
+          svelato
+          <span class="pg-wrapper" onclick="apriZoom('modalZoom-Laeral-Silverhand')">
+            Laeral Silverhand
+            <span class="zoom-pg-box">
+              <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Laeral-Silverhand.png"
+                alt="Laeral Silverhand" class="zoom-pg-img">
+            </span>
+          </span>
+          <span class="modal" id="modalZoom-Laeral-Silverhand" onclick="chiudiZoom('modalZoom-Laeral-Silverhand')">
+            <span class="modal-content" onclick="event.stopPropagation()">
+              <span class="close-btn" onclick="chiudiZoom('modalZoom-Laeral-Silverhand')">×</span>
+              <span class="description">Laeral Silverhand, Lord Svelato di Waterdeep</span>
+              <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Laeral-Silverhand.png"
+                alt="Zoom Laeral Silverhand">
+            </span>
+          </span>
+          . Le strade pullulano di persone, umani e non, provenienti dall'intera regione, e forse anche da più lontano.
+          La Vigilanza fa il suo dovere, mantenendo l'ordine nelle arterie della città, ma la mano della giustizia non
+          arriva dappertutto. Negli ultimi tempi i crimini si sono moltiplicati e, per chi è del posto, la tensione si
+          percepisce. Non stupisce che tra tutti i quartieri di Waterdeep, il quartiere del porto, noto teatro di
+          scontri tra bande e gilde locali, sia quello in cui il clima si sia scaldato maggiormente.
+          <br>
+          Di tutto questo i forestieri sono ignari, ma chi è del posto non può fare a meno di pensare che, forse, c'è
+          più di un'aggressività un po' più marcata del solito dietro questo incrudimento.
+          <br>
+          Ma tempi difficili formano uomini forti; e magari, tra questi vedremo emergere qualche umano, nano, halfling o
+          dragonide, che non si tirerà indietro davanti al suono della tromba dell'avventura, e intraprenda la via che
+          pochi possono vantare di aver percorso: la via degli eroi.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- ================= CAPITOLO 1 ================= -->
+    <div class="capitolo-container">
+      <button class="collapsible capitolo-btn">Capitolo I: Il Portale Spalancato</button>
+      <div class="content-blank">
+
+        <div>
+          <button id="ses-1" class="collapsible lv1-color">Sessione 1</button>
+          <div class="content">
+            <div class="date-n-intro">
+              <h3>Scena introduttiva</h3>
+              <div class="date">
+                <time datetime="2025-04-04">04.04.2025</time>
+                <div class="date-game-box">
+                  dal <time datetime="1492-12-19" class="date-game">19 Nightal 1492</time>
+                  al <time datetime="1492-12-19" class="date-game">19 Nightal 1492</time>
+                </div>
+              </div>
+            </div>
+
+            <p class="intro">
+              La scena si apre nella <a href="#Loc-PS">Locanda del Portale Spalancato</a>.<br>
+
+              <span class="pg-wrapper" onclick="apriZoom('modalZoom-pg-Renn')">Renn (Robert)
+                <span class="zoom-pg-box"><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Renn-QuickShadow_Robert.jpg"
+                    class="zoom-pg-img"></span>
+              </span>
+              <span class="modal" id="modalZoom-pg-Renn" onclick="chiudiZoom('modalZoom-pg-Renn')">
+                <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                    onclick="chiudiZoom('modalZoom-pg-Renn')">×</span><span class="description">Renn Quickshadow,
+                    Halfling Ladro</span><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Renn-QuickShadow_Robert.jpg"></span>
+              </span>
+              un halfling dall'occhio vispo, sorseggia in disparte la sua birra, mentre controlla attentamente tutto il
+              locale.<br>
+              <span class="pg-wrapper" onclick="apriZoom('modalZoom-pg-Reed')">Reed (Angelo)
+                <span class="zoom-pg-box"><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Reed-Brightmoon_Angelo.jpg"
+                    class="zoom-pg-img"></span>
+              </span>
+              <span class="modal" id="modalZoom-pg-Reed" onclick="chiudiZoom('modalZoom-pg-Reed')">
+                <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                    onclick="chiudiZoom('modalZoom-pg-Reed')">×</span><span class="description">Reed Brightmoon,
+                    Halfling Stregone</span><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Reed-Brightmoon_Angelo.jpg"></span>
+              </span>
+              un halfling con qualche anno di esperienza sulle spalle, suona allegramente la sua lira, cantando
+              gioiosamente melodie della sua terra.<br>
+
+              <span class="pg-wrapper" onclick="apriZoom('modalZoom-pg-Duma')">Duma (Frank),
+                <span class="zoom-pg-box"><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Duma-Melpurvatta_Frank.jpg"
+                    class="zoom-pg-img"></span>
+              </span>
+              <span class="modal" id="modalZoom-pg-Duma" onclick="chiudiZoom('modalZoom-pg-Duma')">
+                <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                    onclick="chiudiZoom('modalZoom-pg-Duma')">×</span><span class="description">Frank: Duma Melpurvatta,
+                    Umano Bardo</span><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Duma-Melpurvatta_Frank.jpg"></span>
+              </span>
+              umano, anima la serata deliziando gli ospiti della locanda con canti e danze.<br>
+
+              <span class="pg-wrapper" onclick="apriZoom('modalZoom-pg-Grimbar')">Grimbar (Rick),
+                <span class="zoom-pg-box"><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Grimbar-Asciarossa_Rick.jpg"
+                    class="zoom-pg-img"></span>
+              </span>
+              <span class="modal" id="modalZoom-pg-Grimbar" onclick="chiudiZoom('modalZoom-pg-Grimbar')">
+                <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                    onclick="chiudiZoom('modalZoom-pg-Grimbar')">×</span><span class="description">Rick: Grimbar
+                    Asciarossa, Nano, Barbaro</span><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Grimbar-Asciarossa_Rick.jpg"></span>
+              </span>
+              un robusto nano, è al bancone a chiedere il solito bel boccale a Durnan, il proprietario del locale, che
+              ormai conosce molto bene vista la sua abbondante frequentazione della locanda.<br>
+              Intanto, in uno dei tavoli,
+
+              <span class="pg-wrapper" onclick="apriZoom('modalZoom-pg-Numon')">Numon (Gab),
+                <span class="zoom-pg-box"><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Numon_Gab.png"
+                    class="zoom-pg-img"></span>
+              </span>
+              <span class="modal" id="modalZoom-pg-Numon" onclick="chiudiZoom('modalZoom-pg-Numon')">
+                <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                    onclick="chiudiZoom('modalZoom-pg-Numon')">×</span><span class="description">Gab: Numon, Dragonide,
+                    Artefice</span><img
+                    src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Numon_Gab.png"></span>
+              </span>
+              un giovane dragonide, è intento a chiacchierare distrattamente con una donna, cercando faticosamente di
+              sembrare attivamente partecipe del discorso, mentre vaga con la mente chissà dove.
+              Eppure non è tutto così tranquillo intorno...
+            </p>
+
+            <h3>Eventi</h3>
+            <ul>
+              <li>
+                <div class="events-title"><i>5 contro 1</i></div>
+                Un'improvvisa agitazione accende il locale: 5 banditi, con strani tatuaggi, si avvicinano a una
+                mezzorca,
+                <span class="pg-wrapper">
+                  <span class="enf">Yagra Stonefist</span>
+                  <span class="zoom-pg-box">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Yagra-Stonefist.png"
+                      alt="Yagra-Stonefist" class="zoom-pg-img" onclick="apriZoom('modalZoom-Yagra-Stonefist')">
+                  </span>
+
+                  <span class="modal" id="modalZoom-Yagra-Stonefist" onclick="chiudiZoom('modalZoom-Yagra-Stonefist')">
+                    <span class="modal-content" onclick="event.stopPropagation()">
+                      <span class="close-btn" onclick="chiudiZoom('modalZoom-Yagra-Stonefist')">×</span>
+                      <span class="description">Yagra-Stonefist, mezzorca</span>
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Yagra-Stonefist.png"
+                        alt="Zoom Yagra-Stonefist">
+                    </span>
+                  </span>
+                </span>,
+                e la aggrediscono. La mezzorca cade a terra, svenuta. Poi Durnan interviene e, facendo valere la propria
+                autorità, caccia i banditi dal locale.
+              </li>
+              <li>
+                <div class="events-title"><i>"un troll... nei sotterranei"</i></div>
+                Numon va in soccorso della mezzorca svenuta, facendola riprendere giusto in tempo per la vera star della
+                serata: dalle profondità del Portale emerge un Troll, affiancato da una manciata di uccelli stigei.
+              </li>
+              <li>
+                <div class="events-title"><i>servigi costosi</i></div>
+                Sistemate le creature, i 5 eroi vengono avvicinati da un uomo,
+                <span class="pg-wrapper">
+                  <span class="enf">Volothamp "Volo" Geddarm</span>
+                  <span class="zoom-pg-box">
+                    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Volothamp-Volo-Geddarm.png"
+                      alt="Volothamp-Volo-Geddarm" class="zoom-pg-img"
+                      onclick="apriZoom('modalZoom-Volothamp-Volo-Geddarm')">
+                  </span>
+
+                  <span class="modal" id="modalZoom-Volothamp-Volo-Geddarm"
+                    onclick="chiudiZoom('modalZoom-Volothamp-Volo-Geddarm')">
+                    <span class="modal-content" onclick="event.stopPropagation()">
+                      <span class="close-btn" onclick="chiudiZoom('modalZoom-Volothamp-Volo-Geddarm')">×</span>
+                      <span class="description">Volothamp "Volo" Geddarm, scrittore</span>
+                      <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Volothamp-Volo-Geddarm.png"
+                        alt="Zoom Volothamp-Volo-Geddarm">
+                    </span>
+                  </span>
+                </span>:
+                &lt;&lt; Impresa notevole, affrontare quel troll &gt;&gt;. L'uomo offre al gruppetto un incarico ben
+                pagato: si tratta di ritrovare il suo amico Floon Blagmaar.
+                <ul>
+                  <li>veste elegante, ha i capelli lunghi biondi</li>
+                  <li>in passato faceva l'accompagnatore ai saloni delle feste</li>
+                  <li>l'ultima volta che l'ha visto era alla Taverna del Drago Infilzato, 2 sere prima
+                  </li>
+                  <li>ricompensa: 10 mo subito + 100/50 mo successo/insuccesso</li>
+                </ul>
+              </li>
+              <!-- <li>
+                <div class="events-title">5 contro 1</div>
+                Un'improvvisa agitazione accende il locale: 5 banditi si avvicinano a una mezzorca,
+                <span class="pg-wrapper" onclick="apriZoom('modalZoom-Yagra-Stonefist')">
+                  Yagra Stonefist
+                  <span class="zoom-pg-box"><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Yagra-Stonefist.png" class="zoom-pg-img"></span>
+                </span>,
+                e la aggrediscono.
+                <div class="modal" id="modalZoom-Yagra-Stonefist" onclick="chiudiZoom('modalZoom-Yagra-Stonefist')">
+                  <div class="modal-content" onclick="event.stopPropagation()"><span class="close-btn" onclick="chiudiZoom('modalZoom-Yagra-Stonefist')">×</span><span class="description">Yagra Stonefist, Mezzorca</span><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Yagra-Stonefist.png"></div>
+                </div>
+              </li>
+              <li>
+                <div class="events-title">Servigi Costosi</div>
+                Gli eroi vengono avvicinati da 
+                <span class="pg-wrapper" onclick="apriZoom('modalZoom-Volo')">
+                  Volothamp "Volo" Geddarm
+                  <span class="zoom-pg-box"><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Volothamp-Volo-Geddarm.png" class="zoom-pg-img"></span>
+                </span>
+                che offre l'incarico di ritrovare Floon Blagmaar.
+                <div class="modal" id="modalZoom-Volo" onclick="chiudiZoom('modalZoom-Volo')">
+                  <div class="modal-content" onclick="event.stopPropagation()"><span class="close-btn" onclick="chiudiZoom('modalZoom-Volo')">×</span><span class="description">Volothamp "Volo" Geddarm</span><img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Volothamp-Volo-Geddarm.png"></div>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="session-sep">
+          <button id="ses-2" class="collapsible lv1-color">Sessione 2</button>
+          <div class="content">
+            <div class="date-n-intro">
+              <h3>Scena introduttiva</h3>
+              <div class="date">
+                <time datetime="2025-05-03">03.05.2025</time>
+                <div class="date-game-box">
+                  dal <time datetime="1492-12-20" class="date-game">20 Nightal 1492</time>
+                  al <time datetime="1492-12-20" class="date-game">20 Nightal 1492</time>
+                </div>
+              </div>
+            </div>
+            <p class="intro">
+              Un timido sole splende nel cielo di Waterdeep. La temperatura è scesa, ma l'aria pungente non è certo la
+              prima preoccupazione dei 5 avventurieri. Uno ad uno giungono alla locanda dalle loro abitazioni, dopo aver
+              lasciato il carico superfluo. Oggi si va in esplorazione, e potrebbe essere cruciale avere i riflessi
+              pronti.
+              &lt;&lt; La colazione è servita! &gt;&gt; dice Durnan, mentre Bonnie serve con cura ognuno degli
+              avventurieri. Dopo essersi ristorati per bene, i membri dell'allegra combriccola si apprestano a seguire
+              Grimbar verso la prima meta della giornata: la Taverna del Drago Infilzato.
+              Lungo la strada però, alcune situazioni e singolari bizzarrie catturano la loro attenzione...
+            </p>
+            <h3>Eventi</h3>
+            <p>
+            <ul>
+              <li>
+                <div class="events-title"><i>cadaveri e banditi</i></div>
+                Mentre si addentrano nel quartiere del porto, un trambusto attira l'attenzione degli eroi: in una via
+                trovano diversi membri della Vigilanza impegnati a trattenere dei banditi.
+                <ul>
+                  <li>(6) cadaveri a terra</li>
+                  <li>(3) banditi catturati</li>
+                </ul>
+                Dalle guardie riescono a sapere che c'è stato uno scontro la sera prima tra due bande/gilde:
+
+                <span class="pg-wrapper" onclick="apriZoom('modalZoom-Zentharim-simbolo')">Zentharim
+                  <span class="zoom-pg-box"><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim-simbolo.jpg"
+                      class="zoom-pg-img"></span>
+                </span>
+                <span class="modal" id="modalZoom-Zentharim-simbolo"
+                  onclick="chiudiZoom('modalZoom-Zentharim-simbolo')">
+                  <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                      onclick="chiudiZoom('modalZoom-Zentharim-simbolo')">×</span><span class="description">Simbolo
+                      degli Zentharim</span><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim-simbolo.jpg"></span>
+                </span>
+                e
+                <span class="pg-wrapper" onclick="apriZoom('modalZoom-Xanathar-simbolo')">Xanathar
+                  <span class="zoom-pg-box"><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xanathar-simbolo.jpg"
+                      class="zoom-pg-img"></span>
+                </span>
+                <span class="modal" id="modalZoom-Xanathar-simbolo" onclick="chiudiZoom('modalZoom-Xanathar-simbolo')">
+                  <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                      onclick="chiudiZoom('modalZoom-Xanathar-simbolo')">×</span><span class="description">Simbolo della
+                      Gilda di Xanathar</span><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xanathar-simbolo.jpg"></span>
+                </span>.
+              </li>
+              <li>
+                <div class="events-title"><i>aberrazioni in vetrina</i></div>
+                Proseguendo, una vetrina attira i 5: "Il negozio del vecchio Xoblob". Dentro è esposto un grosso mostro
+                impagliato che viene identificato da Numon come un
+                <span class="pg-wrapper" onclick="apriZoom('modalZoom-beholder')">Beholder
+                  <span class="zoom-pg-box"><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Beholder.jpg"
+                      class="zoom-pg-img"></span>
+                </span>
+                <span class="modal" id="modalZoom-beholder" onclick="chiudiZoom('modalZoom-beholder')">
+                  <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                      onclick="chiudiZoom('modalZoom-beholder')">×</span><span class="description">Beholder,
+                      Aberrazione</span><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Beholder.jpg"></span>
+                </span>.
+                <ul>
+                  <li>
+                    <span class="pg-wrapper" onclick="apriZoom('modalZoom-Xoblob')">Xoblob
+                      <span class="zoom-pg-box"><img
+                          src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xoblob.jpg"
+                          class="zoom-pg-img"></span>
+                    </span>
+                    <span class="modal" id="modalZoom-Xoblob" onclick="chiudiZoom('modalZoom-Xoblob')">
+                      <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                          onclick="chiudiZoom('modalZoom-Xoblob')">×</span><span class="description">Xoblob, Gnomo delle
+                          profondità, negoziante</span><img
+                          src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Xoblob.jpg"></span>
+                    </span>
+                    (gnomo), amante del colore viola
+                  </li>
+                  <li>cianfrusaglie da collezionista</li>
+                  <li>tutto viola, profumo di lavanda misto a odori sgradevoli</li>
+                </ul>
+              </li>
+              <li>
+                <div class="events-title"><i>informazioni a pagamento</i></div>
+                Uscita dal sinistro negozio, la banda di avventurieri si dirige verso la Taverna del Drago Infilzato. È
+                un locale piuttosto mal messo, ma il locandiere, dietro opportuno compenso, è "felice" di condividere
+                con gli eroi le informazioni che cercano.
+                <ul>
+                  <li>Floon era con Volo due sere prima</li>
+                  <li>dopo che se ne è andato Volo, Floon ha giocato a "3 draghi al buio" con un nobilotto, Renaer
+                    Neverember</li>
+                  <li>5 loschi figuri hanno seguito i due nobilotti quando se ne sono andati</li>
+                  <li>indirizzo: "stradina delle candele", cercare porta con simbolo del serpente (Zentharim)</li>
+                </ul>
+                <div class="contour-info">
+                  A contorno: Renaer Neverember è il figlio di Dagult Neverember, ex Lord Svelato di Waterdeep (ora lo è
+                  di Neverwinter). Tra loro non scorre buon sangue.
+                  Il Lord Svelato attuale è Laeral Silverhand.
+                </div>
+              </li>
+              <li>
+                <div class="events-title"><i>non svegliare il kenku che dorme...</i></div>
+                Ora che sanno dove andare, gli eroi raggiungono in fretta la <i>stradina delle candele</i>. Una sola
+                luce magica li osserva mentre forzano la serratura del magazzino con il simbolo degli Zentharim.
+                <ul>
+                  <li>(~12) cadaveri</li>
+                  <li>(4) kenku</li>
+                </ul>
+                Si sta per mettere male per gli eroi, ma subentra la Vigilanza. I kenku se la svignano, ma non tutti
+                riescono a scappare...
+              </li>
+            </ul>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= CAPITOLO 2 ================= -->
+    <div class="capitolo-container">
+      <button class="collapsible capitolo-btn">Capitolo II</button>
+      <div class="content-blank">
+
+        <div>
+          <button id="ses-6" class="collapsible lv1-color">Sessione 6</button>
+          <div class="content">
+            <div class="date-n-intro">
+              <h3>Scena introduttiva</h3>
+              <div class="date">
+                <time datetime="2025-06-05">05.06.2025</time>
+                <div class="date-game-box">
+                  dal <time datetime="1492-12-21" class="date-game">21 Nightal 1492</time>
+                  al <time datetime="1492-12-21" class="date-game">21 Nightal 1492</time>
+                </div>
+              </div>
+            </div>
+            <p class="intro">
+              È ormai sera a Waterdeep, e la Locanda del Portale Spalancato pullula di clienti intenti a ordinare e
+              cenare. Bonnie gira tra i tavoli portando vassoi di buon cibo, mentre Durnan serve al bancone birre e
+              digestivi. Entrando dalla porta i 5 (+1) si guardano intorno, e si accorgono che Volothamp è seduto ad uno
+              dei tavoli. Chissà se è il momento giusto per riscuotere il compenso... ma magari non con una slitta
+              carica di lingotti e un mezzorco svenuto sotto braccio. Così, cercando di non attirare troppa attenzione,
+              i 5 (+1) sgattaiolano al piano superiore, cercando una stanza dove lasciare bottino e prigioniero.
+            </p>
+            <h3>Eventi</h3>
+            <p>
+            <ul>
+              <li>
+                <div class="events-title"><i>solidificare i liquidi</i></div>
+                La stanza di Duma non è molto grande, ma non è nemmeno molto piena di roba, per cui i 5 (+1) riescono a
+                entrare e trovare una collocazione ai quadri e al bottino per nasconderli.
+                Nel frattempo Grimbar prende di peso il mezzorco e lo scarica a terra senza troppi complimenti.
+                <ul>
+                  <li>
+                    stima del bottino: 75 MO ogni quadro, 50 MO ogni lingotto
+                  </li>
+                  <li>
+                    Grimbar e Renear restano a guardia del bottino e del prigioniero, gli altri scendono a parlare con
+                    Volo
+                  </li>
+                  <li>
+                    Volo comunica che non ha liquidità perché ha speso tutto per acquistare una tenuta: il
+                    <span class="pg-wrapper" onclick="apriZoom('modalZoom-Maniero-Teschio-di-Troll')">Maniero Teschio di
+                      Troll
+                      <span class="zoom-pg-box"><img
+                          src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Maniero-Teschio-di-Troll.jpg"
+                          class="zoom-pg-img"></span>
+                    </span>
+                    <span class="modal" id="modalZoom-Maniero-Teschio-di-Troll"
+                      onclick="chiudiZoom('modalZoom-Maniero-Teschio-di-Troll')">
+                      <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                          onclick="chiudiZoom('modalZoom-Maniero-Teschio-di-Troll')">×</span><span
+                          class="description">Maniero Teschio di Troll</span><img
+                          src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Maniero-Teschio-di-Troll.jpg"></span>
+                    </span>, che offre ai 5 al posto della ricompensa in denaro pattuita
+                  </li>
+                  <li>
+                    appuntamento per l'indomani mattina (con un notaio) per visitare il maniero e firmare le carte per
+                    il passaggio di proprietà
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="events-title"><i>interrogazione a sorpresa</i></div>
+                In camera Grimbar è riuscito a svegliare il mezzorco, ma non vedendolo molto collaborativo ha tentato le
+                maniere forti, ottenendo però solo di mandarlo nuovamente al tappeto. Intanto tornano i compagni, che
+                riferiscono l'offerta di Volo a Grimbar, non felicissimo di quello che sta sentendo. Terminate le
+                discussioni, Grimbar decide di rimanere con Duma a guardia del mezzorco, in caso decida di scappare o
+                fare cose strane; gli altri tornano a casa.
+                <ul>
+                  <li>
+                    durante la notte: Grimbar minaccia il mezzorco che sta provando a liberarsi
+                  </li>
+                  <li>
+                    mattina: colazione con Volo, poi interrogatorio al mezzorco
+                  </li>
+                  <li>
+                    lavora per la Gilda di Xanathar, gli Zentharim intralciano
+                  </li>
+                  <li>
+                    il portale nelle fognature potrebbe portare ai quartieri generali
+                  </li>
+                  <li>
+                    il Mind Flyer era interessato alla pietra di Golorr
+                  </li>
+                  <li>
+                    i 5 recuperano dei bauli da Durnan per mettere il bottino
+                  </li>
+                  <li>
+                    usciamo con Volo, lungo la strada lasciano il mezzorco alla Vigilanza
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="events-title"><i>il Maniero Teschio di Troll</i></div>
+                Il Maniero Teschio di Troll è un bell'edificio di quattro piani, ben tenuto salvo qualche segno di
+                abbandono. È nel quartiere nord, uno dei più belli della città.
+                <ul>
+                  <li>
+                    visita e ispezione di tutti i piani, compreso il seminterrato
+                  </li>
+                  <li>
+                    trovato nulla di sospetto, solo ragnatele; eppure Volo è agitato, sembra nascondere qualcosa
+                  </li>
+                  <li>
+                    firma del contratto
+                  </li>
+                  <li>
+                    Volo ci lascia un contatto a cui poter vendere i quadri: "La bottega dell'Artista"
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="events-title"><i>a caccia di informazioni</i></div>
+                Salutato Volo, i 5 avventurieri si separano: Numon, Renn, Grimbar e Reed vanno in cerca del
+                collezionista di quadri, mentre Duma va in cerca di informazioni sulla storia del maniero.
+                <ul>
+                  <li>
+                    (Duma) "Birreria da Frewn": nessuna informazione sul maniero
+                  </li>
+                  <li>
+                    (altri) "La bottega dell'artista": lasciano le armi alle guardie all'ingresso e entrano; al piano
+                    terra ci sono molti quadri, anche di Munggen (autore di quelli trovati)
+                  </li>
+                  <li>
+                    (Duma) "Tesoro del drago di biblioteca": si dice che il maniero sia infestato da qualche vecchio
+                    proprietario
+                  </li>
+                  <li>
+                    (altri) "La bottega dell'artista"-primo piano: incontrano il proprietario, tutto vestito di verde,
+                    prendono appuntamento per l'1 dopo il sole alto
+                  </li>
+                </ul>
+                Dopo il giro il gruppo si ritrova alla Locanda per l'ora di pranzo, subito dopo aver contattato qualcuno
+                e aver convertito i lingotti in monete d'oro.
+              </li>
+            </ul>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="inn_cash_fund">
+      <div class="cash_content">
+        <span class="cash_label">Tesoro dello Spettro Incendiato</span>
+        <span class="cash_value">1000 MO</span>
+      </div>
+      <div class="details">
+        <i>Registro aggiornato alla sessione 43</i><br>
+        <span class="date-game">22 Hammer 1493 (7.09.2026)</span>
+      </div>
+    </div>
+
+    <div>
+      <button class="collapsible next-ses-btn">Prossima Sessione</button>
+      <div class="content-blank">
+        <div class="date-n-intro">
+          <h3></h3>
+          <time datetime="2026-07-?">?.07.2026</time>
+        </div>
+        <p class="to-be-continued">L'avventura continua...</p>
+      </div>
+    </div>
+
+
+    <!-- template -->
+    <div class="capitolo-container" style="display: none;">
+      <button class="collapsible capitolo-btn">Capitolo ?</button>
+      <div class="content-blank">
+
+        <!-- Sessione -->
+        <div class="session-sep">
+          <button id="ses-?" class="collapsible lv1-color">Sessione ?</button>
+          <div class="content">
+            <div class="date-n-intro">
+              <h3>Scena introduttiva</h3>
+              <div class="date">
+                <time datetime="2026-05-03">0.0.2026</time>
+                <div class="date-game-box">
+                  dal <time datetime="1493-01-?" class="date-game">? Hammer 1493</time>
+                  al <time datetime="1493-01-?" class="date-game">? Hammer 1493</time>
+                </div>
+              </div>
+            </div>
+            <p class="intro">
+
+            </p>
+            <h3>Eventi</h3>
+            <p>
+            <ul>
+              <li>
+                <div class="events-title"><i>titoletto</i></div>
+                ...
+              </li>
+              <li>
+                <div class="events-title"><i>titoletto</i></div>
+                ...
+
+                <span class="pg-wrapper" onclick="apriZoom('modalZoom-Zentharim-simbolo')">Zentharim
+                  <span class="zoom-pg-box"><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim-simbolo.jpg"
+                      class="zoom-pg-img"></span>
+                </span>
+                <span class="modal" id="modalZoom-Zentharim-simbolo"
+                  onclick="chiudiZoom('modalZoom-Zentharim-simbolo')">
+                  <span class="modal-content" onclick="event.stopPropagation()"><span class="close-btn"
+                      onclick="chiudiZoom('modalZoom-Zentharim-simbolo')">×</span><span class="description">Simbolo
+                      degli Zentharim</span><img
+                      src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/Party/Zentharim-simbolo.jpg"></span>
+                </span>
+
+              </li>
+            </ul>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </main>
+
+  <footer>
+    <img src="https://raw.githubusercontent.com/G48R1/DnD-CUSB/main/HTML-Materiale/Sfondo/spada-pic.png"
+      alt="Spada Decò" class="footer-logo">
+  </footer>
+
+  <script>
+    // Gestione dei Collassabili (Fisarmonica)
+    document.querySelectorAll(".collapsible").forEach(button => {
+      button.addEventListener("click", function () {
+        this.classList.toggle("active");
+        let content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    });
+
+    // Intercettore dei link della bacheca per aprire i contenitori nascosti
+    document.querySelectorAll('.quest-session-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Impedisce il salto istantaneo difettoso dell'HTML
+
+        const targetId = this.getAttribute('href').substring(1); // Estrae l'ID (es. "ses-1")
+        const btn = document.getElementById(targetId);
+
+        if (btn) {
+          // 1. Trova e apri il Capitolo Padre se è chiuso
+          const capitoloContainer = btn.closest('.capitolo-container');
+          if (capitoloContainer) {
+            const capBtn = capitoloContainer.querySelector('.capitolo-btn');
+            const capContent = capBtn.nextElementSibling;
+            capBtn.classList.add('active');
+            capContent.style.display = 'block';
+          }
+
+          // 2. Apri la Sessione stessa se è chiusa
+          const sessionContent = btn.nextElementSibling;
+          btn.classList.add('active');
+          if (sessionContent) {
+            sessionContent.style.display = 'block';
+          }
+
+          // 3. Attendi un istante che il browser calcoli il layout e fai lo scroll fluido
+          setTimeout(() => {
+            btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // 4. Applica l'effetto impulso magico
+            btn.classList.add('highlight-card');
+
+            // Rimuove la classe dopo 3 secondi (la durata dei 2 impulsi) per poterla riutilizzare
+            setTimeout(() => {
+              btn.classList.remove('highlight-card');
+            }, 3000);
+          }, 100);
+        }
+      });
+    });
+
+    // Funzioni di Zoom per le Finestre Modali
+    function apriZoom(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function chiudiZoom(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>
